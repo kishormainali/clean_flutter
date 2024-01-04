@@ -1,0 +1,55 @@
+name: clean_network
+description: A Wrapper for Dio to make network calls in a clean way. It supports REST and GraphQL with clean architecture and cache support.
+version: 2.0.0
+repository: https://github.com/kishormainali/clean_network
+homepage: https://github.com/kishormainali/clean_network
+topics: 
+  - graphql
+  - rest
+  - clean-architecture
+  - network-requests
+  - repository-pattern
+
+environment:
+  sdk: ">=3.2.3 <4.0.0"
+  flutter: ">=3.16.0"
+
+
+dependencies: 
+  flutter:
+    sdk: flutter
+
+  # http client
+  dio: ^5.4.0
+  dio_http2_adapter: ^2.4.0
+
+  # connectivity
+  internet_connection_checker_plus: ^2.1.0
+
+  # fpdart
+  fpdart: ^1.1.0
+
+  # logging
+  pretty_dio_logger: ^1.3.1
+
+  # cache
+  dio_cache_interceptor: ^3.5.0
+
+  # models
+  freezed_annotation: ^2.4.1
+  json_annotation: ^4.8.1
+
+  # gql
+  gql: ^1.0.0+1
+  gql_exec: ^1.0.0+1
+
+
+dev_dependencies:
+  flutter_lints: ^3.0.1
+  build_runner: ^2.4.7
+  freezed: ^2.4.6
+  json_serializable: ^6.7.1
+
+
+flutter:
+

@@ -1,0 +1,4 @@
+# melos_managed_dependency_overrides: clean_network
+dependency_overrides:
+  clean_network:
+    path: ../clean_network

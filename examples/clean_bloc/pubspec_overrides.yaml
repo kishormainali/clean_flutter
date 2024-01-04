@@ -1,0 +1,6 @@
+# melos_managed_dependency_overrides: clean_bloc,clean_network
+dependency_overrides:
+  clean_bloc:
+    path: ../../packages/clean_bloc
+  clean_network:
+    path: ../../packages/clean_network

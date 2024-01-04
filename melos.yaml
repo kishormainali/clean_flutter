@@ -1,0 +1,8 @@
+name: clean_flutter_workspace
+
+packages:
+  - packages/*
+  - examples/*
+
+ignore:
+  - packages/*/example

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="generator" content="made with love by dartdoc 7.0.0-wip">
+  <meta name="description" content="clean_bloc API docs, for the Dart programming language.">
+  <title>clean_bloc - Dart API docs</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="" data-using-base-href="false" class="light-theme">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="https://github.com/kishormainali/clean_bloc">clean_bloc package</a></li>
+  </ol>
+  <div class="self-name">clean_bloc</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <div class="toggle" id="theme-button">
+    <label for="theme">
+      <input type="checkbox" id="theme" value="light-theme">
+      <span id="dark-theme-button" class="material-symbols-outlined">
+        brightness_4
+      </span>
+      <span id="light-theme-button" class="material-symbols-outlined">
+        brightness_5
+      </span>
+    </label>
+  </div>
+</header>
+<main>
+
+  <div id="dartdoc-main-content" class="main-content">
+      
+<section class="desc markdown">
+  <h1 id="clean-bloc">Clean Bloc</h1>
+<p>Clean Bloc is a wrapper around the <a href="https://pub.dev/packages/bloc">bloc</a> package that helps implement the Clean Architecture design pattern.</p>
+<h2 id="getting-started">Getting Started</h2>
+<h3 id="installation">Installation</h3>
+<p>Add the following to your <code>pubspec.yaml</code> file:</p>
+<pre class="language-yaml"><code class="language-yaml">dependencies:
+  clean_bloc: latest
+</code></pre>
+<h3 id="usage">Usage</h3>
+<h4 id="paginated-clean-cubit">Paginated Clean Cubit</h4>
+<pre class="language-dart"><code class="language-dart">
+import 'package:clean_bloc/clean_bloc.dart';
+import 'package:clean_network/clean_network.dart';
+import 'package:injectable/injectable.dart';
+
+
+@injectable
+class UserCubit extends PaginatedCleanCubit&lt;UserModel&gt; {
+  final UserRepository _repository;
+
+  UserCubit(this._repository) {
+    init();
+  }
+
+  @override
+  Pagination get initialPage =&gt;
+      const Pagination.page(currentPage: 1, perPage: 6);
+
+  @override
+  PaginatedEitherResponse&lt;UserModel&gt; Function(Pagination pagination)
+      get remoteCall {
+    return (pagination) {
+      final params = pagination as PagePagination;
+      return _repository.getUsers(
+        page: params.currentPage,
+        limit: params.perPage,
+      );
+    };
+  }
+}
+</code></pre>
+<h3 id="clean-cubit">Clean Cubit</h3>
+<pre class="language-dart"><code class="language-dart">import 'package:clean_bloc/clean_bloc.dart';
+import 'package:clean_network/clean_network.dart';
+import 'package:injectable/injectable.dart';
+
+@injectable
+class UserCubit extends CleanCubit&lt;UserModel&gt; {
+  final UserRepository _repository;
+
+  UserCubit(this._repository) {
+    init();
+  }
+
+  @override
+  EitherResponse&lt;UserModel&gt; Function() get remoteCall {
+    return () =&gt; _repository.getUser();
+  }
+}
+</code></pre>
+<h3 id="create-event-for-clean-bloc">Create Event for Clean Bloc</h3>
+<pre class="language-dart"><code class="language-dart">import 'package:clean_bloc/clean_bloc.dart';
+
+class UserAddEvent extends CleanEvent {
+  @override
+  List&lt;Object?&gt; get props =&gt; [];
+}
+
+</code></pre>
+<h3 id="clean-bloc-2">Clean Bloc</h3>
+<pre class="language-dart"><code class="language-dart">import 'package:clean_bloc/clean_bloc.dart';
+import 'package:clean_network/clean_network.dart';
+import 'package:injectable/injectable.dart';
+
+@injectable
+class UserBloc extends CleanBloc&lt;UserModel&gt; {
+  final UserRepository _repository;
+
+  UserBloc(this._repository) {
+    init();
+    on&lt;UserAddEvent&gt;(_handleAddEvent);
+  }
+
+  @override
+  EitherResponse&lt;UserModel&gt; Function() get remoteCall {
+    return () =&gt; _repository.getUser();
+  }
+
+
+   /// Handle [CleanEventInit] event
+  FutureOr&lt;void&gt; _handleAddEvent(
+      UserAddEvent event, Emitter&lt;CleanState&lt;T&gt;&gt; emit) async {
+   /// Do something
+  }
+
+}
+</code></pre>
+<h3 id="create-event-for-paginated-clean-bloc">Create Event for Paginated Clean Bloc</h3>
+<pre class="language-dart"><code class="language-dart">import 'package:clean_bloc/clean_bloc.dart';
+
+
+class UserAddEvent extends PaginatedCleanEvent {
+  @override
+  List&lt;Object?&gt; get props =&gt; [];
+}
+
+</code></pre>
+<h3 id="paginated-clean-bloc">Paginated Clean Bloc</h3>
+<pre class="language-dart"><code class="language-dart">import 'package:clean_bloc/clean_bloc.dart';
+import 'package:clean_network/clean_network.dart';
+import 'package:injectable/injectable.dart';
+
+@injectable
+class UserBloc extends PaginatedCleanBloc&lt;UserModel&gt; {
+  final UserRepository _repository;
+
+  UserBloc(this._repository) {
+    init();
+    on&lt;UserAddEvent&gt;(_handleAddEvent);
+  }
+
+  @override
+  Pagination get initialPage =&gt;
+      const Pagination.page(currentPage: 1, perPage: 6);
+
+  @override
+  PaginatedEitherResponse&lt;UserModel&gt; Function(Pagination pagination)
+      get remoteCall {
+    return (pagination) {
+      final params = pagination as PagePagination;
+      return _repository.getUsers(
+        page: params.currentPage,
+        limit: params.perPage,
+      );
+    };
+  }
+
+
+/// Handle [UserAddEvent] event
+FutureOr&lt;void&gt; _handleAddEvent(
+    UserAddEvent event, 
+    Emitter&lt;PaginatedCleanState&lt;T&gt;&gt; emit,
+    ) async {   
+    /// Do something
+    }
+
+}
+</code></pre>
+<h3 id="use-clean-bloc">Use Clean Bloc</h3>
+<pre class="language-dart"><code class="language-dart">import 'package:auto_route/auto_route.dart';
+import 'package:clean_bloc/clean_bloc.dart';
+import 'package:example/src/core/di/injector.dart';
+import 'package:example/src/features/users/domain/models/user_model.dart';
+import 'package:example/src/features/users/presentation/blocs/list/user_cubit.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+@RoutePage()
+class UsersPage extends StatelessWidget {
+  const UsersPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (context) =&gt; getIt&lt;UserCubit&gt;(),
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('Users'),
+        ),
+        body: const UserList(),
+      ),
+    );
+  }
+}
+
+class UserList extends StatelessWidget {
+  const UserList({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return NotificationListener&lt;ScrollNotification&gt;(
+      onNotification: (notification) {
+        if (notification is ScrollEndNotification &amp;&amp;
+            notification.metrics.extentAfter == 0) {
+          context.read&lt;UserCubit&gt;().fetchMore();
+          return true;
+        }
+        return false;
+      },
+      child: PaginatedCleanBuilder&lt;UserCubit, UserModel&gt;(
+        successBuilder: (context, users, isLoadingMore) {
+          if (users.isEmpty) {
+            return const Center(
+              child: Text('No users found'),
+            );
+          }
+          return ListView.builder(
+            itemCount: isLoadingMore ? users.length + 1 : users.length,
+            itemBuilder: (context, index) {
+              if (index == users.length &amp;&amp; isLoadingMore) {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              } else {
+                final user = users[index];
+                return ListTile(
+                  title: Text(user.name),
+                  subtitle: Text(user.email),
+                );
+              }
+            },
+          );
+        },
+      ),
+    );
+  }
+}
+</code></pre>
+<h2 id="for-more-information-check-example-project">For more information check example project</h2>
+<ul>
+<li><a href="https://github.com/kishormainali/clean_bloc/tree/main/example">Example</a></li>
+</ul>
+</section>
+
+
+      <section class="summary">
+          <h2>Libraries</h2>
+        <dl>
+          <dt id="clean_bloc">
+  <span class="name"><a href="clean_bloc/clean_bloc-library.html">clean_bloc</a></span> 
+
+</dt>
+<dd>Wrapper for blocs to make them more testable and easier to use.
+</dd>
+
+        </dl>
+      </section>
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="https://github.com/kishormainali/clean_bloc">clean_bloc package</a></li>
+</ol>
+
+
+    <h5 class="hidden-xs"><span class="package-name">clean_bloc</span> <span class="package-kind">package</span></h5>
+    <ol>
+      <li class="section-title">Libraries</li>
+      <li><a href="clean_bloc/clean_bloc-library.html">clean_bloc</a></li>
+</ol>
+
+  </div>
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div>
+
+</main>
+
+<footer>
+  <span class="no-break">
+    clean_bloc
+      1.0.4
+  </span>
+
+  
+</footer>
+
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+
+
+
+</body>
+
+</html>
+
