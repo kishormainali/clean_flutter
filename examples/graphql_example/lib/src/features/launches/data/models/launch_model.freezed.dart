@@ -257,7 +257,7 @@ class _$LaunchModelImpl extends _LaunchModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LaunchModelImpl &&

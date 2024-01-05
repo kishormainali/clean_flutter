@@ -8,6 +8,7 @@ import 'clean_client.dart';
 /// {@template clean_mixin}
 /// A mixin for all sources
 /// {@endtemplate}
+
 mixin _CleanMixin {
   /// The [CleanClient] instance used to make requests.
   ///

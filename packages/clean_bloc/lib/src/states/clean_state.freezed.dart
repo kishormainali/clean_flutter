@@ -88,7 +88,7 @@ class _$CleanStateInitialImpl<T> extends CleanStateInitial<T> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CleanStateInitialImpl<T>);
@@ -167,7 +167,7 @@ class _$CleanStateLoadingImpl<T> extends CleanStateLoading<T> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CleanStateLoadingImpl<T>);
@@ -264,7 +264,7 @@ class _$CleanStateErrorImpl<T> extends CleanStateError<T> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CleanStateErrorImpl<T> &&
@@ -384,7 +384,7 @@ class _$CleanStateSuccessImpl<T> extends CleanStateSuccess<T> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CleanStateSuccessImpl<T> &&

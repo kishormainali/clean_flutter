@@ -1,3 +1,10 @@
+# 2.0.1
+- setup melos
+
+# 2.0.0
+- changed `remoteCall` getter to method from blocs and cubits
+- bumped `clean_network` version
+
 # 1.0.4
 - add documentation
 

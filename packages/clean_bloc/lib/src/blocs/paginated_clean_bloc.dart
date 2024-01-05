@@ -12,7 +12,9 @@ import '../typedefs/typedefs.dart';
 /// {@template paginated_clean_bloc}
 /// A [Bloc] which handles paginated data.
 /// {@endtemplate}
-abstract class PaginatedCleanBloc<T> extends Bloc<PaginatedCleanEvent, PaginatedCleanState<T>> with PaginationMixin, CompleterMixin {
+abstract class PaginatedCleanBloc<T>
+    extends Bloc<PaginatedCleanEvent, PaginatedCleanState<T>>
+    with PaginationMixin, CompleterMixin {
   /// {@macro paginated_clean_bloc}
   PaginatedCleanBloc() : super(const PaginatedCleanState.initial()) {
     on<PaginatedCleanEventInit>(_handleInit);
@@ -27,13 +29,15 @@ abstract class PaginatedCleanBloc<T> extends Bloc<PaginatedCleanEvent, Paginated
   Pagination get initialPage => const Pagination.page();
 
   /// error handler for custom logic
-  PaginatedCleanErrorHandler<T> get onErrorState => (error) => PaginatedCleanState.error(error: error);
+  PaginatedCleanErrorHandler<T> get onErrorState =>
+      (error) => PaginatedCleanState.error(error: error);
 
   /// success handler for custom logic
-  PaginatedCleanSuccessHandler<T> get onSuccessState => (response) => PaginatedCleanState.success(
-        data: response.data,
-        isLoadingMore: false,
-      );
+  PaginatedCleanSuccessHandler<T> get onSuccessState =>
+      (response) => PaginatedCleanState.success(
+            data: response.data,
+            isLoadingMore: false,
+          );
 
   /// call initial event
   void init() {

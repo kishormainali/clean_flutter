@@ -10,7 +10,11 @@ import '../mixins/safe_emit_mixin.dart';
 /// {@template paginated_clean_cubit}
 /// A [Cubit] which handles paginated data.
 /// {@endtemplate}
-abstract class PaginatedCleanCubit<T> extends Cubit<PaginatedCleanState<T>> with SafeEmitMixin<PaginatedCleanState<T>>, CompleterMixin, PaginationMixin {
+abstract class PaginatedCleanCubit<T> extends Cubit<PaginatedCleanState<T>>
+    with
+        SafeEmitMixin<PaginatedCleanState<T>>,
+        CompleterMixin,
+        PaginationMixin {
   /// {@macro paginated_clean_cubit}
   PaginatedCleanCubit() : super(const PaginatedCleanState.initial());
 
@@ -22,13 +26,15 @@ abstract class PaginatedCleanCubit<T> extends Cubit<PaginatedCleanState<T>> with
   Pagination get initialPage => const Pagination.page();
 
   /// error handler for custom logic
-  PaginatedCleanErrorHandler<T> get onErrorState => (error) => PaginatedCleanState.error(error: error);
+  PaginatedCleanErrorHandler<T> get onErrorState =>
+      (error) => PaginatedCleanState.error(error: error);
 
   /// success handler for custom logic
-  PaginatedCleanSuccessHandler<T> get onSuccessState => (response) => PaginatedCleanState.success(
-        data: response.data,
-        isLoadingMore: false,
-      );
+  PaginatedCleanSuccessHandler<T> get onSuccessState =>
+      (response) => PaginatedCleanState.success(
+            data: response.data,
+            isLoadingMore: false,
+          );
 
   /// Handle a remote call and emit the appropriate state
   void init({bool showLoading = true}) async {

@@ -1,3 +1,6 @@
+# 2.0.1
+- export `GraphRequest` class
+
 # 2.0.0
 BREAKING CHANGES:
 - removed `CleanNetwork` class 

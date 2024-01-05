@@ -17,7 +17,7 @@ class LaunchSourceImpl extends BaseSource
 
   @override
   CleanResponse<List<LaunchModel>> getLaunches() {
-    return queryOrMutation(
+    return graph(
       request: GraphRequest.fromString(getLauncesQuery),
       onSuccess: (data) {
         return LaunchModel.fromJsonList(data['data']['launches']);
@@ -27,9 +27,11 @@ class LaunchSourceImpl extends BaseSource
 
   @override
   CleanResponse<LaunchModel> getLaunchDetails(String id) {
-    return queryOrMutation(
-      request: GraphRequest.fromString(getLauncesDetailsQuery,
-          variables: {'launchId': id}),
+    return graph(
+      request: GraphRequest.fromString(
+        getLauncesDetailsQuery,
+        variables: {'launchId': id},
+      ),
       onSuccess: (data) {
         return LaunchModel.fromJson(data['data']['launch']);
       },

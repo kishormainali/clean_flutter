@@ -92,7 +92,7 @@ class _$PaginatedCleanInitialImpl<T> implements PaginatedCleanInitial<T> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PaginatedCleanInitialImpl<T>);
@@ -173,7 +173,7 @@ class _$PaginatedCleanLoadingImpl<T> implements PaginatedCleanLoading<T> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PaginatedCleanLoadingImpl<T>);
@@ -270,7 +270,7 @@ class _$PaginatedCleanErrorImpl<T> implements PaginatedCleanError<T> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PaginatedCleanErrorImpl<T> &&
@@ -399,7 +399,7 @@ class _$PaginatedCleanSuccessImpl<T> implements PaginatedCleanSuccess<T> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PaginatedCleanSuccessImpl<T> &&

@@ -1,3 +1,4 @@
+import 'package:clean_network/clean_network.dart';
 import 'package:flutter/material.dart';
 
 /// {@template default_builders}
@@ -12,7 +13,7 @@ abstract class DefaultBuilders {
   }
 
   /// default error builder
-  static Widget defaultErrorBuilder<E>(BuildContext context, E error) {
+  static Widget defaultErrorBuilder(BuildContext context, BaseError error) {
     return Center(
       child: Text(
         error.toString(),

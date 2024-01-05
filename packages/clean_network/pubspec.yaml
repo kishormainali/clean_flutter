@@ -1,8 +1,9 @@
 name: clean_network
 description: A Wrapper for Dio to make network calls in a clean way. It supports REST and GraphQL with clean architecture and cache support.
-version: 2.0.0
-repository: https://github.com/kishormainali/clean_network
-homepage: https://github.com/kishormainali/clean_network
+version: 2.0.1
+homepage: https://github.com/kishormainali/clean_flutter
+repository: https://github.com/kishormainali/clean_flutter
+issue_tracker: https://github.com/kishormainali/clean_flutter/issues
 topics: 
   - graphql
   - rest
@@ -13,7 +14,6 @@ topics:
 environment:
   sdk: ">=3.2.3 <4.0.0"
   flutter: ">=3.16.0"
-
 
 dependencies: 
   flutter:
@@ -42,6 +42,7 @@ dependencies:
   # gql
   gql: ^1.0.0+1
   gql_exec: ^1.0.0+1
+
 
 
 dev_dependencies:

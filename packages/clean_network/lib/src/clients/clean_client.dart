@@ -1,5 +1,4 @@
 import 'package:clean_network/clean_network.dart';
-import 'package:clean_network/src/graphql/graphql_request.dart';
 
 import '_clean_client_impl.dart';
 

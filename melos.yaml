@@ -1,4 +1,14 @@
 name: clean_flutter_workspace
+repository: https://github.com/kishormainali/clean_flutter
+
+command:
+  version:
+    linkToCommits: true
+    workspaceChangelog: true
+  
+  bootstrap:
+    runPubGetInParallel: false
+  
 
 packages:
   - packages/*
@@ -6,3 +16,15 @@ packages:
 
 ignore:
   - packages/*/example
+
+scripts:
+  format: melos exec -c 1 --fail-fast -- "dart format ."
+  analyze: melos exec -c 1 --fail-fast -- "dart analyze ."
+  fix: melos exec -c 1 --fail-fast -- "dart fix --apply"
+  build_runner: melos exec -c 1 --fail-fast --ignore="*example*" --depends-on="build_runner" -- "dart run build_runner build -d"
+  build_runner_example: melos exec -c 1 --fail-fast --scope="*example*" --depends-on="build_runner" -- "dart run build_runner build -d"
+  
+  publish:network: melos exec -c 1 --fail-fast --scope="clean_network" -- "dart pub publish --force"
+  publish:bloc: melos exec -c 1 --fail-fast --scope="clean_bloc" -- "dart pub publish --force"
+
+  publish:all: melos exec -c 1 --fail-fast --scope="clean_network,clean_bloc" -- "dart pub publish --force"

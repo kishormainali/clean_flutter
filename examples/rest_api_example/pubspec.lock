@@ -50,7 +50,7 @@ packages:
     source: hosted
     version: "7.3.2"
   bloc:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: bloc
       sha256: "3820f15f502372d979121de1f6b97bfcf1630ebff8fe1d52fb2b0bfa49be5b49"
@@ -151,7 +151,7 @@ packages:
       path: "../../packages/clean_network"
       relative: true
     source: path
-    version: "2.0.0"
+    version: "2.0.1"
   clock:
     dependency: transitive
     description:
@@ -1013,5 +1013,5 @@ packages:
     source: hosted
     version: "3.1.2"
 sdks:
-  dart: ">=3.2.0-194.0.dev <4.0.0"
+  dart: ">=3.2.3 <4.0.0"
   flutter: ">=3.13.0"

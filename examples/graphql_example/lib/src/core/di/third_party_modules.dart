@@ -4,9 +4,10 @@ import 'package:injectable/injectable.dart';
 @module
 abstract class ThirdPartyModules {
   @lazySingleton
-  CleanNetwork get client => CleanNetwork(
-          options: const CleanBaseOptions(
-        baseUrl: 'https://spacex-production.up.railway.app/',
-        endpoint: '',
-      ));
+  CleanClient get client => CleanClient(
+        options: const CleanBaseOptions(
+          baseUrl: 'https://spacex-production.up.railway.app/',
+          endpoint: '',
+        ),
+      );
 }

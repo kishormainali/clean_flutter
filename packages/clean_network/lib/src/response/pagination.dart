@@ -42,28 +42,28 @@ sealed class Pagination with _$Pagination {
   }
 }
 
-int? _readCurrentPage(Map json, String key) {
+int _readCurrentPage(Map json, String key) {
   final expectedKey = ['current_page', 'page', 'currentPage'].firstWhere(
     (element) => json.containsKey(element),
     orElse: () => key,
   );
-  return json[expectedKey];
+  return int.tryParse(json[expectedKey]) ?? 1;
 }
 
-int? _readPerPage(Map json, String key) {
+int _readPerPage(Map json, String key) {
   final expectedKey = ['per_page', 'perPage'].firstWhere(
     (element) => json.containsKey(element),
     orElse: () => key,
   );
-  return json[expectedKey];
+  return int.tryParse(json[expectedKey]) ?? 20;
 }
 
-int? _readTotalPages(Map json, String key) {
+int _readTotalPages(Map json, String key) {
   final expectedKey = ['total', 'total_docs', 'totalDocs', 'count'].firstWhere(
     (element) => json.containsKey(element),
     orElse: () => key,
   );
-  return json[expectedKey];
+  return int.tryParse(json[expectedKey]) ?? 0;
 }
 
 String _readStartCursor(Map json, String key) {

@@ -37,9 +37,9 @@ _i1.GetIt $initGetIt(
   );
   final thirdPartyModules = _$ThirdPartyModules();
   gh.singleton<_i3.AppRouter>(_i3.AppRouter());
-  gh.lazySingleton<_i4.CleanNetwork>(() => thirdPartyModules.client);
+  gh.lazySingleton<_i4.CleanClient>(() => thirdPartyModules.client);
   gh.lazySingleton<_i5.LaunchSource>(
-      () => _i5.LaunchSourceImpl(gh<_i4.CleanNetwork>()));
+      () => _i5.LaunchSourceImpl(gh<_i4.CleanClient>()));
   gh.lazySingleton<_i6.LaunchRepository>(
       () => _i7.LaunchRepositoryImpl(gh<_i5.LaunchSource>()));
   gh.factory<_i8.LaunchDetailCubit>(

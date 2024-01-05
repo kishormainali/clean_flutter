@@ -10,6 +10,7 @@ export 'package:gql/language.dart' show parseString;
 export 'src/clients/clients.dart';
 export 'src/errors/errors.dart';
 export 'src/exceptions/exceptions.dart';
+export 'src/graphql/graphql_request.dart';
 export 'src/graphql/request_serializer.dart';
 export 'src/graphql/response_parser.dart';
 export 'src/network/network.dart';

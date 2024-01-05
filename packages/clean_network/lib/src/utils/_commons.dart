@@ -2,7 +2,6 @@ import 'package:clean_network/clean_network.dart';
 import 'package:gql_exec/gql_exec.dart' hide Response;
 
 import '../exceptions/_dio_extension.dart';
-import '../graphql/graphql_request.dart';
 import '_utils.dart';
 
 ApiException handleCommonError<T>(Object exception, StackTrace stacktrace) {

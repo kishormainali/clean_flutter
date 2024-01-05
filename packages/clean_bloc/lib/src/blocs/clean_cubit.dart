@@ -11,7 +11,8 @@ import '../mixins/safe_emit_mixin.dart';
 /// {@template clean_cubit}
 /// A [Cubit] which handles a remote call and emits the appropriate state
 /// {@endtemplate}
-abstract class CleanCubit<T> extends Cubit<CleanState<T>> with SafeEmitMixin<CleanState<T>>, CompleterMixin {
+abstract class CleanCubit<T> extends Cubit<CleanState<T>>
+    with SafeEmitMixin<CleanState<T>>, CompleterMixin {
   /// {@macro clean_cubit}
   CleanCubit() : super(CleanStateInitial<T>());
 
@@ -19,7 +20,8 @@ abstract class CleanCubit<T> extends Cubit<CleanState<T>> with SafeEmitMixin<Cle
   EitherResponse<T> remoteCall();
 
   /// error handler for custom logic
-  CleanErrorHandler<T> get onErrorState => (error) => CleanState.error(error: error);
+  CleanErrorHandler<T> get onErrorState =>
+      (error) => CleanState.error(error: error);
 
   /// success handler for custom logic
   CleanSuccessHandler<T> get onSuccessState => (data) => CleanState.success(

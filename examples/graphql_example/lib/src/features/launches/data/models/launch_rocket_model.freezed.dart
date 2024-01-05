@@ -124,7 +124,7 @@ class _$LaunchRocketModelImpl implements _LaunchRocketModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LaunchRocketModelImpl &&
@@ -395,7 +395,7 @@ class _$RocketModelImpl extends _RocketModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RocketModelImpl &&

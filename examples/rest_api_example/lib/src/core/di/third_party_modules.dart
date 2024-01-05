@@ -5,7 +5,7 @@ import 'package:injectable/injectable.dart';
 abstract class ThirdPartyModules {
   @lazySingleton
   CleanClient get client => CleanClient(
-        const CleanBaseOptions(
+        options: const CleanBaseOptions(
           baseUrl: 'https://jsonplaceholder.typicode.com',
           headers: {
             'Content-Type': 'application/json',
