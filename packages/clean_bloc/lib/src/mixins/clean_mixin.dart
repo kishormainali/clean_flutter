@@ -1,5 +1,5 @@
+import 'package:_clean_flutter_internal/_clean_flutter_internal.dart';
 import 'package:bloc/bloc.dart';
-import 'package:clean_network/clean_network.dart';
 
 typedef BlocCall<T> = EitherResponse<T> Function();
 

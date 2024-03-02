@@ -31,9 +31,9 @@ class LaunchDetailPage extends StatelessWidget {
               error: (message) => Center(child: Text(message)),
               success: (launch) => Column(
                 children: [
-                  Text(launch.rocket.rocket.name),
+                  Text(launch.rocket!.rocket!.name!),
                   Sizes.gap8,
-                  Text(launch.missionName),
+                  Text(launch.missionName!),
                 ],
               ),
             );

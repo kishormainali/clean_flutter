@@ -1,4 +1,4 @@
-import 'package:clean_network/clean_network.dart';
+import 'package:_clean_flutter_internal/_clean_flutter_internal.dart';
 import 'package:flutter/material.dart';
 
 /// {@template default_builders}

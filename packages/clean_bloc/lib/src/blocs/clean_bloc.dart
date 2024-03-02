@@ -1,18 +1,17 @@
 import 'dart:async';
 import 'dart:math';
 
+import 'package:_clean_flutter_internal/_clean_flutter_internal.dart';
 import 'package:clean_bloc/src/events/clean_event.dart';
 import 'package:clean_bloc/src/mixins/completer_mixin.dart';
 import 'package:clean_bloc/src/states/clean_state.dart';
 import 'package:clean_bloc/src/typedefs/typedefs.dart';
-import 'package:clean_network/clean_network.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 /// {@template clean_bloc}
 /// A [Bloc] which handles a remote call and emits the appropriate state
 /// {@endtemplate}
-abstract class CleanBloc<T> extends Bloc<CleanEvent, CleanState<T>>
-    with CompleterMixin {
+abstract class CleanBloc<T> extends Bloc<CleanEvent, CleanState<T>> with CompleterMixin {
   /// {@macro clean_bloc}
   CleanBloc() : super(const CleanState.initial()) {
     on<CleanEventInit>(_handleInit);
@@ -22,8 +21,7 @@ abstract class CleanBloc<T> extends Bloc<CleanEvent, CleanState<T>>
   EitherResponse<T> remoteCall();
 
   /// Error callback
-  CleanErrorHandler<T> get onErrorState =>
-      (error) => CleanState.error(error: error);
+  CleanErrorHandler<T> get onErrorState => (error) => CleanState.error(error: error);
 
   /// Success callback
   CleanSuccessHandler<T> get onSuccessState => (data) => CleanState.success(
@@ -32,8 +30,7 @@ abstract class CleanBloc<T> extends Bloc<CleanEvent, CleanState<T>>
       );
 
   /// Handle [CleanEventInit] event
-  FutureOr<void> _handleInit(
-      CleanEventInit event, Emitter<CleanState<T>> emit) async {
+  FutureOr<void> _handleInit(CleanEventInit event, Emitter<CleanState<T>> emit) async {
     if (event.showLoading) {
       emit(const CleanState.loading());
     }
