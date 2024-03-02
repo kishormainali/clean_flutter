@@ -1,5 +1,7 @@
-# melos_managed_dependency_overrides: clean_bloc,clean_network
+# melos_managed_dependency_overrides: _clean_flutter_internal,clean_bloc,clean_network
 dependency_overrides:
+  _clean_flutter_internal:
+    path: ../../packages/_clean_flutter_internal
   clean_bloc:
     path: ../../packages/clean_bloc
   clean_network:

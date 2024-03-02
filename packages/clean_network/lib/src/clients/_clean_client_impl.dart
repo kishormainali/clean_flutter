@@ -1,24 +1,17 @@
+import 'package:clean_network/clean_core.dart';
 import 'package:dio/dio.dart';
 import 'package:dio_cache_interceptor/dio_cache_interceptor.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
-import '../graphql/graphql_request.dart';
-import '../network/default_http_adapter.dart';
-import '../options/clean_base_options.dart';
-import '../options/logger_options.dart';
-import '../typedefs/typedefs.dart';
 import '../utils/_commons.dart';
-import 'clean_client.dart';
+import 'clients.dart';
 
 class CleanClientImpl implements CleanClient {
-  CleanClientImpl._(
-    this._dio,
-    this.options,
-  );
+  CleanClientImpl._(this._dio, this.options);
 
   factory CleanClientImpl({
     /// clean network options
-    required CleanBaseOptions options,
+    required BaseOptions options,
 
     /// logger options
     LoggerOptions loggerOptions = const LoggerOptions(),
@@ -28,27 +21,24 @@ class CleanClientImpl implements CleanClient {
 
     /// cache options
     CacheOptions? cacheOptions,
+
+    /// http adapter
+    HttpClientAdapter? httpClientAdapter,
   }) {
-    final dio = Dio(
-      BaseOptions(
-        baseUrl: options.baseUrl,
-        connectTimeout: options.connectTimeOut,
-        receiveTimeout: options.readTimeOut,
-        sendTimeout: options.sendTimeOut,
-        contentType: 'application/json',
-        responseType: ResponseType.json,
-        headers: options.headers,
-      ),
-    );
-    dio.httpClientAdapter = DefaultHttpAdapter(
-      validateCertificate: options.validateCertificate,
-      context: options.securityContext,
-      proxy: options.proxyCallback,
-      onBadCertificate: options.onBadCertificate,
-    );
+    httpClientAdapter ??= DefaultHttpAdapter();
+
+    /// create dio instance
+    final dio = Dio(options);
+
+    /// set adapter
+    dio.httpClientAdapter = httpClientAdapter;
+
+    /// set interceptors
     if (interceptors != null) {
       dio.interceptors.addAll(interceptors);
     }
+
+    /// set cache options
     if (cacheOptions != null) {
       dio.interceptors.add(DioCacheInterceptor(options: cacheOptions));
     }
@@ -64,14 +54,17 @@ class CleanClientImpl implements CleanClient {
       compact: loggerOptions.compact,
       maxWidth: loggerOptions.maxWidth,
     ));
-    return CleanClientImpl._(dio, options);
+    return CleanClientImpl._(
+      dio,
+      options,
+    );
   }
 
   /// The [Dio] instance used to make requests.
   late Dio _dio;
 
   /// The [CleanBaseOptions] options used initialize the [Dio] instance.
-  final CleanBaseOptions options;
+  final BaseOptions options;
 
   @override
   void close({bool force = false}) => _dio.close(force: force);
@@ -140,7 +133,9 @@ class CleanClientImpl implements CleanClient {
   }
 
   @override
-  Future<Response<T>> fetch<T>(RequestOptions requestOptions) =>
+  Future<Response<T>> fetch<T>(
+    RequestOptions requestOptions,
+  ) =>
       _dio.fetch<T>(requestOptions);
 
   @override
@@ -182,20 +177,6 @@ class CleanClientImpl implements CleanClient {
         cancelToken: cancelToken,
         onReceiveProgress: onReceiveProgress,
       ),
-    ).map(onSuccess);
-  }
-
-  @override
-  CleanResponse<T> graph<T>({
-    required GraphRequest request,
-    required T Function(Map<String, dynamic> data) onSuccess,
-  }) {
-    return handleGraphQlRequest(
-      client: _dio,
-      request: request,
-      requestSerializer: options.requestSerializer,
-      responseParser: options.responseParser,
-      endpoint: options.endpoint,
     ).map(onSuccess);
   }
 
@@ -338,14 +319,12 @@ class CleanClientImpl implements CleanClient {
   }
 
   @override
-  void resetHttpClientAdapter({bool force = false}) {
+  void resetHttpClientAdapter(
+    HttpClientAdapter adapter, {
+    bool force = false,
+  }) {
     _dio.httpClientAdapter.close(force: force);
-    _dio.httpClientAdapter = DefaultHttpAdapter(
-      validateCertificate: options.validateCertificate,
-      context: options.securityContext,
-      proxy: options.proxyCallback,
-      onBadCertificate: options.onBadCertificate,
-    );
+    _dio.httpClientAdapter = adapter;
   }
 
   @override

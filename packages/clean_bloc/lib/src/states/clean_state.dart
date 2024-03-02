@@ -1,4 +1,4 @@
-import 'package:clean_network/clean_network.dart';
+import 'package:_clean_flutter_internal/_clean_flutter_internal.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'clean_state.freezed.dart';

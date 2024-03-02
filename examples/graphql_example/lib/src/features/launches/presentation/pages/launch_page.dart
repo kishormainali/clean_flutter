@@ -32,11 +32,11 @@ class LaunchPage extends StatelessWidget {
                     final launch = launches[index];
                     return GestureDetector(
                       onTap: () {
-                        context.pushRoute(LaunchDetailRoute(id: launch.id));
+                        context.pushRoute(LaunchDetailRoute(id: launch.id!));
                       },
                       child: ListTile(
-                        title: Text(launch.missionName),
-                        subtitle: Text(launch.rocket.rocket.name),
+                        title: Text(launch.missionName!),
+                        subtitle: Text(launch.rocket!.rocket!.name!),
                       ),
                     );
                   },

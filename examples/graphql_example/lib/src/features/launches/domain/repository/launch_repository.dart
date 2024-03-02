@@ -1,5 +1,6 @@
-import 'package:clean_network/clean_network.dart';
-import 'package:graphql_example/src/features/launches/data/models/launch_model.dart';
+import 'package:clean_graphql/clean_core.dart';
+
+import '../entities/launch_entity.dart';
 
 abstract class LaunchRepository {
   EitherResponse<List<LaunchModel>> getLaunches();

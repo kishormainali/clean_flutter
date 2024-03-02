@@ -23,7 +23,7 @@ void bootstrap() {
       runApp(const App());
     },
     (error, stack) {
-      logger.e('Zoned Error', error: error, stackTrace: stack);
+      Logger.e('Zoned Error', error: error, stackTrace: stack);
     },
   );
 }

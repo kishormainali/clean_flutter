@@ -1,0 +1,27 @@
+targets:
+  $default:
+    builders:
+      ferry_generator|graphql_builder:
+        enabled: true
+        options:
+          schema: graphql_example|lib/graphql/schema.graphql
+          when_extensions:
+            when: true
+            maybeWhen: true
+          type_overrides:
+            Date: 
+              name: DateTime
+          custom_serializers:
+              - import: 'package:clean_graphql/clean_graphql.dart'
+                name: DateSerializer
+
+      ferry_generator|serializer_builder:
+        enabled: true
+        options:
+          schema: graphql_example|lib/graphql/schema.graphql
+          type_overrides:
+            Date: 
+              name: DateTime
+          custom_serializers:
+              - import: 'package:clean_graphql/clean_graphql.dart'
+                name: DateSerializer

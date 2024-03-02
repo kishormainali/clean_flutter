@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the PaginatedResponse.fromJson constructor from Class PaginatedResponse from the clean_graphql library, for the Dart programming language.">
+  <title>PaginatedResponse.fromJson constructor - PaginatedResponse - clean_graphql library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../../" data-using-base-href="false" class="light-theme">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">clean_graphql</a></li>
+    <li><a href="../../clean_graphql/clean_graphql-library.html">clean_graphql.dart</a></li>
+    <li><a href="../../clean_graphql/PaginatedResponse-class.html">PaginatedResponse<span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></a></li>
+    <li class="self-crumb">PaginatedResponse.fromJson factory constructor</li>
+  </ol>
+  <div class="self-name">PaginatedResponse.fromJson</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <div class="toggle" id="theme-button">
+    <label for="theme">
+      <input type="checkbox" id="theme" value="light-theme">
+      <span id="dark-theme-button" class="material-symbols-outlined">
+        brightness_4
+      </span>
+      <span id="light-theme-button" class="material-symbols-outlined">
+        brightness_5
+      </span>
+    </label>
+  </div>
+</header>
+<main>
+
+  <div
+      id="dartdoc-main-content"
+      class="main-content"
+      data-above-sidebar="clean_graphql&#47;PaginatedResponse-class-sidebar.html"
+      data-below-sidebar="">
+      <div>
+<h1><span class="kind-constructor">PaginatedResponse&lt;<wbr><span class="type-parameter">T</span>&gt;.fromJson</span> constructor 
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+      <span class="name ">PaginatedResponse&lt;<wbr><span class="type-parameter">T</span>&gt;.fromJson</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="fromJson-param-json"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>, <span class="type-parameter">dynamic</span>&gt;</span></span> <span class="parameter-name">json</span>, </span></li>
+<li><span class="parameter" id="fromJson-param-fromJsonT"><span class="type-annotation"><a href="../../clean_graphql/FromJson.html">FromJson</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> <span class="parameter-name">fromJsonT</span></span></li>
+</ol>)
+    </section>
+
+    
+<section class="desc markdown">
+  <p>This is the factory method that will be used
+to convert JSON data to a <a href="../../clean_graphql/PaginatedResponse-class.html">PaginatedResponse</a> instance.</p>
+<p>{@tool snippet}</p>
+<pre class="language-dart"><code class="language-dart">final response = PaginatedResponse.fromJson(
+ json.decode(responseBody) as Map&lt;String, dynamic&gt;,
+User.fromJson,
+);
+</code></pre>
+<p>{@end-tool}</p>
+<p>Sample JSON response:</p>
+<p>For Page based pagination, the response should be in the following format:</p>
+<p>{@tool json_response_1}</p>
+<pre class="language-json"><code class="language-json">{
+  "data": [
+    {
+      "id": 1,
+      "name": "John",
+      "email": "john@doe.com"
+    }
+  ],
+  "pagination|pageInfo": {
+    "current_page|currentPage|page": 1,
+    "per_pag|perPage": 15,
+    "total|totalDocs|total_docs|count": 1
+  }
+}
+</code></pre>
+<p>{@end-tool}</p>
+<p>For Cursor based pagination, the response should be in the following format:
+{@tool json_response_2}</p>
+<pre class="language-json"><code class="language-json">{
+  "data": [
+    {
+      "id": 1,
+      "name": "John",
+      "email": "john@doe.com"
+    }
+  ],
+  "pagination|pageInfo": {
+    "startCursor|start_cursor": "RandomString",
+    "hasNextPage|has_next_page": false,
+    "endCursor|end_cursor": "RandomString"
+  }
+}
+</code></pre>
+<p>{@end-tool}</p>
+<p>Since the API response is not consistent, you can use the following snippet for page based pagination
+{@tool json_response_3}</p>
+<pre class="language-json"><code class="language-json">{
+  "data": [
+    {
+      "id": 1,
+      "name": "John",
+      "email": "john@doe.com"
+    }
+  ],
+"current_page|currentPage|page": 1,
+"per_page|perPage": 15,
+"total|total_docs|totalDocs|count": 1
+}
+</code></pre>
+<p>{@end-tool}</p>
+<p>Since the API response is not consistent, you can use the following snippet for cursor based pagination
+{@tool json_response_4}</p>
+<pre class="language-json"><code class="language-json">{
+  "data": [
+    {
+      "id": 1,
+      "name": "John",
+      "email": "john@doe.com"
+    }
+  ],
+"start_cursor|startCursor": "RandomString",
+"hasNextPage|has_next_page": false,
+"end_cursor|endCursor": "RandomString"
+}
+</code></pre>
+<p>{@end-tool}</p>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">factory PaginatedResponse.fromJson(
+  Map&lt;String, dynamic&gt; json,
+  FromJson&lt;T&gt; fromJsonT,
+) {
+  assert(json.containsKey(&#39;data&#39;), &#39;The response must contain a data key&#39;);
+  assert(json[&#39;data&#39;] is List, &#39;The data must be a list&#39;);
+  try {
+    final response =
+        List&lt;Map&lt;String, dynamic&gt;&gt;.from(json[&#39;data&#39;]).map(fromJsonT).toList();
+    if (json.containsKey(&#39;pagination&#39;) || json.containsKey(&#39;pageInfo&#39;)) {
+      var paginationMap =
+          Map&lt;String, dynamic&gt;.from(json[&#39;pagination&#39;] ?? json[&#39;pageInfo&#39;]);
+      _getPaginationType(paginationMap);
+      return PaginatedResponse&lt;T&gt;(
+        data: response,
+        pagination: Pagination.fromJson(paginationMap),
+      );
+    } else {
+      _getPaginationType(json);
+      return PaginatedResponse&lt;T&gt;(
+        data: response,
+        pagination: Pagination.fromJson(json),
+      );
+    }
+  } catch (e) {
+    throw Exception(e.toString());
+  }
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="../../index.html">clean_graphql</a></li>
+    <li><a href="../../clean_graphql/clean_graphql-library.html">clean_graphql</a></li>
+    <li><a href="../../clean_graphql/PaginatedResponse-class.html">PaginatedResponse<span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></a></li>
+    <li class="self-crumb">PaginatedResponse.fromJson factory constructor</li>
+</ol>
+
+
+    <h5>PaginatedResponse class</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div><!--/.sidebar-offcanvas-left-->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    clean_graphql
+      1.0.0
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+
+
+
+</body>
+
+</html>
+

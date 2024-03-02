@@ -1,6 +1,4 @@
-import 'package:clean_network/clean_network.dart';
-
-import '_clean_client_impl.dart';
+part of 'clients.dart';
 
 /// {@template clean_client}
 /// A client for making HTTP requests.
@@ -10,7 +8,7 @@ abstract class CleanClient {
   /// Creates a new [CleanClient] instance.
   factory CleanClient({
     /// clean network options
-    required CleanBaseOptions options,
+    required BaseOptions options,
 
     /// logger options
     LoggerOptions loggerOptions = const LoggerOptions(),
@@ -20,12 +18,16 @@ abstract class CleanClient {
 
     /// cache options
     CacheOptions? cacheOptions,
+
+    /// http adapter
+    HttpClientAdapter? httpClientAdapter,
   }) =>
       CleanClientImpl(
         options: options,
         loggerOptions: loggerOptions,
         interceptors: interceptors,
         cacheOptions: cacheOptions,
+        httpClientAdapter: httpClientAdapter,
       );
 
   /// Shuts down the dio client.
@@ -164,15 +166,11 @@ abstract class CleanClient {
   /// eventually go through this method.
   Future<Response<T>> fetch<T>(RequestOptions requestOptions);
 
-  /// Sends an HTTP request with the specified method to the given url.
-  /// Returns a [Future] that completes with the server's response.
-  CleanResponse<T> graph<T>({
-    required GraphRequest request,
-    required T Function(Map<String, dynamic> data) onSuccess,
-  });
-
   /// used to reset the http client adapter
-  void resetHttpClientAdapter({bool force = false});
+  void resetHttpClientAdapter(
+    HttpClientAdapter adapter, {
+    bool force = false,
+  });
 
   /// Creates a new [CleanClient] instance.
   CleanClient clone();

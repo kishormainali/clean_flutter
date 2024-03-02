@@ -1,5 +1,5 @@
+import 'package:clean_network/clean_core.dart';
 import 'package:clean_network/clean_network.dart';
-import 'package:fp_util/fp_util.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../domain/models/user_model.dart';
@@ -12,7 +12,7 @@ abstract class UserSource {
 }
 
 @LazySingleton(as: UserSource)
-class UserSourceImpl extends BaseSource with LoggerMixin implements UserSource {
+class UserSourceImpl extends RestSource implements UserSource {
   UserSourceImpl(super.client);
 
   @override

@@ -8,7 +8,7 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:clean_network/clean_network.dart' as _i4;
+import 'package:clean_graphql/clean_graphql.dart' as _i4;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:graphql_example/src/core/di/third_party_modules.dart' as _i10;
 import 'package:graphql_example/src/core/routes/app_router.dart' as _i3;
@@ -37,9 +37,9 @@ _i1.GetIt $initGetIt(
   );
   final thirdPartyModules = _$ThirdPartyModules();
   gh.singleton<_i3.AppRouter>(_i3.AppRouter());
-  gh.lazySingleton<_i4.CleanClient>(() => thirdPartyModules.client);
+  gh.lazySingleton<_i4.TypedLink>(() => thirdPartyModules.client);
   gh.lazySingleton<_i5.LaunchSource>(
-      () => _i5.LaunchSourceImpl(gh<_i4.CleanClient>()));
+      () => _i5.LaunchSourceImpl(gh<_i4.TypedLink>()));
   gh.lazySingleton<_i6.LaunchRepository>(
       () => _i7.LaunchRepositoryImpl(gh<_i5.LaunchSource>()));
   gh.factory<_i8.LaunchDetailCubit>(

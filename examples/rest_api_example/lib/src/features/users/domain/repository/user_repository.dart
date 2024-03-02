@@ -1,4 +1,4 @@
-import 'package:clean_network/clean_network.dart';
+import 'package:clean_network/clean_core.dart';
 
 import '../models/user_model.dart';
 

@@ -1,4 +1,4 @@
-import 'package:clean_network/clean_network.dart';
+import 'package:_clean_flutter_internal/_clean_flutter_internal.dart';
 
 /// {@template pagination_mixin}
 /// A mixin to handle pagination
@@ -30,8 +30,7 @@ mixin PaginationMixin {
     _pagination = response.pagination;
     _currentLength += response.data.length;
     _hasNextPage = _pagination!.when(
-      page: (_, __, total) =>
-          _pagination!.hasNextPage && _currentLength < total,
+      page: (_, __, total) => _pagination!.hasNextPage && _currentLength < total,
       cursor: (_, __, hasNext) => hasNext,
     );
   }

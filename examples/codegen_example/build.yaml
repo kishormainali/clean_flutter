@@ -1,0 +1,20 @@
+global_options:
+  clean_gql_generator|graphql_builder:
+    runs_before:
+      - freezed:freezed
+      - json_serializable:json_serializable
+
+targets:
+  $default:
+    builders:
+      clean_gql_generator|graphql_builder:
+        enabled: true
+        options:
+          schema: codegen_example|lib/graphql/schema.graphql
+          when_extensions:
+            when: true
+            maybeWhen: true
+          type_overrides:
+            DateTime:
+              name: DateTime
+

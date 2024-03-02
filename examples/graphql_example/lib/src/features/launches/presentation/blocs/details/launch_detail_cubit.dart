@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:graphql_example/src/features/launches/data/models/launch_model.dart';
+import 'package:graphql_example/src/features/launches/domain/entities/launch_entity.dart';
 import 'package:graphql_example/src/features/launches/domain/repository/launch_repository.dart';
 import 'package:injectable/injectable.dart';
 
@@ -9,8 +9,7 @@ part 'launch_detail_state.dart';
 
 @injectable
 class LaunchDetailCubit extends Cubit<LaunchDetailState> {
-  LaunchDetailCubit(this._repository)
-      : super(const LaunchDetailState.initial());
+  LaunchDetailCubit(this._repository) : super(const LaunchDetailState.initial());
   final LaunchRepository _repository;
 
   void getLaunchDetails(String id) async {

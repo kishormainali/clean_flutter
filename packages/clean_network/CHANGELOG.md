@@ -1,3 +1,7 @@
+# 2.1.0
+- moved graphql implementation to `clean_graphql` package
+- other improvements
+
 # 2.0.1
 - export `GraphRequest` class
 
