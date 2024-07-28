@@ -1,0 +1,4 @@
+# melos_managed_dependency_overrides: clean_analysis
+dependency_overrides:
+  clean_analysis:
+    path: ../clean_analysis

@@ -5,16 +5,14 @@ import 'package:clean_network/clean_core.dart';
 import 'package:injectable/injectable.dart';
 
 @LazySingleton(as: UserRepository)
-final class UserRepositoryImpl extends BaseRepository implements UserRepository {
+final class UserRepositoryImpl implements UserRepository {
+  const UserRepositoryImpl(this.source);
   final UserSource source;
 
-  const UserRepositoryImpl(this.source);
-
   @override
-  PaginatedEitherResponse<UserModel> getUsers({required int page, required int limit}) {
-    return handleNetwork(
+  PaginatedResult<UserModel> getUsers({required int page, required int limit}) {
+    return Result.fromAsync(
       () => source.getUsers(page: page, limit: limit),
-      onSuccess: (response) => response,
     );
   }
 }

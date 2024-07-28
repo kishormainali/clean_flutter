@@ -22,7 +22,7 @@ class PostPage extends StatelessWidget {
               onPressed: () {
                 context.pushRoute(const UsersRoute());
               },
-            )
+            ),
           ],
         ),
         body: BlocBuilder<PostListCubit, PostListState>(
@@ -61,7 +61,7 @@ class PostPage extends StatelessWidget {
                     },
                     separatorBuilder: (context, index) => const Divider(),
                   );
-                });
+                },);
           },
         ),
       ),

@@ -11,7 +11,7 @@ abstract class CleanClient {
     required BaseOptions options,
 
     /// logger options
-    LoggerOptions loggerOptions = const LoggerOptions(),
+    DioLoggerOptions loggerOptions = const DioLoggerOptions(),
 
     /// interceptors for dio
     Interceptors? interceptors,
@@ -41,112 +41,112 @@ abstract class CleanClient {
   void close({bool force = false});
 
   /// Convenience method to make an HTTP GET request.
-  CleanResponse<T> get<T>(
+  Future<T> get<T>(
     String path, {
+    required OnSuccessCallback<T> onSuccess,
     Object? data,
     Map<String, dynamic>? queryParameters,
     Options? options,
     CancelToken? cancelToken,
     ProgressCallback? onReceiveProgress,
-    required OnSuccessCallback<T> onSuccess,
   });
 
   /// Convenience method to make an HTTP GET request with [Uri].
-  CleanResponse<T> getUri<T>(
+  Future<T> getUri<T>(
     Uri uri, {
+    required OnSuccessCallback<T> onSuccess,
     Object? data,
     Options? options,
     CancelToken? cancelToken,
     ProgressCallback? onReceiveProgress,
-    required OnSuccessCallback<T> onSuccess,
   });
 
   /// Convenience method to make an HTTP POST request.
-  CleanResponse<T> post<T>(
+  Future<T> post<T>(
     String path, {
+    required OnSuccessCallback<T> onSuccess,
     Object? data,
     Map<String, dynamic>? queryParameters,
     Options? options,
     CancelToken? cancelToken,
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
-    required OnSuccessCallback<T> onSuccess,
   });
 
   /// Convenience method to make an HTTP POST request with [Uri].
-  CleanResponse<T> postUri<T>(
+  Future<T> postUri<T>(
     Uri uri, {
+    required OnSuccessCallback<T> onSuccess,
     Object? data,
     Options? options,
     CancelToken? cancelToken,
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
-    required OnSuccessCallback<T> onSuccess,
   });
 
   /// Convenience method to make an HTTP PUT request.
-  CleanResponse<T> put<T>(
+  Future<T> put<T>(
     String path, {
+    required OnSuccessCallback<T> onSuccess,
     Object? data,
     Map<String, dynamic>? queryParameters,
     Options? options,
     CancelToken? cancelToken,
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
-    required OnSuccessCallback<T> onSuccess,
   });
 
   /// Convenience method to make an HTTP PUT request with [Uri].
-  CleanResponse<T> putUri<T>(
+  Future<T> putUri<T>(
     Uri uri, {
+    required OnSuccessCallback<T> onSuccess,
     Object? data,
     Options? options,
     CancelToken? cancelToken,
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
-    required OnSuccessCallback<T> onSuccess,
   });
 
   /// Convenience method to make an HTTP PATCH request.
-  CleanResponse<T> patch<T>(
+  Future<T> patch<T>(
     String path, {
+    required OnSuccessCallback<T> onSuccess,
     Object? data,
     Map<String, dynamic>? queryParameters,
     Options? options,
     CancelToken? cancelToken,
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
-    required OnSuccessCallback<T> onSuccess,
   });
 
   /// Convenience method to make an HTTP PATCH request with [Uri].
-  CleanResponse<T> patchUri<T>(
+  Future<T> patchUri<T>(
     Uri uri, {
+    required OnSuccessCallback<T> onSuccess,
     Object? data,
     Options? options,
     CancelToken? cancelToken,
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
-    required OnSuccessCallback<T> onSuccess,
   });
 
   /// Convenience method to make an HTTP DELETE request.
-  CleanResponse<T> delete<T>(
+  Future<T> delete<T>(
     String path, {
+    required OnSuccessCallback<T> onSuccess,
     Object? data,
     Map<String, dynamic>? queryParameters,
     Options? options,
     CancelToken? cancelToken,
-    required OnSuccessCallback<T> onSuccess,
   });
 
   /// Convenience method to make an HTTP DELETE request with [Uri].
-  CleanResponse<T> deleteUri<T>(
+  Future<T> deleteUri<T>(
     Uri uri, {
+    required OnSuccessCallback<T> onSuccess,
     Object? data,
     Options? options,
     CancelToken? cancelToken,
-    required OnSuccessCallback<T> onSuccess,
   });
 
   /// Download the file and save it in local. The default http method is "GET",

@@ -2,19 +2,20 @@ import 'package:clean_network/clean_core.dart';
 import 'package:clean_network/clean_network.dart';
 
 /// method for handling exceptions
-CleanResponse<dynamic> tryCatch(Future<Response<dynamic>> Function() function) {
+Future<T> tryCatch<T>(
+  Future<Response<dynamic>> Function() function,
+  OnSuccessCallback<T> onSuccess,
+) async {
   try {
-    return Task(() async {
-      final response = await function();
-      if (response.statusCode! >= 200 && response.statusCode! < 300) {
-        return response.data;
-      }
-      throw ServerException(
-        message: response.statusMessage ?? DioExtensionMessages.unexpectedError,
-        code: response.statusCode,
-        stackTrace: StackTrace.current,
-      );
-    });
+    final response = await function();
+    if (response.statusCode! >= 200 && response.statusCode! < 300) {
+      return onSuccess(response.data);
+    }
+    throw ServerException(
+      message: response.statusMessage ?? DioExtensionMessages.unexpectedError,
+      code: response.statusCode,
+      stackTrace: StackTrace.current,
+    );
   } on DioException catch (exception) {
     throw exception.toApiException;
   } catch (exception, stacktrace) {

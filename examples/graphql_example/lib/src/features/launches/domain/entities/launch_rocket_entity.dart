@@ -8,12 +8,12 @@ class LaunchRocketEntity with _$LaunchRocketEntity {
   const factory LaunchRocketEntity({
     RocketEntity? rocket,
   }) = _LaunchRocketEntity;
-  factory LaunchRocketEntity.fromJson(Map<String, dynamic> json) => _$LaunchRocketEntityFromJson(json);
+  factory LaunchRocketEntity.fromJson(Map<String, dynamic> json) =>
+      _$LaunchRocketEntityFromJson(json);
 }
 
 @Freezed(map: FreezedMapOptions.none, when: FreezedWhenOptions.none)
 class RocketEntity with _$RocketEntity {
-  const RocketEntity._();
 
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory RocketEntity({
@@ -26,5 +26,7 @@ class RocketEntity with _$RocketEntity {
     String? company,
     bool? active,
   }) = _RocketEntity;
-  factory RocketEntity.fromJson(Map<String, dynamic> json) => _$RocketEntityFromJson(json);
+  const RocketEntity._();
+  factory RocketEntity.fromJson(Map<String, dynamic> json) =>
+      _$RocketEntityFromJson(json);
 }

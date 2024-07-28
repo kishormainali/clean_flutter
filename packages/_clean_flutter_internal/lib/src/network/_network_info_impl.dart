@@ -1,6 +1,5 @@
+import 'package:_clean_flutter_internal/src/network/network_info.dart';
 import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
-
-import 'network_info.dart';
 
 /// {@template network_info_impl}
 /// A class to check network status

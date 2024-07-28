@@ -1,13 +1,12 @@
 import 'package:clean_bloc/src/builders/default_builders.dart';
-import 'package:clean_bloc/src/states/paginated_clean_state.dart';
+import 'package:clean_bloc/src/states/paginated_state.dart';
 import 'package:clean_bloc/src/typedefs/typedefs.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 /// {@template paginated_clean_builder}
 /// A Flutter widget for building PaginatedCleanBloc states.
 /// {@endtemplate}
-class PaginatedCleanBuilder<B extends BlocBase<PaginatedCleanState<T>>, T>
-    extends BlocBuilder<B, PaginatedCleanState<T>> {
+class PaginatedCleanBuilder<B extends BlocBase<PaginatedState<T>>, T> extends BlocBuilder<B, PaginatedState<T>> {
   /// {@macro paginated_clean_builder}
   PaginatedCleanBuilder({
     super.key,
@@ -16,23 +15,23 @@ class PaginatedCleanBuilder<B extends BlocBase<PaginatedCleanState<T>>, T>
     ///
     /// if [builder] is provided, this will be ignored
     ///
-    CleanLoadingBuilder? loadingBuilder,
+    LoadingBuilder? loadingBuilder,
 
     /// Error builder
     ///
     /// if [builder] is provided, this will be ignored
     ///
-    CleanErrorBuilder? errorBuilder,
+    ErrorBuilder? errorBuilder,
 
     /// Success builder
     ///
     /// if [builder] is provided, this will be ignored
     ///
-    PaginatedCleanSuccessBuilder<T>? successBuilder,
+    PaginatedSuccessBuilder<T>? successBuilder,
 
     /// default bloc builder
     ///
-    /// if [successBuilder] is provided, this will be ignored
+    /// if successBuilder is provided, this will be ignored
     ///
     DefaultPaginatedBlocBuilder<T>? builder,
 
@@ -49,16 +48,18 @@ class PaginatedCleanBuilder<B extends BlocBase<PaginatedCleanState<T>>, T>
           builder: builder ??
               (context, state) {
                 return state.maybeWhen(
-                  orElse: () =>
-                      loadingBuilder?.call(context) ??
-                      DefaultBuilders.defaultLoadingBuilder(context),
-                  error: (error) =>
-                      errorBuilder?.call(context, error) ??
-                      DefaultBuilders.defaultErrorBuilder(context, error),
-                  success: (data, loadingMore) {
-                    assert(successBuilder != null,
-                        'successBuilder must be provided');
-                    return successBuilder!(context, data, loadingMore);
+                  orElse: () => loadingBuilder?.call(context) ?? DefaultBuilders.defaultLoadingBuilder(context),
+                  error: (error) => errorBuilder?.call(context, error) ?? DefaultBuilders.defaultErrorBuilder(context, error),
+                  success: (data, _, loadingMore) {
+                    assert(
+                      successBuilder != null,
+                      'successBuilder must be provided',
+                    );
+                    return successBuilder!(
+                      context,
+                      data,
+                      isLoadingMore: loadingMore,
+                    );
                   },
                 );
               },
@@ -68,10 +69,11 @@ class PaginatedCleanBuilder<B extends BlocBase<PaginatedCleanState<T>>, T>
 /// {@template paginated_clean_listener}
 /// A Flutter widget for listening to PaginatedCleanBloc state changes.
 /// {@endtemplate}
-class PaginatedCleanListener<B extends BlocBase<PaginatedCleanState<T>>, T>
-    extends BlocListener<B, PaginatedCleanState<T>> {
+class PaginatedCleanListener<B extends BlocBase<PaginatedState<T>>, T> extends BlocListener<B, PaginatedState<T>> {
   /// {@macro paginated_clean_listener}
   PaginatedCleanListener({
+    /// Child widget
+    required super.child,
     super.key,
 
     /// Loading callback
@@ -88,18 +90,15 @@ class PaginatedCleanListener<B extends BlocBase<PaginatedCleanState<T>>, T>
 
     /// Bloc instance
     super.bloc,
-
-    /// Child widget
-    required super.child,
   }) : super(
           listener: (context, state) {
             state.whenOrNull(
               loading: () => onLoading?.call(context),
               error: (error) => onError?.call(context, error),
-              success: (data, isLoadingMore) => onSuccess?.call(
-                context,
-                data,
-                isLoadingMore,
+              success: (data, _, isLoadingMore) => onSuccess?.call(
+                context: context,
+                data: data,
+                isLoadingMore: isLoadingMore,
               ),
             );
           },
@@ -109,8 +108,7 @@ class PaginatedCleanListener<B extends BlocBase<PaginatedCleanState<T>>, T>
 /// {@template paginated_clean_consumer}
 /// A Flutter widget for building and listening to PaginatedCleanBloc state changes.
 /// {@endtemplate}
-class PaginatedCleanConsumer<B extends BlocBase<PaginatedCleanState<T>>, T, E>
-    extends BlocConsumer<B, PaginatedCleanState<T>> {
+class PaginatedCleanConsumer<B extends BlocBase<PaginatedState<T>>, T, E> extends BlocConsumer<B, PaginatedState<T>> {
   /// {@macro paginated_clean_consumer}
   PaginatedCleanConsumer({
     super.key,
@@ -125,20 +123,20 @@ class PaginatedCleanConsumer<B extends BlocBase<PaginatedCleanState<T>>, T, E>
     OnPaginatedSuccessListener<T>? onSuccess,
 
     /// Loading builder
-    CleanLoadingBuilder? loadingBuilder,
+    LoadingBuilder? loadingBuilder,
 
     /// Error builder
-    CleanErrorBuilder? errorBuilder,
+    ErrorBuilder? errorBuilder,
 
     /// Success builder
     ///
     /// if [builder] is provided, this will be ignored
     ///
-    PaginatedCleanSuccessBuilder<T>? successBuilder,
+    PaginatedSuccessBuilder<T>? successBuilder,
 
     /// default bloc builder
     ///
-    /// if [successBuilder] is provided, this will be ignored
+    /// if successBuilder is provided, this will be ignored
     ///
     DefaultPaginatedBlocBuilder<T>? builder,
 
@@ -158,19 +156,17 @@ class PaginatedCleanConsumer<B extends BlocBase<PaginatedCleanState<T>>, T, E>
           builder: builder ??
               (context, state) {
                 return state.maybeWhen(
-                  orElse: () =>
-                      loadingBuilder?.call(context) ??
-                      DefaultBuilders.defaultLoadingBuilder(context),
-                  error: (error) =>
-                      errorBuilder?.call(context, error) ??
-                      DefaultBuilders.defaultErrorBuilder(context, error),
-                  success: (data, isLoadingMore) {
-                    assert(successBuilder != null,
-                        'successBuilder must be provided');
+                  orElse: () => loadingBuilder?.call(context) ?? DefaultBuilders.defaultLoadingBuilder(context),
+                  error: (error) => errorBuilder?.call(context, error) ?? DefaultBuilders.defaultErrorBuilder(context, error),
+                  success: (data, _, isLoadingMore) {
+                    assert(
+                      successBuilder != null,
+                      'successBuilder must be provided',
+                    );
                     return successBuilder!(
                       context,
                       data,
-                      isLoadingMore,
+                      isLoadingMore: isLoadingMore,
                     );
                   },
                 );
@@ -179,10 +175,10 @@ class PaginatedCleanConsumer<B extends BlocBase<PaginatedCleanState<T>>, T, E>
             state.whenOrNull(
               loading: () => onLoading?.call(context),
               error: (error) => onError?.call(context, error),
-              success: (data, isLoadingMore) => onSuccess?.call(
-                context,
-                data,
-                isLoadingMore,
+              success: (data, _, isLoadingMore) => onSuccess?.call(
+                context: context,
+                data: data,
+                isLoadingMore: isLoadingMore,
               ),
             );
           },

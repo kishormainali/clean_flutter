@@ -8,8 +8,7 @@ import 'package:graphql_example/src/features/launches/presentation/blocs/details
 @RoutePage()
 class LaunchDetailPage extends StatelessWidget {
   const LaunchDetailPage({
-    super.key,
-    @pathParam required this.id,
+    @pathParam required this.id, super.key,
   });
 
   final String id;

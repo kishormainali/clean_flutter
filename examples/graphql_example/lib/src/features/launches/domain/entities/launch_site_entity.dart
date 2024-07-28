@@ -5,7 +5,6 @@ part 'launch_site_entity.g.dart';
 
 @Freezed(map: FreezedMapOptions.none, when: FreezedWhenOptions.none)
 class LaunchSiteEntity with _$LaunchSiteEntity {
-  const LaunchSiteEntity._();
 
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory LaunchSiteEntity({
@@ -13,5 +12,7 @@ class LaunchSiteEntity with _$LaunchSiteEntity {
     String? siteName,
     String? siteNameLong,
   }) = _LaunchSiteEntity;
-  factory LaunchSiteEntity.fromJson(Map<String, dynamic> json) => _$LaunchSiteEntityFromJson(json);
+  const LaunchSiteEntity._();
+  factory LaunchSiteEntity.fromJson(Map<String, dynamic> json) =>
+      _$LaunchSiteEntityFromJson(json);
 }

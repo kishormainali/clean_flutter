@@ -30,7 +30,8 @@ mixin PaginationMixin {
     _pagination = response.pagination;
     _currentLength += response.data.length;
     _hasNextPage = _pagination!.when(
-      page: (_, __, total) => _pagination!.hasNextPage && _currentLength < total,
+      page: (_, __, total) =>
+          _pagination!.hasNextPage && _currentLength < total,
       cursor: (_, __, hasNext) => hasNext,
     );
   }

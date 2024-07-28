@@ -1,8 +1,7 @@
 import 'package:clean_graphql/clean_core.dart';
-
-import '../entities/launch_entity.dart';
+import 'package:graphql_example/src/features/launches/domain/entities/launch_entity.dart';
 
 abstract class LaunchRepository {
-  EitherResponse<List<LaunchModel>> getLaunches();
-  EitherResponse<LaunchModel> getLaunchDetails(String id);
+  FutureResult<List<LaunchModel>> getLaunches();
+  FutureResult<LaunchModel> getLaunchDetails(String id);
 }

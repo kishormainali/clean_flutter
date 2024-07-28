@@ -13,12 +13,14 @@ class LaunchListCubit extends Cubit<LaunchListState> {
   final LaunchRepository _repository;
 
   @postConstruct
-  void getLaunches() async {
+  Future<void> getLaunches() async {
     emit(const LaunchListState.loading());
-    final response = await _repository.getLaunches().run();
-    emit(response.match(
-      (error) => LaunchListState.error(message: error.message),
-      (launches) => LaunchListState.success(launches: launches),
-    ));
+    final response = await _repository.getLaunches();
+    emit(
+      response.fold(
+        (error) => LaunchListState.error(message: error.message),
+        (launches) => LaunchListState.success(launches: launches),
+      ),
+    );
   }
 }

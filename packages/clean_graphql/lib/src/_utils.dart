@@ -1,13 +1,12 @@
-import "dart:convert";
+import 'dart:convert';
 
-import "package:_clean_flutter_internal/_clean_flutter_internal.dart"
-    as clean_core;
-import "package:dio/dio.dart" as dio;
-import "package:ferry/ferry.dart";
-import "package:gql/ast.dart";
-import "package:gql_exec/gql_exec.dart" as gql;
+import 'package:_clean_flutter_internal/_clean_flutter_internal.dart' as clean_core;
+import 'package:dio/dio.dart' as dio;
+import 'package:ferry/ferry.dart';
+import 'package:gql/ast.dart';
+import 'package:gql_exec/gql_exec.dart' as gql;
 
-/// Recursively extract [dio.MultipartFile]s and return them as a normalized map of [path] => [file]
+/// Recursively extract [dio.MultipartFile]s and return them as a normalized map of path => file
 /// From the given request body
 ///
 /// ```dart
@@ -26,23 +25,27 @@ Map<String, dio.MultipartFile> extractFlattenedFileMap(
 }) {
   currentMap ??= <String, dio.MultipartFile>{};
   if (body is Map<String, dynamic>) {
-    final Iterable<MapEntry<String, dynamic>> entries = body.entries;
-    for (final MapEntry<String, dynamic> element in entries) {
-      currentMap.addAll(extractFlattenedFileMap(
-        element.value,
-        currentMap: currentMap,
-        currentPath: List<String>.from(currentPath)..add(element.key),
-      ));
+    final entries = body.entries;
+    for (final element in entries) {
+      currentMap.addAll(
+        extractFlattenedFileMap(
+          element.value,
+          currentMap: currentMap,
+          currentPath: List<String>.from(currentPath)..add(element.key),
+        ),
+      );
     }
     return currentMap;
   }
   if (body is List<dynamic>) {
-    for (int i = 0; i < body.length; i++) {
-      currentMap.addAll(extractFlattenedFileMap(
-        body[i],
-        currentMap: currentMap,
-        currentPath: List<String>.from(currentPath)..add(i.toString()),
-      ));
+    for (var i = 0; i < body.length; i++) {
+      currentMap.addAll(
+        extractFlattenedFileMap(
+          body[i],
+          currentMap: currentMap,
+          currentPath: List<String>.from(currentPath)..add(i.toString()),
+        ),
+      );
     }
     return currentMap;
   }
@@ -50,34 +53,32 @@ Map<String, dio.MultipartFile> extractFlattenedFileMap(
   if (body is dio.MultipartFile) {
     return currentMap
       ..addAll({
-        currentPath.join("."): body,
+        currentPath.join('.'): body,
       });
   }
 
   return currentMap;
 }
 
-Map<String, dynamic> generateFileFormBody(
-    Map<String, dio.MultipartFile> fileMap) {
-  final Map<String, List<String>> fileMapping = <String, List<String>>{};
-  final List<dio.MultipartFile> fileList = <dio.MultipartFile>[];
+Map<String, dynamic> generateFileFormBody(Map<String, dio.MultipartFile> fileMap) {
+  final fileMapping = <String, List<String>>{};
+  final fileList = <dio.MultipartFile>[];
 
-  final List<MapEntry<String, dio.MultipartFile>> fileMapEntries =
-      fileMap.entries.toList(growable: false);
+  final fileMapEntries = fileMap.entries.toList(growable: false);
 
-  final Map<String, dynamic> fileFormBody = <String, dynamic>{};
+  final fileFormBody = <String, dynamic>{};
 
-  for (int i = 0; i < fileMapEntries.length; i++) {
-    final MapEntry<String, dio.MultipartFile> entry = fileMapEntries[i];
-    final String indexString = i.toString();
+  for (var i = 0; i < fileMapEntries.length; i++) {
+    final entry = fileMapEntries[i];
+    final indexString = i.toString();
     fileMapping.addAll(<String, List<String>>{
       indexString: <String>[entry.key],
     });
-    final dio.MultipartFile f = entry.value;
+    final f = entry.value;
     fileList.add(f);
   }
 
-  fileFormBody["map"] = json.encode(fileMapping);
+  fileFormBody['map'] = json.encode(fileMapping);
   for (var i = 0; i < fileList.length; i++) {
     fileFormBody[i.toString()] = fileList[i];
   }
@@ -87,16 +88,14 @@ Map<String, dynamic> generateFileFormBody(
 
 extension WithType on gql.Request {
   OperationType get type {
-    final definitions = operation.document.definitions
-        .whereType<OperationDefinitionNode>()
-        .toList();
+    final definitions = operation.document.definitions.whereType<OperationDefinitionNode>().toList();
     if (operation.operationName != null) {
       definitions.removeWhere(
         (node) => node.name!.value != operation.operationName,
       );
     }
-    // TODO differentiate error types, add exception
-    assert(definitions.length == 1);
+    // TODOdifferentiate error types, add exception
+    assert(definitions.length == 1, 'Operation must have exactly one definition');
     return definitions.first.type;
   }
 
@@ -106,28 +105,23 @@ extension WithType on gql.Request {
 extension LinkGraphqlExtension on LinkException {
   clean_core.ApiException get toApiException {
     return switch (this) {
-      RequestFormatException(:final originalStackTrace) =>
-        clean_core.BadRequestException(
+      RequestFormatException(:final originalStackTrace) => clean_core.BadRequestException(
           message: clean_core.DioExtensionMessages.badRequestError,
           stackTrace: originalStackTrace,
         ),
-      ResponseFormatException(:final originalStackTrace) =>
-        clean_core.ParseException(
+      ResponseFormatException(:final originalStackTrace) => clean_core.ParseException(
           message: clean_core.DioExtensionMessages.parseError,
           stackTrace: originalStackTrace,
         ),
-      ContextReadException(:final originalStackTrace) =>
-        clean_core.ServerException(
+      ContextReadException(:final originalStackTrace) => clean_core.ServerException(
           message: 'Error reading from context',
           stackTrace: originalStackTrace,
         ),
-      ContextWriteException(:final originalStackTrace) =>
-        clean_core.ServerException(
+      ContextWriteException(:final originalStackTrace) => clean_core.ServerException(
           message: 'Error writing to context',
           stackTrace: originalStackTrace,
         ),
-      ServerException(:final statusCode, :final originalStackTrace) =>
-        clean_core.ServerException(
+      ServerException(:final statusCode, :final originalStackTrace) => clean_core.ServerException(
           message: clean_core.DioExtensionMessages.unexpectedError,
           stackTrace: originalStackTrace,
           code: statusCode,

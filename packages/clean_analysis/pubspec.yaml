@@ -1,0 +1,10 @@
+name: clean_analysis
+description: A package that contains analysis options for clean architecture. it is only for internal use.
+version: 1.0.1
+repository: https://github.com/kishormainali/clean_flutter/tree/main/packages/clean_analysis
+issue_tracker: https://github.com/kishormainali/clean_flutter/tree/main/packages/clean_analysis/issues
+homepage: https://github.com/kishormainali/clean_flutter
+topics: [lints, analyzer, analysis]
+
+environment:
+  sdk: ">=3.4.0 <4.0.0"

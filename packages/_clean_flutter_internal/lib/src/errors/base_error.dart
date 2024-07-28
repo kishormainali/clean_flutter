@@ -53,6 +53,22 @@ abstract base class BaseError {
     };
   }
 
+  /// Converts [Object] error to [BaseError]
+  factory BaseError.fromError(
+    Object error,
+    StackTrace stackTrace,
+  ) {
+    if (error is ApiException) {
+      return BaseError.fromApiException(error);
+    }
+    return BaseError.fromApiException(
+      handleCommonError(
+        error,
+        stackTrace,
+      ),
+    );
+  }
+
   /// Error message
   final String message;
 

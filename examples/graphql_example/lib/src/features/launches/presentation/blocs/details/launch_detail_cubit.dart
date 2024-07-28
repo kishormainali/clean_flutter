@@ -12,12 +12,14 @@ class LaunchDetailCubit extends Cubit<LaunchDetailState> {
   LaunchDetailCubit(this._repository) : super(const LaunchDetailState.initial());
   final LaunchRepository _repository;
 
-  void getLaunchDetails(String id) async {
+  Future<void> getLaunchDetails(String id) async {
     emit(const LaunchDetailState.loading());
-    final response = await _repository.getLaunchDetails(id).run();
-    emit(response.match(
-      (error) => LaunchDetailState.error(error.message),
-      (launch) => LaunchDetailState.success(launch),
-    ));
+    final response = await _repository.getLaunchDetails(id);
+    emit(
+      response.fold(
+        (error) => LaunchDetailState.error(error.message),
+        LaunchDetailState.success,
+      ),
+    );
   }
 }

@@ -1,6 +1,6 @@
-import 'package:_clean_flutter_internal/_clean_flutter_internal.dart';
 import 'package:equatable/equatable.dart';
 import 'package:ferry/ferry.dart';
+import 'package:fp_logger/fp_logger.dart';
 import 'package:meta/meta.dart';
 
 /// {@template client_options}
@@ -20,7 +20,7 @@ class ClientOptions extends Equatable {
     this.useGETForQueries = false,
     this.serializableErrors = false,
     this.defaultHeaders = const {},
-    this.loggerOptions = const LoggerOptions(),
+    this.loggerOptions = const DioLoggerOptions(),
   });
 
   /// The base url for the client
@@ -54,7 +54,7 @@ class ClientOptions extends Equatable {
   final Map<String, String> defaultHeaders;
 
   /// The logger options for the client
-  final LoggerOptions loggerOptions;
+  final DioLoggerOptions loggerOptions;
 
   @override
   List<Object?> get props => [

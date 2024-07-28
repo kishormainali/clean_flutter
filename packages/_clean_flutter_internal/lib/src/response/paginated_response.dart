@@ -1,7 +1,6 @@
+import 'package:_clean_flutter_internal/src/response/pagination.dart';
+import 'package:_clean_flutter_internal/src/typedefs/typedefs.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-
-import '../typedefs/typedefs.dart';
-import 'pagination.dart';
 
 part 'paginated_response.freezed.dart';
 
@@ -11,11 +10,11 @@ part 'paginated_response.freezed.dart';
   genericArgumentFactories: true,
 )
 class PaginatedResponse<T> with _$PaginatedResponse<T> {
-  const PaginatedResponse._();
   const factory PaginatedResponse({
     required List<T> data,
     required Pagination pagination,
   }) = _PaginatedResponse<T>;
+  const PaginatedResponse._();
 
   /// This is the factory method that will be used
   /// to convert JSON data to a [PaginatedResponse] instance.
@@ -126,7 +125,7 @@ class PaginatedResponse<T> with _$PaginatedResponse<T> {
     try {
       final response = List<Map<String, dynamic>>.from(json['data']).map(fromJsonT).toList();
       if (json.containsKey('pagination') || json.containsKey('pageInfo')) {
-        var paginationMap = Map<String, dynamic>.from(json['pagination'] ?? json['pageInfo']);
+        final paginationMap = Map<String, dynamic>.from(json['pagination'] ?? json['pageInfo']);
         _getPaginationType(paginationMap);
         return PaginatedResponse<T>(
           data: response,
@@ -145,7 +144,7 @@ class PaginatedResponse<T> with _$PaginatedResponse<T> {
   }
 
   static void _getPaginationType(Map<String, dynamic> json) {
-    final bool isPageBased = json.keys.any((element) => element.endsWith('page') || element.endsWith('Page'));
+    final isPageBased = json.keys.any((element) => element.endsWith('page') || element.endsWith('Page'));
     if (isPageBased) {
       json['runtimeType'] = 'page';
     } else {

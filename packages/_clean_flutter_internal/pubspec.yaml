@@ -1,6 +1,6 @@
 name: _clean_flutter_internal
 description: A package that contains core classes and functions for clean architecture. it is only for internal use.
-version: 1.0.3
+version: 1.0.5
 homepage: https://github.com/kishormainali/clean_flutter
 repository: https://github.com/kishormainali/clean_flutter
 issue_tracker: https://github.com/kishormainali/clean_flutter/issues
@@ -21,31 +21,37 @@ platforms:
   macos:
 
 environment:
-  sdk: ">=3.2.6 <4.0.0"
+  sdk: ">=3.4.0 <4.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
 
-  meta: 1.11.0 # use version pinned by flutter sdk
+  intl: 0.19.0
 
-  freezed_annotation: ^2.4.1
+  meta: any # use version pinned by flutter sdk
 
-  json_annotation: ^4.8.1
+  freezed_annotation: ^2.4.4
 
-  fpdart: ^1.1.0
+  json_annotation: ^4.9.0
 
-  dio: ^5.4.1
+  dio: ^5.5.0+1
 
-  dio_http2_adapter: ^2.5.0
+  dio_http2_adapter: ^2.5.3
 
-  internet_connection_checker_plus: ^2.2.0
+  internet_connection_checker_plus: ^2.5.0
+
+  equatable: ^2.0.5
+
+  # clean analysis
+  clean_analysis: ^1.0.0
 
 dev_dependencies:
-  flutter_lints: ^3.0.1
+  build_runner: ^2.4.11
+  freezed: ^2.5.7
+  json_serializable: ^6.8.0
 
-  build_runner: ^2.4.8
-  freezed: ^2.4.7
-  json_serializable: ^6.7.1
+dependency_overrides:
+  meta: ^1.15.0
 
 flutter:

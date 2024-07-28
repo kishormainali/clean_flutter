@@ -1,0 +1,25 @@
+name: fp_logger
+description: "Logger for Flutter and Dart"
+version: 1.0.0
+repository: https://github.com/kishormainali/clean_flutter/tree/main/packages/fp_logger
+
+environment:
+  sdk: ">=3.4.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  ansicolor: ^2.0.2
+
+  dio: ^5.5.0
+
+  equatable: ^2.0.5
+
+  clean_analysis: ^1.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:

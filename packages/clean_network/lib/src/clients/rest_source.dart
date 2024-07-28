@@ -9,27 +9,16 @@ mixin _CleanMixin {
   ///
   late CleanClient _client;
 
-  /// Shuts down the dio client.
-  ///
-  /// If [force] is `false` (the default) the [Dio] will be kept alive
-  /// until all active connections are done. If [force] is `true` any active
-  /// connections will be closed to immediately release all resources. These
-  /// closed connections will receive an error event to indicate that the client
-  /// was shut down. In both cases trying to establish a new connection after
-  /// calling [close] will throw an exception.
-  @protected
-  void close({bool force = false}) => _client.close(force: force);
-
   /// Convenience method to make an HTTP GET request.
   @protected
-  CleanResponse<T> get<T>(
+  Future<T> get<T>(
     String path, {
+    required OnSuccessCallback<T> onSuccess,
     Object? data,
     Map<String, dynamic>? queryParameters,
     Options? options,
     CancelToken? cancelToken,
     ProgressCallback? onReceiveProgress,
-    required OnSuccessCallback<T> onSuccess,
   }) =>
       _client.get(
         path,
@@ -43,13 +32,13 @@ mixin _CleanMixin {
 
   /// Convenience method to make an HTTP GET request with [Uri].
   @protected
-  CleanResponse<T> getUri<T>(
+  Future<T> getUri<T>(
     Uri uri, {
+    required OnSuccessCallback<T> onSuccess,
     Object? data,
     Options? options,
     CancelToken? cancelToken,
     ProgressCallback? onReceiveProgress,
-    required OnSuccessCallback<T> onSuccess,
   }) =>
       _client.getUri(
         uri,
@@ -62,15 +51,15 @@ mixin _CleanMixin {
 
   /// Convenience method to make an HTTP POST request.
   @protected
-  CleanResponse<T> post<T>(
+  Future<T> post<T>(
     String path, {
+    required OnSuccessCallback<T> onSuccess,
     Object? data,
     Map<String, dynamic>? queryParameters,
     Options? options,
     CancelToken? cancelToken,
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
-    required OnSuccessCallback<T> onSuccess,
   }) =>
       _client.post(
         path,
@@ -85,14 +74,14 @@ mixin _CleanMixin {
 
   /// Convenience method to make an HTTP POST request with [Uri].
   @protected
-  CleanResponse<T> postUri<T>(
+  Future<T> postUri<T>(
     Uri uri, {
+    required OnSuccessCallback<T> onSuccess,
     Object? data,
     Options? options,
     CancelToken? cancelToken,
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
-    required OnSuccessCallback<T> onSuccess,
   }) =>
       _client.postUri(
         uri,
@@ -106,15 +95,15 @@ mixin _CleanMixin {
 
   /// Convenience method to make an HTTP PUT request.
   @protected
-  CleanResponse<T> put<T>(
+  Future<T> put<T>(
     String path, {
+    required OnSuccessCallback<T> onSuccess,
     Object? data,
     Map<String, dynamic>? queryParameters,
     Options? options,
     CancelToken? cancelToken,
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
-    required OnSuccessCallback<T> onSuccess,
   }) =>
       _client.put(
         path,
@@ -129,14 +118,14 @@ mixin _CleanMixin {
 
   /// Convenience method to make an HTTP PUT request with [Uri].
   @protected
-  CleanResponse<T> putUri<T>(
+  Future<T> putUri<T>(
     Uri uri, {
+    required OnSuccessCallback<T> onSuccess,
     Object? data,
     Options? options,
     CancelToken? cancelToken,
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
-    required OnSuccessCallback<T> onSuccess,
   }) =>
       _client.putUri(
         uri,
@@ -150,15 +139,15 @@ mixin _CleanMixin {
 
   /// Convenience method to make an HTTP PATCH request.
   @protected
-  CleanResponse<T> patch<T>(
+  Future<T> patch<T>(
     String path, {
+    required OnSuccessCallback<T> onSuccess,
     Object? data,
     Map<String, dynamic>? queryParameters,
     Options? options,
     CancelToken? cancelToken,
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
-    required OnSuccessCallback<T> onSuccess,
   }) =>
       _client.patch(
         path,
@@ -173,14 +162,14 @@ mixin _CleanMixin {
 
   /// Convenience method to make an HTTP PATCH request with [Uri].
   @protected
-  CleanResponse<T> patchUri<T>(
+  Future<T> patchUri<T>(
     Uri uri, {
+    required OnSuccessCallback<T> onSuccess,
     Object? data,
     Options? options,
     CancelToken? cancelToken,
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
-    required OnSuccessCallback<T> onSuccess,
   }) =>
       _client.patchUri(
         uri,
@@ -194,13 +183,13 @@ mixin _CleanMixin {
 
   /// Convenience method to make an HTTP DELETE request.
   @protected
-  CleanResponse<T> delete<T>(
+  Future<T> delete<T>(
     String path, {
+    required OnSuccessCallback<T> onSuccess,
     Object? data,
     Map<String, dynamic>? queryParameters,
     Options? options,
     CancelToken? cancelToken,
-    required OnSuccessCallback<T> onSuccess,
   }) =>
       _client.delete(
         path,
@@ -213,12 +202,12 @@ mixin _CleanMixin {
 
   /// Convenience method to make an HTTP DELETE request with [Uri].
   @protected
-  CleanResponse<T> deleteUri<T>(
+  Future<T> deleteUri<T>(
     Uri uri, {
+    required OnSuccessCallback<T> onSuccess,
     Object? data,
     Options? options,
     CancelToken? cancelToken,
-    required OnSuccessCallback<T> onSuccess,
   }) =>
       _client.deleteUri(
         uri,
@@ -271,6 +260,17 @@ mixin _CleanMixin {
         adapter,
         force: force,
       );
+
+  /// Shuts down the dio client.
+  ///
+  /// If [force] is `false` (the default) the [Dio] will be kept alive
+  /// until all active connections are done. If [force] is `true` any active
+  /// connections will be closed to immediately release all resources. These
+  /// closed connections will receive an error event to indicate that the client
+  /// was shut down. In both cases trying to establish a new connection after
+  /// calling [close] will throw an exception.
+  @protected
+  void close({bool force = false}) => _client.close(force: force);
 
   /// Creates a new [CleanClient] instance.
   @protected

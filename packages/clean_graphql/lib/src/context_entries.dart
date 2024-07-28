@@ -4,18 +4,18 @@ import 'package:meta/meta.dart';
 
 @immutable
 class ExtraContextEntry extends ContextEntry {
-  final Map<String, dynamic> extra;
 
   const ExtraContextEntry([this.extra = const {}]);
+  final Map<String, dynamic> extra;
   @override
   List<Object?> get fieldsForEquality => [extra];
 }
 
 @immutable
 class CancelTokenContextEntry extends ContextEntry {
-  final CancelToken? cancelToken;
 
   const CancelTokenContextEntry(this.cancelToken);
+  final CancelToken? cancelToken;
   @override
   List<Object?> get fieldsForEquality => [cancelToken];
 }

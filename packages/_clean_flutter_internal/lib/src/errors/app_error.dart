@@ -43,8 +43,8 @@ final class ValidationError extends BaseError {
   /// {@macro validation_error}
   const ValidationError({
     required super.message,
-    super.stackTrace,
     required this.errors,
+    super.stackTrace,
   });
 
   /// Validation errors

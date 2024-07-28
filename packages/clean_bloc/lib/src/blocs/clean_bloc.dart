@@ -18,27 +18,32 @@ abstract class CleanBloc<T> extends Bloc<CleanEvent, CleanState<T>> with Complet
   }
 
   /// Remote call
-  EitherResponse<T> remoteCall();
+  FutureResult<T> remoteCall();
 
   /// Error callback
-  CleanErrorHandler<T> get onErrorState => (error) => CleanState.error(error: error);
+  ErrorHandler<T> get onErrorState => (error) => CleanState.error(error: error);
 
   /// Success callback
-  CleanSuccessHandler<T> get onSuccessState => (data) => CleanState.success(
+  SuccessHandler<T> get onSuccessState => (data) => CleanState.success(
         data: data,
         refresh: Random().nextBool(),
       );
 
   /// Handle [CleanEventInit] event
-  FutureOr<void> _handleInit(CleanEventInit event, Emitter<CleanState<T>> emit) async {
+  FutureOr<void> _handleInit(
+    CleanEventInit event,
+    Emitter<CleanState<T>> emit,
+  ) async {
     if (event.showLoading) {
       emit(const CleanState.loading());
     }
-    final response = await remoteCall().run();
-    emit(response.match(
-      onErrorState,
-      onSuccessState,
-    ));
+    final response = await remoteCall();
+    emit(
+      response.fold(
+        onErrorState,
+        onSuccessState,
+      ),
+    );
 
     /// complete the completer only if the loading is not shown
     /// this is to prevent the refresh indicator being shown for a split second

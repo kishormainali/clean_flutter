@@ -70,7 +70,7 @@ sealed class Pagination with _$Pagination {
   }
 }
 
-int _readCurrentPage(Map json, String key) {
+int _readCurrentPage(Map<String, dynamic> json, String key) {
   final expectedKey = ['current_page', 'page', 'currentPage'].firstWhere(
     (element) => json.containsKey(element),
     orElse: () => key,
@@ -78,7 +78,7 @@ int _readCurrentPage(Map json, String key) {
   return int.tryParse(json[expectedKey]) ?? 1;
 }
 
-int _readPerPage(Map json, String key) {
+int _readPerPage(Map<String, dynamic> json, String key) {
   final expectedKey = ['per_page', 'perPage'].firstWhere(
     (element) => json.containsKey(element),
     orElse: () => key,
@@ -86,7 +86,7 @@ int _readPerPage(Map json, String key) {
   return int.tryParse(json[expectedKey]) ?? 20;
 }
 
-int _readTotalPages(Map json, String key) {
+int _readTotalPages(Map<String, dynamic> json, String key) {
   final expectedKey = ['total', 'total_docs', 'totalDocs', 'count'].firstWhere(
     (element) => json.containsKey(element),
     orElse: () => key,
@@ -94,26 +94,26 @@ int _readTotalPages(Map json, String key) {
   return int.tryParse(json[expectedKey]) ?? 0;
 }
 
-String _readStartCursor(Map json, String key) {
+String _readStartCursor(Map<String, dynamic> json, String key) {
   final expectedKey = ['start_cursor', 'startCursor'].firstWhere(
     (element) => json.containsKey(element),
     orElse: () => key,
   );
-  return json[expectedKey];
+  return json[expectedKey].toString();
 }
 
-String _readEndCursor(Map json, String key) {
+String _readEndCursor(Map<String, dynamic> json, String key) {
   final expectedKey = ['end_cursor', 'endCursor'].firstWhere(
     (element) => json.containsKey(element),
     orElse: () => key,
   );
-  return json[expectedKey];
+  return json[expectedKey].toString();
 }
 
-bool _readNextPage(Map json, String key) {
+bool _readNextPage(Map<String, dynamic> json, String key) {
   final expectedKey = ['has_next_page', 'hasNextPage'].firstWhere(
     (element) => json.containsKey(element),
     orElse: () => key,
   );
-  return json[expectedKey];
+  return bool.parse(json[expectedKey]);
 }

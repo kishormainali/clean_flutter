@@ -1,7 +1,0 @@
-query TestQuery($input: SimilarPropertyInput!) {
-  getSimilarPropertyListForBuyer(input: $input) {
-    data {
-      name
-    }
-  }
-}

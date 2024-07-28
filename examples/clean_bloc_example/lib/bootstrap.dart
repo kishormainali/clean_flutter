@@ -1,12 +1,11 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:clean_bloc_example/bloc_observer.dart';
 import 'package:clean_bloc_example/src/app/app.dart';
 import 'package:clean_bloc_example/src/core/di/injector.dart';
 import 'package:flutter/material.dart';
 import 'package:fp_util/fp_util.dart';
-
-import 'bloc_observer.dart';
 
 void bootstrap() {
   runZonedGuarded(

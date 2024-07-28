@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:_clean_flutter_internal/_clean_flutter_internal.dart';
 import 'package:clean_graphql/src/_utils.dart';
 import 'package:ferry/ferry.dart' hide ServerException;
-import 'package:fpdart/fpdart.dart';
 import 'package:meta/meta.dart';
 
 typedef GraphQLSuccessHandler<R, TData> = R Function(TData data);
@@ -16,31 +15,29 @@ abstract class GraphSource {
   final TypedLink client;
 
   /// future request
-  CleanResponse<R> request<R, TData, TVars>({
+  Future<R> request<R, TData, TVars>({
     required OperationRequest<TData, TVars> operationRequest,
     GraphQLSuccessHandler<R, TData>? successHandler,
-  }) {
+  }) async {
     try {
-      return Task(() async {
-        final response = await client.request(operationRequest).first;
-        if (response.hasErrors) {
-          throw BadRequestException(
-            message: DioExtensionMessages.badRequestError,
-            errors: response.graphqlErrors,
-            stackTrace: StackTrace.current,
-          );
-        }
-        if (response.data != null) {
-          if (successHandler != null) {
-            return successHandler(response.data as TData);
-          }
-          return response.data as R;
-        }
-        throw ServerException(
-          message: DioExtensionMessages.unexpectedError,
+      final response = await client.request(operationRequest).first;
+      if (response.hasErrors) {
+        throw BadRequestException(
+          message: DioExtensionMessages.badRequestError,
+          errors: response.graphqlErrors,
           stackTrace: StackTrace.current,
         );
-      });
+      }
+      if (response.data != null) {
+        if (successHandler != null) {
+          return successHandler(response.data as TData);
+        }
+        return response.data as R;
+      }
+      throw ServerException(
+        message: DioExtensionMessages.unexpectedError,
+        stackTrace: StackTrace.current,
+      );
     } catch (exception, stacktrace) {
       if (exception is ApiException) rethrow;
       throw onError(exception, stacktrace);
@@ -58,6 +55,7 @@ abstract class GraphSource {
   @protected
   @mustCallSuper
   @visibleForTesting
+  // ignore: type_annotate_public_apis
   ApiException onError(exception, stackTrace) {
     if (exception is LinkException) return exception.toApiException;
     return handleCommonError(exception, stackTrace);

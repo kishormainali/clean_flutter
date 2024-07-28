@@ -1,4 +1,9 @@
-# melos_managed_dependency_overrides: _clean_flutter_internal
+# melos_managed_dependency_overrides: _clean_flutter_internal,fp_logger,clean_analysis,meta
 dependency_overrides:
   _clean_flutter_internal:
     path: ../_clean_flutter_internal
+  clean_analysis:
+    path: ../clean_analysis
+  fp_logger:
+    path: ../fp_logger
+  meta: ^1.15.0

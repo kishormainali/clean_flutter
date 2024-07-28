@@ -1,7 +1,10 @@
+// ignore_for_file: lines_longer_than_80_chars, public_member_api_docs
+
 part of 'extensions.dart';
 
 /// Dio extension to convert [DioException] to [ApiException]
 extension ApiExceptionDioX on DioException {
+  /// Convert [DioException] to [ApiException]
   ApiException get toApiException {
     return switch (type) {
       DioExceptionType.badResponse => _handleBadResponse(response),
@@ -32,10 +35,10 @@ extension ApiExceptionDioX on DioException {
     };
   }
 
-  _handleBadResponse(Response? response) {
-    final responseData = response!.data;
+  ApiException _handleBadResponse(Response<dynamic>? response) {
+    final responseData = response!.data as Map<String, dynamic>;
     final statusCode = response.statusCode!;
-    final message = responseData['message'] ?? response.statusMessage;
+    final message = responseData.get<String>('message') ?? response.statusMessage;
     return switch (statusCode) {
       400 when response.data != null => BadRequestException(
           message: message ?? DioExtensionMessages.validationError,
@@ -86,4 +89,11 @@ abstract class DioExtensionMessages {
   static const String parseError = 'Looks like the server is not responding in the expected format, please try again in sometime.';
   static const String badCertificateError = 'Looks like the server is configured with a bad certificate, please try again in sometime.';
   static const String badRequestError = 'Looks like the server is not able to process the request, please try again in sometime.';
+}
+
+extension on Map<String, dynamic> {
+  /// Get value from map
+  T? get<T>(String key) {
+    return containsKey(key) ? this[key] as T? : null;
+  }
 }

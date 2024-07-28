@@ -7,7 +7,6 @@ part 'launch_entity.g.dart';
 
 @Freezed(map: FreezedMapOptions.none, when: FreezedWhenOptions.none)
 class LaunchModel with _$LaunchModel {
-  const LaunchModel._();
 
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory LaunchModel({
@@ -20,9 +19,13 @@ class LaunchModel with _$LaunchModel {
     LaunchRocketEntity? rocket,
     LaunchSiteEntity? launchSite,
   }) = _LaunchModel;
-  factory LaunchModel.fromJson(Map<String, dynamic> json) => _$LaunchModelFromJson(json);
+  const LaunchModel._();
+  factory LaunchModel.fromJson(Map<String, dynamic> json) =>
+      _$LaunchModelFromJson(json);
 
   static List<LaunchModel> fromJsonList(dynamic json) {
-    return List<Map<String, dynamic>>.from(json).map(LaunchModel.fromJson).toList();
+    return List<Map<String, dynamic>>.from(json)
+        .map(LaunchModel.fromJson)
+        .toList();
   }
 }

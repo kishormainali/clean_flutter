@@ -4,7 +4,7 @@ import 'package:rxdart/rxdart.dart';
 
 /// EventTransformer for debouncing events
 EventTransformer<T> debounceRestartable<T>(
-    [Duration duration = _debounceDuration]) {
+    [Duration duration = _debounceDuration,]) {
   return (events, mapper) =>
       restartable<T>().call(events.debounceTime(duration), mapper);
 }

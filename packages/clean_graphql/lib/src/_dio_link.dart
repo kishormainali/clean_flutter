@@ -7,8 +7,8 @@ import 'package:clean_graphql/src/client_options.dart';
 import 'package:clean_graphql/src/context_entries.dart';
 import 'package:dio/dio.dart' as dio;
 import 'package:ferry/ferry.dart';
+import 'package:fp_logger/fp_logger.dart';
 import 'package:gql_exec/gql_exec.dart';
-import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 /// copied from https://github.com/gql-dart/gql/blob/master/links/gql_dio_link/lib/src/dio_link.dart
 /// and modified to fit the needs of this package
@@ -33,19 +33,7 @@ class DioLink extends Link {
     dio.HttpClientAdapter? httpClientAdapter,
   }) {
     _client = dio.Dio()
-      ..interceptors.addAll([
-        ...?interceptors,
-        PrettyDioLogger(
-          request: _loggerOptions.request,
-          requestHeader: _loggerOptions.requestHeader,
-          requestBody: _loggerOptions.requestBody,
-          responseBody: _loggerOptions.responseBody,
-          responseHeader: _loggerOptions.responseHeader,
-          error: _loggerOptions.error,
-          compact: _loggerOptions.compact,
-          maxWidth: _loggerOptions.maxWidth,
-        )
-      ])
+      ..interceptors.addAll([...?interceptors, DioLogger(_loggerOptions)])
       ..httpClientAdapter =
           httpClientAdapter ?? clean_core.DefaultHttpAdapter();
   }
@@ -57,7 +45,7 @@ class DioLink extends Link {
   final ClientOptions options;
 
   /// The logger options
-  clean_core.LoggerOptions get _loggerOptions => options.loggerOptions;
+  DioLoggerOptions get _loggerOptions => options.loggerOptions;
 
   /// The base url for the client
   String get _baseUrl => options.baseUrl;
@@ -67,11 +55,11 @@ class DioLink extends Link {
 
   @override
   Stream<Response> request(Request request, [NextLink? forward]) async* {
-    final dio.Response<Map<String, dynamic>> dioResponse =
+    final dioResponse =
         await _executeDioRequest(
       request: request,
       headers: <String, String>{
-        dio.Headers.acceptHeader: "*/*",
+        dio.Headers.acceptHeader: '*/*',
         dio.Headers.contentTypeHeader: dio.Headers.jsonContentType,
         ..._defaultHeaders,
         ..._getHttpLinkHeaders(request),
@@ -80,8 +68,8 @@ class DioLink extends Link {
     );
 
     if (dioResponse.statusCode! >= 300 ||
-        (dioResponse.data!["data"] == null &&
-            dioResponse.data!["errors"] == null)) {
+        (dioResponse.data!['data'] == null &&
+            dioResponse.data!['errors'] == null)) {
       throw clean_core.ServerException(
         message: clean_core.DioExtensionMessages.unexpectedError,
         stackTrace: StackTrace.current,
@@ -119,7 +107,7 @@ class DioLink extends Link {
 
     final formBody = dio.FormData.fromMap(
       <String, dynamic>{
-        "operations": encodedBody,
+        'operations': encodedBody,
       }..addAll(generateFileFormBody(fileMap)),
     );
 
@@ -175,7 +163,7 @@ class DioLink extends Link {
     try {
       final dynamic body = _prepareRequestBody(request);
       dio.Response<dynamic> res;
-      final dio.CancelToken? cancelToken =
+      final cancelToken =
           request.context.entry<CancelTokenContextEntry>()?.cancelToken;
       final extra = request.context.entry<ExtraContextEntry>()?.extra;
       final noAuthEntry = request.context.entry<NoAuthContextEntry>()?.key;
@@ -251,12 +239,6 @@ class DioLink extends Link {
                   e.requestOptions is String
               ? e.requestOptions.data
               : null, // could be FormData, which is not serializable
-          onSendProgress: null,
-          onReceiveProgress: null,
-          cancelToken: null,
-          responseDecoder: null,
-          requestEncoder: null,
-          validateStatus: null,
           path: e.requestOptions.path,
           method: e.requestOptions.method,
           baseUrl: e.requestOptions.baseUrl,
@@ -290,7 +272,7 @@ class DioLink extends Link {
 
   Map<String, String> _getHttpLinkHeaders(Request request) {
     try {
-      final HttpLinkHeaders? linkHeaders =
+      final linkHeaders =
           request.context.entry<HttpLinkHeaders>();
       return {
         if (linkHeaders != null) ...linkHeaders.headers,

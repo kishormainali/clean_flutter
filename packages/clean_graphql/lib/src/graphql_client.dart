@@ -1,10 +1,9 @@
 import 'dart:async';
 
+import 'package:clean_graphql/src/_dio_link.dart';
 import 'package:clean_graphql/src/client_options.dart';
 import 'package:dio/dio.dart';
 import 'package:ferry/typed_links.dart';
-
-import '_dio_link.dart';
 
 typedef RequestController = StreamController<OperationRequest>;
 
@@ -17,12 +16,6 @@ typedef RequestController = StreamController<OperationRequest>;
 ///
 /// {@endtemplate}
 class GraphQLClient extends TypedLink {
-  /// {@macro graphql_client}
-  GraphQLClient._({
-    required this.options,
-    required TypedLink link,
-  }) : _link = link;
-
   /// Creates a new [GraphQLClient] instance.
   factory GraphQLClient({
     required ClientOptions options,
@@ -39,6 +32,21 @@ class GraphQLClient extends TypedLink {
           httpClientAdapter: httpClientAdapter,
         ),
       );
+
+  /// plain new instance of the client
+  factory GraphQLClient.newInstance(ClientOptions options) => GraphQLClient._(
+        options: options,
+        link: _createLink(
+          options: options,
+          requestController: StreamController.broadcast(),
+        ),
+      );
+
+  /// {@macro graphql_client}
+  GraphQLClient._({
+    required this.options,
+    required TypedLink link,
+  }) : _link = link;
 
   /// Creates a new Link for the client
   static TypedLink _createLink({
@@ -66,7 +74,7 @@ class GraphQLClient extends TypedLink {
         link: _dioLink,
         cache: _defaultCache,
         defaultFetchPolicies: options.defaultFetchPolicies,
-      )
+      ),
     ]);
   }
 
@@ -101,20 +109,13 @@ class GraphQLClient extends TypedLink {
       );
 
   /// closes the underlying client's connection
-  void close([bool force = false]) => _dioLink.close(force: force);
-
-  /// plain new instance of the client
-  static GraphQLClient newInstance(ClientOptions options) => GraphQLClient._(
-        options: options,
-        link: _createLink(
-          options: options,
-          requestController: StreamController.broadcast(),
-        ),
-      );
+  void close({bool force = false}) => _dioLink.close(force: force);
 
   @override
   Future<void> dispose() async {
-    _requestController.close();
-    _defaultCache.dispose();
+    await Future.wait([
+      _requestController.close(),
+      _dioLink.dispose(),
+    ]);
   }
 }

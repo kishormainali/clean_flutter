@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:dio/dio.dart';
 import 'package:dio/io.dart';
 import 'package:dio_http2_adapter/dio_http2_adapter.dart' as http2;
 
@@ -45,13 +46,14 @@ class DefaultHttpAdapter extends IOHttpClientAdapter {
             }
 
             /// Gets and sets the idle timeout of non-active persistent (keep-alive) connections.
-            client.idleTimeout = idleTimeout;
-
             /// Gets and sets the connection timeout.
             ///
             /// When connecting to a new host exceeds this timeout, a [SocketException] is thrown.
             /// The timeout applies only to connections initiated after the timeout is set.
-            client.connectionTimeout = connectionTimeout;
+            client
+              ..idleTimeout = idleTimeout
+              ..connectionTimeout = connectionTimeout;
+
             return client;
           },
         );
@@ -80,17 +82,19 @@ class DefaultHttp2Adapter extends http2.Http2Adapter {
           http2.ConnectionManager(
             idleTimeout: idleTimeout,
             onClientCreate: (uri, clientSettings) {
-              /// context is the security context for new secure socket connections.
-              clientSettings.context = context;
+              clientSettings
 
-              /// proxy is the callback to return a proxy url for request.
-              clientSettings.proxy = proxy;
+                /// context is the security context for new secure socket connections.
+                ..context = context
 
-              /// onBadCertificate is the callback for handling bad certificates.
-              clientSettings.onBadCertificate = onBadCertificate;
+                /// proxy is the callback to return a proxy url for request.
+                ..proxy = proxy
 
-              /// validateCertificate is the callback to validate the certificate
-              clientSettings.validateCertificate = validateCertificate;
+                /// onBadCertificate is the callback for handling bad certificates.
+                ..onBadCertificate = onBadCertificate
+
+                /// validateCertificate is the callback to validate the certificate
+                ..validateCertificate = validateCertificate;
             },
           ),
         );

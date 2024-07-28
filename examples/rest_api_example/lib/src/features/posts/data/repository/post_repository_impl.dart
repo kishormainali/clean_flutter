@@ -5,19 +5,16 @@ import 'package:rest_api_example/src/features/posts/data/source/post_source.dart
 import 'package:rest_api_example/src/features/posts/domain/repository/post_repository.dart';
 
 @LazySingleton(as: PostRepository)
-final class PostRepositoryImpl extends BaseRepository implements PostRepository {
-  final PostSource _postSource;
-
+final class PostRepositoryImpl implements PostRepository {
   PostRepositoryImpl(this._postSource);
+  final PostSource _postSource;
   @override
-  EitherResponse<List<PostModel>> getPosts() {
-    return handleNetwork(_postSource.getPosts);
+  FutureResult<List<PostModel>> getPosts() {
+    return Result.fromAsync(_postSource.getPosts);
   }
 
   @override
-  EitherResponse<PostModel> getSinglePost(int id) {
-    return handleNetwork(
-      () => _postSource.getSinglePost(id),
-    );
+  FutureResult<PostModel> getSinglePost(int id) {
+    return Result.fromAsync(() => _postSource.getSinglePost(id));
   }
 }

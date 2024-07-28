@@ -1,8 +1,1 @@
-include: package:flutter_lints/flutter.yaml
-
-analyzer:
-  errors:
-    unnecessary_cast: ignore
-  exclude:
-    - "**/*.g.dart"
-    - "**/*.freezed.dart"
+include: package:clean_analysis/analysis_options.yaml

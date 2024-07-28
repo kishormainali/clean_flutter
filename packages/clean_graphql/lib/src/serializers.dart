@@ -20,7 +20,7 @@ class DateSerializer implements PrimitiveSerializer<DateTime> {
     if (serialized is int) {
       return DateTime.fromMillisecondsSinceEpoch(serialized);
     }
-    throw ArgumentError("Invalid date format");
+    throw ArgumentError('Invalid date format');
   }
 
   @override
@@ -35,7 +35,7 @@ class DateSerializer implements PrimitiveSerializer<DateTime> {
   Iterable<Type> get types => [DateTime];
 
   @override
-  String get wireName => "Date";
+  String get wireName => 'Date';
 }
 
 /// {@template date_time_serializer}
@@ -54,7 +54,7 @@ class DateTimeSerializer implements PrimitiveSerializer<DateTime> {
     if (serialized is int) {
       return DateTime.fromMillisecondsSinceEpoch(serialized);
     }
-    throw ArgumentError("Invalid date format");
+    throw ArgumentError('Invalid date format');
   }
 
   @override
@@ -69,7 +69,7 @@ class DateTimeSerializer implements PrimitiveSerializer<DateTime> {
   Iterable<Type> get types => [DateTime];
 
   @override
-  String get wireName => "DateTime";
+  String get wireName => 'DateTime';
 }
 
 /// {@template upload_serializer}

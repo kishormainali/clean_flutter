@@ -1,16 +1,13 @@
-import 'package:fpdart/fpdart.dart';
+import 'package:_clean_flutter_internal/_clean_flutter_internal.dart';
 
-import '../errors/errors.dart';
-import '../response/response.dart';
+/// Callback for [Future] that returns [Result]
+typedef FutureResult<T> = Future<Result<T>>;
 
-typedef PaginatedCleanResponse<T> = CleanResponse<PaginatedResponse<T>>;
+/// Callback for [Future] that returns [Result] [PaginatedResponse]
+typedef PaginatedResult<T> = Future<Result<PaginatedResponse<T>>>;
 
-typedef PaginatedEitherResponse<T> = TaskEither<BaseError, PaginatedResponse<T>>;
-
-typedef EitherResponse<T> = TaskEither<BaseError, T>;
-
+/// Callback for FromJson
 typedef FromJson<T> = T Function(Map<String, dynamic> json);
 
-typedef OnSuccessCallback<T> = T Function(dynamic data);
-
-typedef CleanResponse<T> = Task<T>;
+/// Callback for OnSuccess
+typedef OnSuccessCallback<T> = T Function(Object data);
