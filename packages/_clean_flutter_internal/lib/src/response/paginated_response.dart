@@ -123,9 +123,11 @@ class PaginatedResponse<T> with _$PaginatedResponse<T> {
     assert(json.containsKey('data'), 'The response must contain a data key');
     assert(json['data'] is List, 'The data must be a list');
     try {
-      final response = List<Map<String, dynamic>>.from(json['data']).map(fromJsonT).toList();
+      final response =
+          List<Map<String, dynamic>>.from(json['data']).map(fromJsonT).toList();
       if (json.containsKey('pagination') || json.containsKey('pageInfo')) {
-        final paginationMap = Map<String, dynamic>.from(json['pagination'] ?? json['pageInfo']);
+        final paginationMap =
+            Map<String, dynamic>.from(json['pagination'] ?? json['pageInfo']);
         _getPaginationType(paginationMap);
         return PaginatedResponse<T>(
           data: response,
@@ -144,7 +146,8 @@ class PaginatedResponse<T> with _$PaginatedResponse<T> {
   }
 
   static void _getPaginationType(Map<String, dynamic> json) {
-    final isPageBased = json.keys.any((element) => element.endsWith('page') || element.endsWith('Page'));
+    final isPageBased = json.keys
+        .any((element) => element.endsWith('page') || element.endsWith('Page'));
     if (isPageBased) {
       json['runtimeType'] = 'page';
     } else {

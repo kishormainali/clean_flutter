@@ -11,7 +11,7 @@
   
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
   
   <link rel="stylesheet" href="../../static-assets/github.css?v1">
   <link rel="stylesheet" href="../../static-assets/styles.css?v1">
@@ -37,14 +37,14 @@
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
-  <div class="toggle" id="theme-button">
+  <div class="toggle" id="theme-button" title="Toggle brightness">
     <label for="theme">
       <input type="checkbox" id="theme" value="light-theme">
       <span id="dark-theme-button" class="material-symbols-outlined">
-        brightness_4
+        dark_mode
       </span>
       <span id="light-theme-button" class="material-symbols-outlined">
-        brightness_5
+        light_mode
       </span>
     </label>
   </div>
@@ -68,7 +68,7 @@
 <li><span class="parameter" id="-param-onBadCertificate"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">onBadCertificate</span>(<ol class="parameter-list"><li><span class="parameter" id="param-"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-io/X509Certificate-class.html">X509Certificate</a></span></span></li>
 </ol>
 )?, </span></li>
-<li><span class="parameter" id="-param-validateCertificate"><span class="type-annotation"><a href="https://pub.dev/documentation/dio_http2_adapter/2.4.0/dio_http2_adapter/ValidateCertificate.html">ValidateCertificate</a>?</span> <span class="parameter-name">validateCertificate</span>}</span></li>
+<li><span class="parameter" id="-param-validateCertificate"><span class="type-annotation"><a href="https://pub.dev/documentation/dio_http2_adapter/2.5.3/dio_http2_adapter/ValidateCertificate.html">ValidateCertificate</a>?</span> <span class="parameter-name">validateCertificate</span>}</span></li>
 </ol>)
     </section>
 
@@ -96,17 +96,19 @@
         http2.ConnectionManager(
           idleTimeout: idleTimeout,
           onClientCreate: (uri, clientSettings) {
-            &#47;&#47;&#47; context is the security context for new secure socket connections.
-            clientSettings.context = context;
+            clientSettings
 
-            &#47;&#47;&#47; proxy is the callback to return a proxy url for request.
-            clientSettings.proxy = proxy;
+              &#47;&#47;&#47; context is the security context for new secure socket connections.
+              ..context = context
 
-            &#47;&#47;&#47; onBadCertificate is the callback for handling bad certificates.
-            clientSettings.onBadCertificate = onBadCertificate;
+              &#47;&#47;&#47; proxy is the callback to return a proxy url for request.
+              ..proxy = proxy
 
-            &#47;&#47;&#47; validateCertificate is the callback to validate the certificate
-            clientSettings.validateCertificate = validateCertificate;
+              &#47;&#47;&#47; onBadCertificate is the callback for handling bad certificates.
+              ..onBadCertificate = onBadCertificate
+
+              &#47;&#47;&#47; validateCertificate is the callback to validate the certificate
+              ..validateCertificate = validateCertificate;
           },
         ),
       );</code></pre>
@@ -143,7 +145,7 @@
 <footer>
   <span class="no-break">
     clean_graphql
-      1.0.1
+      1.0.3
   </span>
 
   

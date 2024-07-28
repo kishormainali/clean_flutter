@@ -11,7 +11,7 @@
   
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
   
   <link rel="stylesheet" href="../../static-assets/github.css?v1">
   <link rel="stylesheet" href="../../static-assets/styles.css?v1">
@@ -37,26 +37,26 @@
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
-  <div class="toggle" id="theme-button">
+  <div class="toggle" id="theme-button" title="Toggle brightness">
     <label for="theme">
       <input type="checkbox" id="theme" value="light-theme">
       <span id="dark-theme-button" class="material-symbols-outlined">
-        brightness_4
+        dark_mode
       </span>
       <span id="light-theme-button" class="material-symbols-outlined">
-        brightness_5
+        light_mode
       </span>
     </label>
   </div>
 </header>
 <main>
 
-  <div
-      id="dartdoc-main-content"
-      class="main-content"
-      data-above-sidebar="clean_graphql&#47;DateTimeSerializer-class-sidebar.html"
-      data-below-sidebar="">
-      <div>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="clean_graphql&#47;DateTimeSerializer-class-sidebar.html"
+    data-below-sidebar="">
+    <div>
 <h1><span class="kind-method">deserialize</span> method 
 </h1></div>
 
@@ -69,9 +69,9 @@
   </div>
 
 <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/DateTime-class.html">DateTime</a></span>
-<span class="name ">deserialize</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="deserialize-param-serializers"><span class="type-annotation"><a href="https://pub.dev/documentation/built_value/8.9.1/serializer/Serializers-class.html">Serializers</a></span> <span class="parameter-name">serializers</span>, </span></li>
+<span class="name ">deserialize</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="deserialize-param-serializers"><span class="type-annotation"><a href="https://pub.dev/documentation/built_value/8.9.2/serializer/Serializers-class.html">Serializers</a></span> <span class="parameter-name">serializers</span>, </span></li>
 <li><span class="parameter" id="deserialize-param-serialized"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Object-class.html">Object</a></span> <span class="parameter-name">serialized</span>, </span></li>
-<li><span class="parameter" id="deserialize-param-specifiedType">{<span class="type-annotation"><a href="https://pub.dev/documentation/built_value/8.9.1/serializer/FullType-class.html">FullType</a></span> <span class="parameter-name">specifiedType</span> = <span class="default-value">FullType.unspecified</span>}</span></li>
+<li><span class="parameter" id="deserialize-param-specifiedType">{<span class="type-annotation"><a href="https://pub.dev/documentation/built_value/8.9.2/serializer/FullType-class.html">FullType</a></span> <span class="parameter-name">specifiedType</span> = <span class="default-value">FullType.unspecified</span>}</span></li>
 </ol>)
 
       <div class="features"><span class="feature">override</span></div>
@@ -101,7 +101,7 @@ DateTime deserialize(
   if (serialized is int) {
     return DateTime.fromMillisecondsSinceEpoch(serialized);
   }
-  throw ArgumentError(&quot;Invalid date format&quot;);
+  throw ArgumentError(&#39;Invalid date format&#39;);
 }</code></pre>
 </section>
 
@@ -129,14 +129,14 @@ DateTime deserialize(
   </div><!--/.sidebar-offcanvas-->
 
   <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
-  </div><!--/.sidebar-offcanvas-->
+</div><!--/.sidebar-offcanvas-->
 
 </main>
 
 <footer>
   <span class="no-break">
     clean_graphql
-      1.0.1
+      1.0.3
   </span>
 
   

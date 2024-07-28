@@ -20,7 +20,8 @@ class UserListCubit extends Cubit<UserListState> {
     emit(
       response.fold(
         (BaseError error) => UserListState.error(message: error.message),
-        (PaginatedResponse<UserModel> response) => UserListState.loaded(users: response.data),
+        (PaginatedResponse<UserModel> response) =>
+            UserListState.loaded(users: response.data),
       ),
     );
   }

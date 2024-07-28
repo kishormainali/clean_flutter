@@ -5,7 +5,6 @@ part 'launch_site_entity.g.dart';
 
 @Freezed(map: FreezedMapOptions.none, when: FreezedWhenOptions.none)
 class LaunchSiteEntity with _$LaunchSiteEntity {
-
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory LaunchSiteEntity({
     String? siteId,

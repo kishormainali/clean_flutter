@@ -431,7 +431,9 @@ abstract class RegexMatcher {
       RegexFileType.csv =>
         matchMultiple(input, [RegexPattern.csv, RegexPattern.mimeTypeCsv]),
       RegexFileType.archive => matchMultiple(
-          input, [RegexPattern.archive, RegexPattern.mimeTypeArchive],),
+          input,
+          [RegexPattern.archive, RegexPattern.mimeTypeArchive],
+        ),
       RegexFileType.json =>
         matchMultiple(input, [RegexPattern.json, RegexPattern.mimeTypeJson]),
       RegexFileType.apk =>
@@ -439,7 +441,9 @@ abstract class RegexMatcher {
       RegexFileType.ipa =>
         matchMultiple(input, [RegexPattern.ipa, RegexPattern.mimeTypeIpa]),
       RegexFileType.appBundle => matchMultiple(
-          input, [RegexPattern.appBundle, RegexPattern.mimeTypeApk],),
+          input,
+          [RegexPattern.appBundle, RegexPattern.mimeTypeApk],
+        ),
     };
   }
 }

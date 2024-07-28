@@ -7,7 +7,7 @@ packages:
       path: "../../packages/_clean_flutter_internal"
       relative: true
     source: path
-    version: "1.0.4"
+    version: "1.0.5"
   _fe_analyzer_shared:
     dependency: transitive
     description:
@@ -480,7 +480,7 @@ packages:
       path: "../../packages/fp_logger"
       relative: true
     source: path
-    version: "1.0.0"
+    version: "1.0.1"
   fp_util:
     dependency: "direct main"
     description:

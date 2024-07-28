@@ -20,7 +20,8 @@ class PostSourceImpl extends RestSource implements PostSource {
   Future<PostModel> getSinglePost(int id) {
     return get(
       '/posts/$id',
-      onSuccess: (response) => PostModel.fromJson(response as Map<String, dynamic>),
+      onSuccess: (response) =>
+          PostModel.fromJson(response as Map<String, dynamic>),
     );
   }
 }

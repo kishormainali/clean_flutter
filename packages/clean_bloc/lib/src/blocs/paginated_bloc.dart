@@ -7,7 +7,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 /// {@template paginated_clean_bloc}
 /// A [Bloc] which handles paginated data.
 /// {@endtemplate}
-abstract class PaginatedBloc<T> extends Bloc<PaginatedEvent, PaginatedState<T>> with PaginationMixin, CompleterMixin {
+abstract class PaginatedBloc<T> extends Bloc<PaginatedEvent, PaginatedState<T>>
+    with PaginationMixin, CompleterMixin {
   /// {@macro paginated_clean_bloc}
   PaginatedBloc() : super(const PaginatedState.initial()) {
     on<PaginatedEventInit>(_handleInit);
@@ -22,12 +23,14 @@ abstract class PaginatedBloc<T> extends Bloc<PaginatedEvent, PaginatedState<T>> 
   Pagination get initialPage => const Pagination.page();
 
   /// error handler for custom logic
-  PaginatedErrorHandler<T> get onErrorState => (error) => PaginatedState.error(error: error);
+  PaginatedErrorHandler<T> get onErrorState =>
+      (error) => PaginatedState.error(error: error);
 
   /// success handler for custom logic
-  PaginatedSuccessHandler<T> get onSuccessState => (response) => PaginatedState.success(
-        data: response.data,
-      );
+  PaginatedSuccessHandler<T> get onSuccessState =>
+      (response) => PaginatedState.success(
+            data: response.data,
+          );
 
   /// call initial event
   void init() {

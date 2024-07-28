@@ -18,27 +18,27 @@ dependencies:
     sdk: flutter
 
   # http client
-  dio: ^5.5.0
+  dio: ^5.5.0+1
   dio_http2_adapter: ^2.5.3
 
   # cache
   dio_cache_interceptor: ^3.5.0
 
   # models
-  freezed_annotation: ^2.4.2
+  freezed_annotation: ^2.4.4
   json_annotation: ^4.9.0
 
   # core
-  _clean_flutter_internal: ^1.0.3
+  _clean_flutter_internal: ^1.0.5
 
-  fp_logger: ^1.0.0
+  fp_logger: ^1.0.1
 
-  clean_analysis: ^1.0.0
+  clean_analysis: ^1.0.1
 
 dev_dependencies:
   flutter_lints: ^4.0.0
   build_runner: ^2.4.11
-  freezed: ^2.5.4
+  freezed: ^2.5.7
   json_serializable: ^6.8.0
 
 dependency_overrides:

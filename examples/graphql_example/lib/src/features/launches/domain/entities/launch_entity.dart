@@ -7,7 +7,6 @@ part 'launch_entity.g.dart';
 
 @Freezed(map: FreezedMapOptions.none, when: FreezedWhenOptions.none)
 class LaunchModel with _$LaunchModel {
-
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory LaunchModel({
     String? id,

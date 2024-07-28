@@ -64,7 +64,8 @@ sealed class Pagination with _$Pagination {
   /// Returns true if the pagination has a next page
   bool get hasNextPage {
     return when(
-      page: (currentPage, perPage, total) => currentPage < ((total / perPage).ceil()),
+      page: (currentPage, perPage, total) =>
+          currentPage < ((total / perPage).ceil()),
       cursor: (_, __, hasNextPage) => hasNextPage,
     );
   }

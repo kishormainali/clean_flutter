@@ -6,7 +6,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 /// {@template clean_builder}
 /// A Flutter widget for building CleanBloc states.
 /// {@endtemplate}
-class CleanBuilder<B extends BlocBase<CleanState<T>>, T> extends BlocBuilder<B, CleanState<T>> {
+class CleanBuilder<B extends BlocBase<CleanState<T>>, T>
+    extends BlocBuilder<B, CleanState<T>> {
   /// {@macro clean_builder}
   CleanBuilder({
     super.key,
@@ -48,8 +49,12 @@ class CleanBuilder<B extends BlocBase<CleanState<T>>, T> extends BlocBuilder<B, 
           builder: builder ??
               (context, state) {
                 return state.maybeWhen(
-                  orElse: () => loadingBuilder?.call(context) ?? DefaultBuilders.defaultLoadingBuilder(context),
-                  error: (error) => errorBuilder?.call(context, error) ?? DefaultBuilders.defaultErrorBuilder(context, error),
+                  orElse: () =>
+                      loadingBuilder?.call(context) ??
+                      DefaultBuilders.defaultLoadingBuilder(context),
+                  error: (error) =>
+                      errorBuilder?.call(context, error) ??
+                      DefaultBuilders.defaultErrorBuilder(context, error),
                   success: (data, _) {
                     assert(
                       successBuilder != null,
@@ -65,7 +70,8 @@ class CleanBuilder<B extends BlocBase<CleanState<T>>, T> extends BlocBuilder<B, 
 /// {@template clean_listener}
 /// A Flutter widget for listening to CleanBloc state changes.
 /// {@endtemplate}
-class CleanListener<B extends BlocBase<CleanState<T>>, T> extends BlocListener<B, CleanState<T>> {
+class CleanListener<B extends BlocBase<CleanState<T>>, T>
+    extends BlocListener<B, CleanState<T>> {
   /// {@macro clean_listener}
   CleanListener({
     /// Child widget
@@ -106,7 +112,8 @@ class CleanListener<B extends BlocBase<CleanState<T>>, T> extends BlocListener<B
 /// {@template clean_consumer}
 /// A Flutter widget for handling CleanBloc state changes.
 /// {@endtemplate}
-class CleanConsumer<B extends BlocBase<CleanState<T>>, T> extends BlocConsumer<B, CleanState<T>> {
+class CleanConsumer<B extends BlocBase<CleanState<T>>, T>
+    extends BlocConsumer<B, CleanState<T>> {
   /// {@macro clean_consumer}
   CleanConsumer({
     super.key,
@@ -169,8 +176,12 @@ class CleanConsumer<B extends BlocBase<CleanState<T>>, T> extends BlocConsumer<B
           builder: builder ??
               (context, state) {
                 return state.maybeWhen(
-                  orElse: () => loadingBuilder?.call(context) ?? DefaultBuilders.defaultLoadingBuilder(context),
-                  error: (error) => errorBuilder?.call(context, error) ?? DefaultBuilders.defaultErrorBuilder(context, error),
+                  orElse: () =>
+                      loadingBuilder?.call(context) ??
+                      DefaultBuilders.defaultLoadingBuilder(context),
+                  error: (error) =>
+                      errorBuilder?.call(context, error) ??
+                      DefaultBuilders.defaultErrorBuilder(context, error),
                   success: (data, _) {
                     assert(
                       successBuilder != null,

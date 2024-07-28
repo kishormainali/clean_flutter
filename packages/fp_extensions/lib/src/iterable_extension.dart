@@ -36,7 +36,8 @@ extension IterationWithIndex<T> on Iterable<T> {
 
   /// Expands each element and index to a number of elements in a new iterable.
   Iterable<R> expandIndexed<R>(
-      Iterable<R> Function(int index, T element) expand,) sync* {
+    Iterable<R> Function(int index, T element) expand,
+  ) sync* {
     var index = 0;
     for (final element in this) {
       yield* expand(index++, element);

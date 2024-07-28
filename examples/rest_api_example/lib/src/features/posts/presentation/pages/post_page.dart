@@ -28,40 +28,41 @@ class PostPage extends StatelessWidget {
         body: BlocBuilder<PostListCubit, PostListState>(
           builder: (context, state) {
             return state.maybeWhen(
-                orElse: () => const Center(
-                      child: CircularProgressIndicator(),
-                    ),
-                error: (message) => Center(
-                      child: Text(message),
-                    ),
-                success: (posts) {
-                  if (posts.isEmpty) {
-                    return const Center(
-                      child: Text('No posts found'),
-                    );
-                  }
-                  return ListView.separated(
-                    itemCount: posts.length,
-                    itemBuilder: (context, index) {
-                      final post = posts[index];
-                      return GestureDetector(
-                        onTap: () {
-                          context.pushRoute(PostDetailRoute(id: post.id));
-                        },
-                        child: ListTile(
-                          title: Text(post.title),
-                          subtitle: Text(post.body),
-                          titleTextStyle: const TextStyle(
-                            fontSize: 18,
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      );
-                    },
-                    separatorBuilder: (context, index) => const Divider(),
+              orElse: () => const Center(
+                child: CircularProgressIndicator(),
+              ),
+              error: (message) => Center(
+                child: Text(message),
+              ),
+              success: (posts) {
+                if (posts.isEmpty) {
+                  return const Center(
+                    child: Text('No posts found'),
                   );
-                },);
+                }
+                return ListView.separated(
+                  itemCount: posts.length,
+                  itemBuilder: (context, index) {
+                    final post = posts[index];
+                    return GestureDetector(
+                      onTap: () {
+                        context.pushRoute(PostDetailRoute(id: post.id));
+                      },
+                      child: ListTile(
+                        title: Text(post.title),
+                        subtitle: Text(post.body),
+                        titleTextStyle: const TextStyle(
+                          fontSize: 18,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    );
+                  },
+                  separatorBuilder: (context, index) => const Divider(),
+                );
+              },
+            );
           },
         ),
       ),

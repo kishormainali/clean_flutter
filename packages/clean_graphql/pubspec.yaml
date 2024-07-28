@@ -1,6 +1,6 @@
 name: clean_graphql
 description: Wrapper around ferry for clean architecture to handle graphql request, uses ferry and dio under the hood
-version: 1.0.2
+version: 1.0.3
 homepage: https://github.com/kishormainali/clean_flutter
 repository: https://github.com/kishormainali/clean_flutter
 issue_tracker: https://github.com/kishormainali/clean_flutter/issues
@@ -28,13 +28,13 @@ dependencies:
 
   ferry: ^0.16.0+1
 
-  dio: ^5.5.0
+  dio: ^5.5.0+1
 
-  gql: ^1.0.0
+  gql: ^1.0.0+1
 
-  _clean_flutter_internal: ^1.0.3
+  _clean_flutter_internal: ^1.0.5
 
-  gql_exec: ^1.0.0
+  gql_exec: ^1.0.0+1
 
   meta: any # version pinned by flutter sdk
 
@@ -44,14 +44,10 @@ dependencies:
 
   mime: ^1.0.5
 
-  http_parser: ^4.1.0
+  http_parser: any
 
   path: ^1.9.0
 
-  fp_logger: ^1.0.0
-
-dependency_overrides:
-  meta: ^1.15.0
-  collection: ^1.19.0
+  fp_logger: ^1.0.1
 
 flutter:

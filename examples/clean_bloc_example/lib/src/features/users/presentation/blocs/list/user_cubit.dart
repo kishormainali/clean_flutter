@@ -6,7 +6,6 @@ import 'package:injectable/injectable.dart';
 
 @injectable
 class UserCubit extends PaginatedCleanCubit<UserModel> {
-
   UserCubit(this._repository) {
     init();
   }

@@ -38,7 +38,8 @@ extension StringX on String {
   /// example: 'US'.flag returns 🇺🇸
   String get flag {
     if (isBlank) return '';
-    String match(Match match) => String.fromCharCode(match.group(0)!.codeUnitAt(0) + 127397);
+    String match(Match match) =>
+        String.fromCharCode(match.group(0)!.codeUnitAt(0) + 127397);
     return toUpperCase().replaceAllMapped(RegExp('[A-Z]'), match);
   }
 
@@ -130,7 +131,10 @@ extension StringX on String {
   /// remove all \n \r \t from string
   String replaceEscaped([String replacement = ' ']) {
     if (isBlank) return this;
-    return trim().replaceAll(RegExp(RegexPattern.escapedChar), replacement).trim().removeExtraSpace;
+    return trim()
+        .replaceAll(RegExp(RegexPattern.escapedChar), replacement)
+        .trim()
+        .removeExtraSpace;
   }
 
   /// tries to parse as bool
@@ -226,7 +230,16 @@ extension StringX on String {
   bool get isJson => RegexMatcher.match(this, RegexPattern.json);
 
   /// checks whether string is docx,pdf,xls,ppt, txt.csv,xml,archive or json
-  bool get isFile => isPdf || isDocx || isPpt || isXls || isTxt || isXml || isCsv || isArchive || isJson;
+  bool get isFile =>
+      isPdf ||
+      isDocx ||
+      isPpt ||
+      isXls ||
+      isTxt ||
+      isXml ||
+      isCsv ||
+      isArchive ||
+      isJson;
 }
 
 /// use to convert string into different cases
@@ -284,10 +297,15 @@ class _ReCase {
   String get initials {
     if (_words.isEmpty) return '';
     if (_words.length == 1) {
-      return '${_words.first[0].toUpperCase()}${_words.first[1].toUpperCase()}'.trim();
+      return '${_words.first[0].toUpperCase()}${_words.first[1].toUpperCase()}'
+          .trim();
     }
     if (_words.length > 2) {
-      return _words.getRange(0, 2).map((word) => word[0].toUpperCase()).join().trim();
+      return _words
+          .getRange(0, 2)
+          .map((word) => word[0].toUpperCase())
+          .join()
+          .trim();
     }
     return _words.map((word) => word[0].toUpperCase()).join().trim();
   }
@@ -345,7 +363,9 @@ class _ReCase {
 
       sb.write(char);
 
-      final isEndOfWord = nextChar == null || (_upperAlphaRegex.hasMatch(nextChar) && !isAllCaps) || symbolSet.contains(nextChar);
+      final isEndOfWord = nextChar == null ||
+          (_upperAlphaRegex.hasMatch(nextChar) && !isAllCaps) ||
+          symbolSet.contains(nextChar);
 
       if (isEndOfWord) {
         words.add(sb.toString());

@@ -14,7 +14,6 @@ class LaunchRocketEntity with _$LaunchRocketEntity {
 
 @Freezed(map: FreezedMapOptions.none, when: FreezedWhenOptions.none)
 class RocketEntity with _$RocketEntity {
-
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory RocketEntity({
     String? id,

@@ -6,7 +6,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 /// {@template paginated_clean_builder}
 /// A Flutter widget for building PaginatedCleanBloc states.
 /// {@endtemplate}
-class PaginatedCleanBuilder<B extends BlocBase<PaginatedState<T>>, T> extends BlocBuilder<B, PaginatedState<T>> {
+class PaginatedCleanBuilder<B extends BlocBase<PaginatedState<T>>, T>
+    extends BlocBuilder<B, PaginatedState<T>> {
   /// {@macro paginated_clean_builder}
   PaginatedCleanBuilder({
     super.key,
@@ -48,8 +49,12 @@ class PaginatedCleanBuilder<B extends BlocBase<PaginatedState<T>>, T> extends Bl
           builder: builder ??
               (context, state) {
                 return state.maybeWhen(
-                  orElse: () => loadingBuilder?.call(context) ?? DefaultBuilders.defaultLoadingBuilder(context),
-                  error: (error) => errorBuilder?.call(context, error) ?? DefaultBuilders.defaultErrorBuilder(context, error),
+                  orElse: () =>
+                      loadingBuilder?.call(context) ??
+                      DefaultBuilders.defaultLoadingBuilder(context),
+                  error: (error) =>
+                      errorBuilder?.call(context, error) ??
+                      DefaultBuilders.defaultErrorBuilder(context, error),
                   success: (data, _, loadingMore) {
                     assert(
                       successBuilder != null,
@@ -69,7 +74,8 @@ class PaginatedCleanBuilder<B extends BlocBase<PaginatedState<T>>, T> extends Bl
 /// {@template paginated_clean_listener}
 /// A Flutter widget for listening to PaginatedCleanBloc state changes.
 /// {@endtemplate}
-class PaginatedCleanListener<B extends BlocBase<PaginatedState<T>>, T> extends BlocListener<B, PaginatedState<T>> {
+class PaginatedCleanListener<B extends BlocBase<PaginatedState<T>>, T>
+    extends BlocListener<B, PaginatedState<T>> {
   /// {@macro paginated_clean_listener}
   PaginatedCleanListener({
     /// Child widget
@@ -108,7 +114,8 @@ class PaginatedCleanListener<B extends BlocBase<PaginatedState<T>>, T> extends B
 /// {@template paginated_clean_consumer}
 /// A Flutter widget for building and listening to PaginatedCleanBloc state changes.
 /// {@endtemplate}
-class PaginatedCleanConsumer<B extends BlocBase<PaginatedState<T>>, T, E> extends BlocConsumer<B, PaginatedState<T>> {
+class PaginatedCleanConsumer<B extends BlocBase<PaginatedState<T>>, T, E>
+    extends BlocConsumer<B, PaginatedState<T>> {
   /// {@macro paginated_clean_consumer}
   PaginatedCleanConsumer({
     super.key,
@@ -156,8 +163,12 @@ class PaginatedCleanConsumer<B extends BlocBase<PaginatedState<T>>, T, E> extend
           builder: builder ??
               (context, state) {
                 return state.maybeWhen(
-                  orElse: () => loadingBuilder?.call(context) ?? DefaultBuilders.defaultLoadingBuilder(context),
-                  error: (error) => errorBuilder?.call(context, error) ?? DefaultBuilders.defaultErrorBuilder(context, error),
+                  orElse: () =>
+                      loadingBuilder?.call(context) ??
+                      DefaultBuilders.defaultLoadingBuilder(context),
+                  error: (error) =>
+                      errorBuilder?.call(context, error) ??
+                      DefaultBuilders.defaultErrorBuilder(context, error),
                   success: (data, _, isLoadingMore) {
                     assert(
                       successBuilder != null,

@@ -4,7 +4,6 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="generator" content="made with love by dartdoc 7.0.0-wip">
   <meta name="description" content="clean_network API docs, for the Dart programming language.">
   <title>clean_network - Dart API docs</title>
 
@@ -12,7 +11,7 @@
   
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
   
   <link rel="stylesheet" href="static-assets/github.css?v1">
   <link rel="stylesheet" href="static-assets/styles.css?v1">
@@ -29,20 +28,20 @@
 <header id="title">
   <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
-    <li><a href="https://github.com/kishormainali/clean_network">clean_network package</a></li>
+    <li><a href="https://github.com/kishormainali/clean_flutter">clean_network package</a></li>
   </ol>
   <div class="self-name">clean_network</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
-  <div class="toggle" id="theme-button">
+  <div class="toggle" id="theme-button" title="Toggle brightness">
     <label for="theme">
       <input type="checkbox" id="theme" value="light-theme">
       <span id="dark-theme-button" class="material-symbols-outlined">
-        brightness_4
+        dark_mode
       </span>
       <span id="light-theme-button" class="material-symbols-outlined">
-        brightness_5
+        light_mode
       </span>
     </label>
   </div>
@@ -70,22 +69,17 @@ import 'package:injectable/injectable.dart';
 @module
 abstract class ThirdPartyModules {
   @lazySingleton
-  CleanNetwork get network =&gt; CleanNetwork(
+  CleanClient get client =&gt; CleanClient(
         options: const CleanBaseOptions(
           baseUrl: 'https://jsonplaceholder.typicode.com',
           headers: {
             'Content-Type': 'application/json',
           },
-         loggerOptions: LoggerOptions(
-           enable: true,
-           request: true,
-           response: true,
-         ),
         ),
       );
 }
 </code></pre>
-<h3 id="4-create-remote-service">4. Create remote service</h3>
+<h3 id="4-create-remote-source">4. Create remote source</h3>
 <pre class="language-dart"><code class="language-dart">import 'package:clean_network/clean_network.dart';
 import 'package:example/src/features/posts/data/models/post_model.dart';
 import 'package:injectable/injectable.dart';
@@ -111,26 +105,8 @@ class PostSourceImpl extends BaseSource implements PostSource {
   CleanResponse&lt;PostModel&gt; getSinglePost(int id) {
     return get(
       '/posts/$id',
-      onSuccess: (response) =&gt; PostModel.fromJson(response),
+      onSuccess: PostModel.fromJson,
     );
-  }
-}
-</code></pre>
-<h3 id="5-create-base-repository-for-handling-network-errors-that-can-be-extended-by-other-repositories">5. Create base repository for handling network errors that can be extended by other repositories</h3>
-<blockquote>
-<p>if you want your errors handling in repository level you can skip this step
-and extends BaseRepository directly in your repository</p>
-</blockquote>
-<pre class="language-dart"><code class="language-dart">import 'package:clean_network/clean_network.dart';
-import 'package:example/src/core/errors/app_error.dart';
-import 'package:fpdart/fpdart.dart';
-
-typedef EitherResponse&lt;T&gt; = TaskEither&lt;AppError, T&gt;;
-
-class AppBaseRepository extends BaseRepository&lt;AppError&gt; {
-  @override
-  AppError errorConverter(ApiException exception) {
-    return AppError(exception.toString());
   }
 }
 </code></pre>
@@ -142,7 +118,7 @@ import 'package:example/src/features/posts/domain/repository/post_repository.dar
 import 'package:injectable/injectable.dart';
 
 @LazySingleton(as: PostRepository)
-class PostRepositoryImpl extends AppBaseRepository implements PostRepository {
+class PostRepositoryImpl extends BaseRepository implements PostRepository {
   final PostSource _postSource;
 
   PostRepositoryImpl(this._postSource);
@@ -159,22 +135,24 @@ class PostRepositoryImpl extends AppBaseRepository implements PostRepository {
   }
 }
 </code></pre>
-<p>for more details check the examples folder</p>
-<ol>
-<li><a href="/examples/rest_api_example/">Rest API</a></li>
-<li><a href="/examples/graphql_example/">GraphQL API</a></li>
-</ol>
 </section>
 
 
       <section class="summary">
           <h2>Libraries</h2>
         <dl>
+          <dt id="clean_core">
+  <span class="name"><a href="clean_core/clean_core-library.html">clean_core</a></span> 
+
+</dt>
+<dd>Clean Core is a package that contains the core functionality of the Clean Architecture.
+</dd>
+
           <dt id="clean_network">
   <span class="name"><a href="clean_network/clean_network-library.html">clean_network</a></span> 
 
 </dt>
-<dd>A Clean Network library made on top of Dio and gql.
+<dd>A Clean Network library made on top of Dio.
 </dd>
 
         </dl>
@@ -191,13 +169,14 @@ class PostRepositoryImpl extends AppBaseRepository implements PostRepository {
 </header>
 
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
-    <li><a href="https://github.com/kishormainali/clean_network">clean_network package</a></li>
+    <li><a href="https://github.com/kishormainali/clean_flutter">clean_network package</a></li>
 </ol>
 
 
     <h5 class="hidden-xs"><span class="package-name">clean_network</span> <span class="package-kind">package</span></h5>
     <ol>
       <li class="section-title">Libraries</li>
+      <li><a href="clean_core/clean_core-library.html">clean_core</a></li>
       <li><a href="clean_network/clean_network-library.html">clean_network</a></li>
 </ol>
 
@@ -211,7 +190,7 @@ class PostRepositoryImpl extends AppBaseRepository implements PostRepository {
 <footer>
   <span class="no-break">
     clean_network
-      1.0.7
+      2.1.1
   </span>
 
   

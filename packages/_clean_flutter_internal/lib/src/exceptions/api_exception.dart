@@ -28,7 +28,8 @@ abstract base class ApiException implements Exception {
 /// Handles common errors and returns the appropriate [ApiException].
 /// {@endtemplate}
 ApiException handleCommonError<T>(Object exception, StackTrace stacktrace) {
-  if (exception is FormatException || exception.toString().contains('is not a subtype of')) {
+  if (exception is FormatException ||
+      exception.toString().contains('is not a subtype of')) {
     return ParseException(
       message: exception.toString(),
       stackTrace: stacktrace,

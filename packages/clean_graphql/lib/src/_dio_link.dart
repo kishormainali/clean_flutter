@@ -55,8 +55,7 @@ class DioLink extends Link {
 
   @override
   Stream<Response> request(Request request, [NextLink? forward]) async* {
-    final dioResponse =
-        await _executeDioRequest(
+    final dioResponse = await _executeDioRequest(
       request: request,
       headers: <String, String>{
         dio.Headers.acceptHeader: '*/*',
@@ -272,8 +271,7 @@ class DioLink extends Link {
 
   Map<String, String> _getHttpLinkHeaders(Request request) {
     try {
-      final linkHeaders =
-          request.context.entry<HttpLinkHeaders>();
+      final linkHeaders = request.context.entry<HttpLinkHeaders>();
       return {
         if (linkHeaders != null) ...linkHeaders.headers,
       };

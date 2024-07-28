@@ -10,7 +10,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 /// {@template clean_cubit}
 /// A [Cubit] which handles a remote call and emits the appropriate state
 /// {@endtemplate}
-abstract class CleanCubit<T> extends Cubit<CleanState<T>> with SafeEmitMixin<CleanState<T>>, CompleterMixin {
+abstract class CleanCubit<T> extends Cubit<CleanState<T>>
+    with SafeEmitMixin<CleanState<T>>, CompleterMixin {
   /// {@macro clean_cubit}
   CleanCubit() : super(CleanStateInitial<T>());
 

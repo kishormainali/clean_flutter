@@ -23,7 +23,9 @@ class DioLogger extends Interceptor {
     if (dioOptions.requestHeader) {
       _printRequestHeader(options);
     }
-    if (dioOptions.requestBody && options.method != 'GET' && options.data != null) {
+    if (dioOptions.requestBody &&
+        options.method != 'GET' &&
+        options.data != null) {
       final data = options.data;
       if (data is FormData) {
         final formMaps = {}
@@ -77,7 +79,8 @@ class DioLogger extends Interceptor {
   }
 
   void _printResponseHeader(Response response) {
-    final message = 'Method:: ${response.requestOptions.method} URI:: ${response.requestOptions.uri} Status:: ${response.statusCode}';
+    final message =
+        'Method:: ${response.requestOptions.method} URI:: ${response.requestOptions.uri} Status:: ${response.statusCode}';
     Logger.i(message);
   }
 

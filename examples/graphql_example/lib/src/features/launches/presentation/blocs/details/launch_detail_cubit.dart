@@ -9,7 +9,8 @@ part 'launch_detail_state.dart';
 
 @injectable
 class LaunchDetailCubit extends Cubit<LaunchDetailState> {
-  LaunchDetailCubit(this._repository) : super(const LaunchDetailState.initial());
+  LaunchDetailCubit(this._repository)
+      : super(const LaunchDetailState.initial());
   final LaunchRepository _repository;
 
   Future<void> getLaunchDetails(String id) async {

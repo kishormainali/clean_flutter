@@ -31,7 +31,8 @@ class UserList extends StatelessWidget {
   Widget build(BuildContext context) {
     return NotificationListener<ScrollNotification>(
       onNotification: (notification) {
-        if (notification is ScrollEndNotification && notification.metrics.extentAfter == 0) {
+        if (notification is ScrollEndNotification &&
+            notification.metrics.extentAfter == 0) {
           context.read<UserCubit>().fetchMore();
           return true;
         }

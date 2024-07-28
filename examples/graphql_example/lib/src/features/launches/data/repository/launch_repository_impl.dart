@@ -14,7 +14,8 @@ final class LaunchRepositoryImpl implements LaunchRepository {
   FutureResult<List<LaunchModel>> getLaunches() {
     return Result.fromAsync(
       _launchSource.getLaunches,
-      onSuccess: (data) => data.launches!.map((e) => LaunchModel.fromJson(e!.toJson())).toList(),
+      onSuccess: (data) =>
+          data.launches!.map((e) => LaunchModel.fromJson(e!.toJson())).toList(),
     );
   }
 

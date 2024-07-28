@@ -114,7 +114,8 @@ class Field<T> with _$Field<T> {
       ..removeWhere(
         (validator) {
           if (validator is MatchValidator<T>) {
-            return matchHolders.any((matchHolder) => matchHolder.key == validator.key);
+            return matchHolders
+                .any((matchHolder) => matchHolder.key == validator.key);
           }
           return false;
         },
@@ -134,7 +135,8 @@ class Field<T> with _$Field<T> {
       value: updatedValue,
       validators: validators.toList(),
       isPure: !autoValidate,
-      errorMessage: autoValidate ? _validate(updatedValue, validators.toList()) : null,
+      errorMessage:
+          autoValidate ? _validate(updatedValue, validators.toList()) : null,
     );
   }
 

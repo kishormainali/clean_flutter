@@ -17,7 +17,7 @@ dependencies:
 
   gap: ^3.0.1
 
-  clean_analysis: ^1.0.0
+  clean_analysis: ^1.0.1
 
 dev_dependencies:
   flutter_test:

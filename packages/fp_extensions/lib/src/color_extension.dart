@@ -27,7 +27,8 @@ extension ColorHex on Color {
   /// Color color = ColorHex.fromHex('#FF0000');
   /// Color color = ColorHex.fromHex('#FF0000', 50);
   /// ```
-  static Color fromHex(String hex, [int opacity = 100]) => HexColor(hex, opacity);
+  static Color fromHex(String hex, [int opacity = 100]) =>
+      HexColor(hex, opacity);
 
   /// Returns the [Color] with the opacity set to [percent].
   /// The [percent] value must be between 0 and 100.
@@ -38,7 +39,8 @@ extension ColorHex on Color {
   Color percent(int percent) {
     assert(percent >= 0 && percent <= 100, 'Percent must be between 0 and 100');
     final buffer = StringBuffer()..write(_fromOpacity(percent));
-    final hex = (value & 0xFFFFFF).toRadixString(16).padLeft(6, '0').toUpperCase();
+    final hex =
+        (value & 0xFFFFFF).toRadixString(16).padLeft(6, '0').toUpperCase();
     buffer.write(hex);
     return Color(int.parse(buffer.toString(), radix: 16));
   }
@@ -48,7 +50,8 @@ extension ColorHex on Color {
   /// String hex = Colors.red.hex;
   /// ```
   String get hex {
-    final color = (value & 0xFFFFFF).toRadixString(16).padLeft(6, '0').toUpperCase();
+    final color =
+        (value & 0xFFFFFF).toRadixString(16).padLeft(6, '0').toUpperCase();
     return '#$color';
   }
 
@@ -57,8 +60,10 @@ extension ColorHex on Color {
   /// String hex = Colors.red.hexWithOpacity;
   /// ```
   String get hexWithOpacity {
-    final hex = (value & 0xFFFFFF).toRadixString(16).padLeft(6, '0').toUpperCase();
-    final opacity = (value >> 24).toRadixString(16).padLeft(2, '0').toUpperCase();
+    final hex =
+        (value & 0xFFFFFF).toRadixString(16).padLeft(6, '0').toUpperCase();
+    final opacity =
+        (value >> 24).toRadixString(16).padLeft(2, '0').toUpperCase();
     return '#$opacity$hex';
   }
 }

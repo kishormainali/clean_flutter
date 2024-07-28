@@ -11,7 +11,7 @@
   
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
   
   <link rel="stylesheet" href="../../static-assets/github.css?v1">
   <link rel="stylesheet" href="../../static-assets/styles.css?v1">
@@ -37,33 +37,33 @@
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
-  <div class="toggle" id="theme-button">
+  <div class="toggle" id="theme-button" title="Toggle brightness">
     <label for="theme">
       <input type="checkbox" id="theme" value="light-theme">
       <span id="dark-theme-button" class="material-symbols-outlined">
-        brightness_4
+        dark_mode
       </span>
       <span id="light-theme-button" class="material-symbols-outlined">
-        brightness_5
+        light_mode
       </span>
     </label>
   </div>
 </header>
 <main>
 
-  <div
-      id="dartdoc-main-content"
-      class="main-content"
-      data-above-sidebar="clean_graphql&#47;GraphSource-class-sidebar.html"
-      data-below-sidebar="">
-      <div>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="clean_graphql&#47;GraphSource-class-sidebar.html"
+    data-below-sidebar="">
+    <div>
 <h1><span class="kind-method">request&lt;<wbr><span class="type-parameter">R</span>, <span class="type-parameter">TData</span>, <span class="type-parameter">TVars</span>&gt;</span> method 
 </h1></div>
 
     <section class="multi-line-signature">
       
 
-<span class="returntype"><a href="../../clean_core/CleanResponse.html">CleanResponse</a><span class="signature">&lt;<wbr><span class="type-parameter">R</span>&gt;</span></span>
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">R</span>&gt;</span></span>
 <span class="name ">request</span>&lt;<wbr><span class="type-parameter">R</span>, <span class="type-parameter">TData</span>, <span class="type-parameter">TVars</span>&gt;(<wbr><ol class="parameter-list"><li><span class="parameter" id="request-param-operationRequest">{<span>required</span> <span class="type-annotation"><a href="https://pub.dev/documentation/ferry_exec/0.6.1/ferry_exec/OperationRequest-class.html">OperationRequest</a><span class="signature">&lt;<wbr><span class="type-parameter">TData</span>, <span class="type-parameter">TVars</span>&gt;</span></span> <span class="parameter-name">operationRequest</span>, </span></li>
 <li><span class="parameter" id="request-param-successHandler"><span class="type-annotation"><a href="../../clean_graphql/GraphQLSuccessHandler.html">GraphQLSuccessHandler</a><span class="signature">&lt;<wbr><span class="type-parameter">R</span>, <span class="type-parameter">TData</span>&gt;</span>?</span> <span class="parameter-name">successHandler</span>}</span></li>
 </ol>)
@@ -73,38 +73,36 @@
     </section>
     
 <section class="desc markdown">
-  <p>future request</p>
+  <p>Request a single operation</p>
 </section>
 
 
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">CleanResponse&lt;R&gt; request&lt;R, TData, TVars&gt;({
+  <pre class="language-dart"><code class="language-dart">Future&lt;R&gt; request&lt;R, TData, TVars&gt;({
   required OperationRequest&lt;TData, TVars&gt; operationRequest,
   GraphQLSuccessHandler&lt;R, TData&gt;? successHandler,
-}) {
+}) async {
   try {
-    return Task(() async {
-      final response = await client.request(operationRequest).first;
-      if (response.hasErrors) {
-        throw BadRequestException(
-          message: DioExtensionMessages.badRequestError,
-          errors: response.graphqlErrors,
-          stackTrace: StackTrace.current,
-        );
-      }
-      if (response.data != null) {
-        if (successHandler != null) {
-          return successHandler(response.data as TData);
-        }
-        return response.data as R;
-      }
-      throw ServerException(
-        message: DioExtensionMessages.unexpectedError,
+    final response = await client.request(operationRequest).first;
+    if (response.hasErrors) {
+      throw BadRequestException(
+        message: DioExtensionMessages.badRequestError,
+        errors: response.graphqlErrors,
         stackTrace: StackTrace.current,
       );
-    });
+    }
+    if (response.data != null) {
+      if (successHandler != null) {
+        return successHandler(response.data as TData);
+      }
+      return response.data as R;
+    }
+    throw ServerException(
+      message: DioExtensionMessages.unexpectedError,
+      stackTrace: StackTrace.current,
+    );
   } catch (exception, stacktrace) {
     if (exception is ApiException) rethrow;
     throw onError(exception, stacktrace);
@@ -136,14 +134,14 @@
   </div><!--/.sidebar-offcanvas-->
 
   <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
-  </div><!--/.sidebar-offcanvas-->
+</div><!--/.sidebar-offcanvas-->
 
 </main>
 
 <footer>
   <span class="no-break">
     clean_graphql
-      1.0.1
+      1.0.3
   </span>
 
   

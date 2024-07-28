@@ -7,14 +7,19 @@ import 'package:meta/meta.dart';
 
 typedef GraphQLSuccessHandler<R, TData> = R Function(TData data);
 
+/// {@template graph_source}
+/// A base class for all graph sources.
+/// {@endtemplate}
 abstract class GraphSource {
+  /// {@macro graph_source}
   const GraphSource(this.client);
 
+  /// client for making requests
   @internal
   @visibleForTesting
   final TypedLink client;
 
-  /// future request
+  /// Request a single operation
   Future<R> request<R, TData, TVars>({
     required OperationRequest<TData, TVars> operationRequest,
     GraphQLSuccessHandler<R, TData>? successHandler,

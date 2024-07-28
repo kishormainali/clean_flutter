@@ -11,7 +11,7 @@
   
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
   
   <link rel="stylesheet" href="../static-assets/github.css?v1">
   <link rel="stylesheet" href="../static-assets/styles.css?v1">
@@ -36,26 +36,26 @@
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
-  <div class="toggle" id="theme-button">
+  <div class="toggle" id="theme-button" title="Toggle brightness">
     <label for="theme">
       <input type="checkbox" id="theme" value="light-theme">
       <span id="dark-theme-button" class="material-symbols-outlined">
-        brightness_4
+        dark_mode
       </span>
       <span id="light-theme-button" class="material-symbols-outlined">
-        brightness_5
+        light_mode
       </span>
     </label>
   </div>
 </header>
 <main>
 
-  <div
-      id="dartdoc-main-content"
-      class="main-content"
-      data-above-sidebar="clean_graphql&#47;clean_graphql-library-sidebar.html"
-      data-below-sidebar="clean_graphql&#47;ClientOptions-class-sidebar.html">
-      <div>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="clean_graphql&#47;clean_graphql-library-sidebar.html"
+    data-below-sidebar="clean_graphql&#47;ClientOptions-class-sidebar.html">
+    <div>
 <h1><span class="kind-class">ClientOptions</span> class 
  
 </h1></div>
@@ -87,7 +87,7 @@
   <dt>Annotations</dt>
   <dd>
     <ul class="annotation-list clazz-relationships">
-        <li>@<a href="https://pub.dev/documentation/meta/1.11.0/meta/immutable-constant.html">immutable</a></li>
+        <li>@<a href="https://pub.dev/documentation/meta/1.12.0/meta/immutable-constant.html">immutable</a></li>
     </ul>
   </dd>
 
@@ -101,7 +101,7 @@
 
     <dl class="constructor-summary-list">
         <dt id="ClientOptions" class="callable">
-          <span class="name"><a href="../clean_graphql/ClientOptions/ClientOptions.html">ClientOptions</a></span><span class="signature">(<span class="parameter" id="-param-baseUrl">{<span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">baseUrl</span>, </span><span class="parameter" id="-param-typePolicies"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>, <span class="type-parameter"><a href="https://pub.dev/documentation/normalize/0.9.1/normalize/TypePolicy-class.html">TypePolicy</a></span>&gt;</span></span> <span class="parameter-name">typePolicies</span> = <span class="default-value">const {}</span>, </span><span class="parameter" id="-param-updateCacheHandlers"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>, <span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/Function-class.html">Function</a></span>&gt;</span></span> <span class="parameter-name">updateCacheHandlers</span> = <span class="default-value">const {}</span>, </span><span class="parameter" id="-param-defaultFetchPolicies"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://pub.dev/documentation/gql/1.0.0+1/ast/OperationType.html">OperationType</a></span>, <span class="type-parameter"><a href="https://pub.dev/documentation/ferry_exec/0.6.1/ferry_exec/FetchPolicy-class.html">FetchPolicy</a></span>&gt;</span></span> <span class="parameter-name">defaultFetchPolicies</span> = <span class="default-value">const {}</span>, </span><span class="parameter" id="-param-cache"><span class="type-annotation"><a href="https://pub.dev/documentation/ferry_cache/0.9.0+1/ferry_cache/Cache-class.html">Cache</a>?</span> <span class="parameter-name">cache</span>, </span><span class="parameter" id="-param-responseParser"><span class="type-annotation"><a href="https://pub.dev/documentation/gql_link/1.0.0+1/link/ResponseParser-class.html">ResponseParser</a></span> <span class="parameter-name">responseParser</span> = <span class="default-value">const ResponseParser()</span>, </span><span class="parameter" id="-param-requestSerializer"><span class="type-annotation"><a href="https://pub.dev/documentation/gql_link/1.0.0+1/link/RequestSerializer-class.html">RequestSerializer</a></span> <span class="parameter-name">requestSerializer</span> = <span class="default-value">const RequestSerializer()</span>, </span><span class="parameter" id="-param-useGETForQueries"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">useGETForQueries</span> = <span class="default-value">false</span>, </span><span class="parameter" id="-param-serializableErrors"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">serializableErrors</span> = <span class="default-value">false</span>, </span><span class="parameter" id="-param-defaultHeaders"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>, <span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span></span> <span class="parameter-name">defaultHeaders</span> = <span class="default-value">const {}</span>, </span><span class="parameter" id="-param-loggerOptions"><span class="type-annotation"><a href="../clean_core/LoggerOptions-class.html">LoggerOptions</a></span> <span class="parameter-name">loggerOptions</span> = <span class="default-value">const LoggerOptions()</span>}</span>)</span>
+          <span class="name"><a href="../clean_graphql/ClientOptions/ClientOptions.html">ClientOptions</a></span><span class="signature">(<span class="parameter" id="-param-baseUrl">{<span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">baseUrl</span>, </span><span class="parameter" id="-param-typePolicies"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>, <span class="type-parameter"><a href="https://pub.dev/documentation/normalize/0.9.1/normalize/TypePolicy-class.html">TypePolicy</a></span>&gt;</span></span> <span class="parameter-name">typePolicies</span> = <span class="default-value">const {}</span>, </span><span class="parameter" id="-param-updateCacheHandlers"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>, <span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/Function-class.html">Function</a></span>&gt;</span></span> <span class="parameter-name">updateCacheHandlers</span> = <span class="default-value">const {}</span>, </span><span class="parameter" id="-param-defaultFetchPolicies"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://pub.dev/documentation/gql/1.0.0+1/ast/OperationType.html">OperationType</a></span>, <span class="type-parameter"><a href="https://pub.dev/documentation/ferry_exec/0.6.1/ferry_exec/FetchPolicy-class.html">FetchPolicy</a></span>&gt;</span></span> <span class="parameter-name">defaultFetchPolicies</span> = <span class="default-value">const {}</span>, </span><span class="parameter" id="-param-cache"><span class="type-annotation"><a href="https://pub.dev/documentation/ferry_cache/0.9.0+1/ferry_cache/Cache-class.html">Cache</a>?</span> <span class="parameter-name">cache</span>, </span><span class="parameter" id="-param-responseParser"><span class="type-annotation"><a href="https://pub.dev/documentation/gql_link/1.0.0+1/link/ResponseParser-class.html">ResponseParser</a></span> <span class="parameter-name">responseParser</span> = <span class="default-value">const ResponseParser()</span>, </span><span class="parameter" id="-param-requestSerializer"><span class="type-annotation"><a href="https://pub.dev/documentation/gql_link/1.0.0+1/link/RequestSerializer-class.html">RequestSerializer</a></span> <span class="parameter-name">requestSerializer</span> = <span class="default-value">const RequestSerializer()</span>, </span><span class="parameter" id="-param-useGETForQueries"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">useGETForQueries</span> = <span class="default-value">false</span>, </span><span class="parameter" id="-param-serializableErrors"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">serializableErrors</span> = <span class="default-value">false</span>, </span><span class="parameter" id="-param-defaultHeaders"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>, <span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span></span> <span class="parameter-name">defaultHeaders</span> = <span class="default-value">const {}</span>, </span><span class="parameter" id="-param-loggerOptions"><span class="type-annotation">DioLoggerOptions</span> <span class="parameter-name">loggerOptions</span> = <span class="default-value">const DioLoggerOptions()</span>}</span>)</span>
         </dt>
         <dd>
           The options for the client
@@ -109,14 +109,16 @@
         </dd>
     </dl>
   </section>
-
-    <section class="summary offset-anchor" id="instance-properties">
-      <h2>Properties</h2>
-
-      <dl class="properties">
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-properties">
+    <h2>Properties</h2>
+    <dl class="properties">
         <dt id="baseUrl" class="property">
   <span class="name"><a href="../clean_graphql/ClientOptions/baseUrl.html">baseUrl</a></span>
-  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> 
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
 
 </dt>
 <dd>
@@ -127,7 +129,8 @@
 
         <dt id="cache" class="property">
   <span class="name"><a href="../clean_graphql/ClientOptions/cache.html">cache</a></span>
-  <span class="signature">&#8594; <a href="https://pub.dev/documentation/ferry_cache/0.9.0+1/ferry_cache/Cache-class.html">Cache</a>?</span> 
+  <span class="signature">&#8594; <a href="https://pub.dev/documentation/ferry_cache/0.9.0+1/ferry_cache/Cache-class.html">Cache</a>?</span>
+  
 
 </dt>
 <dd>
@@ -138,7 +141,8 @@
 
         <dt id="defaultFetchPolicies" class="property">
   <span class="name"><a href="../clean_graphql/ClientOptions/defaultFetchPolicies.html">defaultFetchPolicies</a></span>
-  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://pub.dev/documentation/gql/1.0.0+1/ast/OperationType.html">OperationType</a></span>, <span class="type-parameter"><a href="https://pub.dev/documentation/ferry_exec/0.6.1/ferry_exec/FetchPolicy-class.html">FetchPolicy</a></span>&gt;</span></span> 
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://pub.dev/documentation/gql/1.0.0+1/ast/OperationType.html">OperationType</a></span>, <span class="type-parameter"><a href="https://pub.dev/documentation/ferry_exec/0.6.1/ferry_exec/FetchPolicy-class.html">FetchPolicy</a></span>&gt;</span></span>
+  
 
 </dt>
 <dd>
@@ -149,7 +153,8 @@
 
         <dt id="defaultHeaders" class="property">
   <span class="name"><a href="../clean_graphql/ClientOptions/defaultHeaders.html">defaultHeaders</a></span>
-  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>, <span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span></span> 
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>, <span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span></span>
+  
 
 </dt>
 <dd>
@@ -160,7 +165,8 @@
 
         <dt id="hashCode" class="property inherited">
   <span class="name"><a href="https://pub.dev/documentation/equatable/2.0.5/equatable/Equatable/hashCode.html">hashCode</a></span>
-  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> 
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span>
+  
 
 </dt>
 <dd class="inherited">
@@ -171,7 +177,8 @@
 
         <dt id="loggerOptions" class="property">
   <span class="name"><a href="../clean_graphql/ClientOptions/loggerOptions.html">loggerOptions</a></span>
-  <span class="signature">&#8594; <a href="../clean_core/LoggerOptions-class.html">LoggerOptions</a></span> 
+  <span class="signature">&#8594; DioLoggerOptions</span>
+  
 
 </dt>
 <dd>
@@ -182,7 +189,8 @@
 
         <dt id="props" class="property">
   <span class="name"><a href="../clean_graphql/ClientOptions/props.html">props</a></span>
-  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/Object-class.html">Object</a>?</span>&gt;</span></span> 
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/Object-class.html">Object</a>?</span>&gt;</span></span>
+  
 
 </dt>
 <dd>
@@ -194,7 +202,8 @@ two instances are equal.
 
         <dt id="requestSerializer" class="property">
   <span class="name"><a href="../clean_graphql/ClientOptions/requestSerializer.html">requestSerializer</a></span>
-  <span class="signature">&#8594; <a href="https://pub.dev/documentation/gql_link/1.0.0+1/link/RequestSerializer-class.html">RequestSerializer</a></span> 
+  <span class="signature">&#8594; <a href="https://pub.dev/documentation/gql_link/1.0.0+1/link/RequestSerializer-class.html">RequestSerializer</a></span>
+  
 
 </dt>
 <dd>
@@ -205,7 +214,8 @@ two instances are equal.
 
         <dt id="responseParser" class="property">
   <span class="name"><a href="../clean_graphql/ClientOptions/responseParser.html">responseParser</a></span>
-  <span class="signature">&#8594; <a href="https://pub.dev/documentation/gql_link/1.0.0+1/link/ResponseParser-class.html">ResponseParser</a></span> 
+  <span class="signature">&#8594; <a href="https://pub.dev/documentation/gql_link/1.0.0+1/link/ResponseParser-class.html">ResponseParser</a></span>
+  
 
 </dt>
 <dd>
@@ -216,7 +226,8 @@ two instances are equal.
 
         <dt id="runtimeType" class="property inherited">
   <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></span>
-  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Type-class.html">Type</a></span> 
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Type-class.html">Type</a></span>
+  
 
 </dt>
 <dd class="inherited">
@@ -227,7 +238,8 @@ two instances are equal.
 
         <dt id="serializableErrors" class="property">
   <span class="name"><a href="../clean_graphql/ClientOptions/serializableErrors.html">serializableErrors</a></span>
-  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> 
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  
 
 </dt>
 <dd>
@@ -238,7 +250,8 @@ two instances are equal.
 
         <dt id="stringify" class="property inherited">
   <span class="name"><a href="https://pub.dev/documentation/equatable/2.0.5/equatable/Equatable/stringify.html">stringify</a></span>
-  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> 
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span>
+  
 
 </dt>
 <dd class="inherited">
@@ -250,7 +263,8 @@ this instance's <a href="../clean_graphql/ClientOptions/props.html">props</a>.
 
         <dt id="typePolicies" class="property">
   <span class="name"><a href="../clean_graphql/ClientOptions/typePolicies.html">typePolicies</a></span>
-  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>, <span class="type-parameter"><a href="https://pub.dev/documentation/normalize/0.9.1/normalize/TypePolicy-class.html">TypePolicy</a></span>&gt;</span></span> 
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>, <span class="type-parameter"><a href="https://pub.dev/documentation/normalize/0.9.1/normalize/TypePolicy-class.html">TypePolicy</a></span>&gt;</span></span>
+  
 
 </dt>
 <dd>
@@ -261,7 +275,8 @@ this instance's <a href="../clean_graphql/ClientOptions/props.html">props</a>.
 
         <dt id="updateCacheHandlers" class="property">
   <span class="name"><a href="../clean_graphql/ClientOptions/updateCacheHandlers.html">updateCacheHandlers</a></span>
-  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>, <span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/Function-class.html">Function</a></span>&gt;</span></span> 
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>, <span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/Function-class.html">Function</a></span>&gt;</span></span>
+  
 
 </dt>
 <dd>
@@ -272,7 +287,8 @@ this instance's <a href="../clean_graphql/ClientOptions/props.html">props</a>.
 
         <dt id="useGETForQueries" class="property">
   <span class="name"><a href="../clean_graphql/ClientOptions/useGETForQueries.html">useGETForQueries</a></span>
-  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> 
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  
 
 </dt>
 <dd>
@@ -281,9 +297,8 @@ this instance's <a href="../clean_graphql/ClientOptions/props.html">props</a>.
 
 </dd>
 
-      </dl>
-    </section>
-
+    </dl>
+  </section>
     
   <section
       class="summary offset-anchor inherited"
@@ -373,7 +388,7 @@ this instance's <a href="../clean_graphql/ClientOptions/props.html">props</a>.
 <footer>
   <span class="no-break">
     clean_graphql
-      1.0.1
+      1.0.3
   </span>
 
   

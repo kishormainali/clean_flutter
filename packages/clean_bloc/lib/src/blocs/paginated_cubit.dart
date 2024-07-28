@@ -9,7 +9,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 /// {@template paginated_clean_cubit}
 /// A [Cubit] which handles paginated data.
 /// {@endtemplate}
-abstract class PaginatedCleanCubit<T> extends Cubit<PaginatedState<T>> with SafeEmitMixin<PaginatedState<T>>, CompleterMixin, PaginationMixin {
+abstract class PaginatedCleanCubit<T> extends Cubit<PaginatedState<T>>
+    with SafeEmitMixin<PaginatedState<T>>, CompleterMixin, PaginationMixin {
   /// {@macro paginated_clean_cubit}
   PaginatedCleanCubit() : super(const PaginatedState.initial());
 
@@ -21,12 +22,14 @@ abstract class PaginatedCleanCubit<T> extends Cubit<PaginatedState<T>> with Safe
   Pagination get initialPage => const Pagination.page();
 
   /// error handler for custom logic
-  PaginatedErrorHandler<T> get onErrorState => (error) => PaginatedState.error(error: error);
+  PaginatedErrorHandler<T> get onErrorState =>
+      (error) => PaginatedState.error(error: error);
 
   /// success handler for custom logic
-  PaginatedSuccessHandler<T> get onSuccessState => (response) => PaginatedState.success(
-        data: response.data,
-      );
+  PaginatedSuccessHandler<T> get onSuccessState =>
+      (response) => PaginatedState.success(
+            data: response.data,
+          );
 
   /// Handle a remote call and emit the appropriate state
   Future<void> init({bool showLoading = true}) async {

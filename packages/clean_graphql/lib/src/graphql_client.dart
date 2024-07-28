@@ -17,6 +17,7 @@ typedef RequestController = StreamController<OperationRequest>;
 /// {@endtemplate}
 class GraphQLClient extends TypedLink {
   /// Creates a new [GraphQLClient] instance.
+  /// {@macro graphql_client}
   factory GraphQLClient({
     required ClientOptions options,
     RequestController? requestController,
@@ -34,6 +35,7 @@ class GraphQLClient extends TypedLink {
       );
 
   /// plain new instance of the client
+  /// {@macro graphql_client}
   factory GraphQLClient.newInstance(ClientOptions options) => GraphQLClient._(
         options: options,
         link: _createLink(
@@ -81,8 +83,10 @@ class GraphQLClient extends TypedLink {
   /// The underlying link
   late TypedLink _link;
 
+  /// The default cache
   static late Cache _defaultCache;
 
+  /// The request controller
   static late RequestController _requestController;
 
   /// The underlying dio link

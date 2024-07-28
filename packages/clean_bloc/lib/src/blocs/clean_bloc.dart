@@ -11,7 +11,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 /// {@template clean_bloc}
 /// A [Bloc] which handles a remote call and emits the appropriate state
 /// {@endtemplate}
-abstract class CleanBloc<T> extends Bloc<CleanEvent, CleanState<T>> with CompleterMixin {
+abstract class CleanBloc<T> extends Bloc<CleanEvent, CleanState<T>>
+    with CompleterMixin {
   /// {@macro clean_bloc}
   CleanBloc() : super(const CleanState.initial()) {
     on<CleanEventInit>(_handleInit);

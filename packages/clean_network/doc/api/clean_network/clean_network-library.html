@@ -11,7 +11,7 @@
   
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
   
   <link rel="stylesheet" href="../static-assets/github.css?v1">
   <link rel="stylesheet" href="../static-assets/styles.css?v1">
@@ -29,40 +29,46 @@
   <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../index.html">clean_network</a></li>
-    <li class="self-crumb">clean_network library</li>
+    <li class="self-crumb">clean_network.dart</li>
   </ol>
   <div class="self-name">clean_network</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
-  <div class="toggle" id="theme-button">
+  <div class="toggle" id="theme-button" title="Toggle brightness">
     <label for="theme">
       <input type="checkbox" id="theme" value="light-theme">
       <span id="dark-theme-button" class="material-symbols-outlined">
-        brightness_4
+        dark_mode
       </span>
       <span id="light-theme-button" class="material-symbols-outlined">
-        brightness_5
+        light_mode
       </span>
     </label>
   </div>
 </header>
 <main>
 
-  <div
-      id="dartdoc-main-content"
-      class="main-content"
-      data-above-sidebar=""
-      data-below-sidebar="clean_network&#47;clean_network-library-sidebar.html">
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar=""
+    data-below-sidebar="clean_network&#47;clean_network-library-sidebar.html">
+  
+    <div>
       
-      <div>
-<h1><span class="kind-library">clean_network</span> library 
+
+      <h1>
+        <span class="kind-library">clean_network</span>
+        library 
  
-</h1></div>
+
+      </h1>
+    </div>
 
     
 <section class="desc markdown">
-  <p>A Clean Network library made on top of Dio and gql.</p>
+  <p>A Clean Network library made on top of Dio.</p>
 </section>
 
 
@@ -70,194 +76,139 @@
       <h2>Classes</h2>
 
       <dl>
-        <dt id="ApiException">
-  <span class="name "><a href="../clean_network/ApiException-class.html">ApiException</a></span> 
+          <dt id="BackgroundTransformer">
+  <span class="name "><a href="https://pub.dev/documentation/dio/5.5.0+1/dio/BackgroundTransformer-class.html">BackgroundTransformer</a></span> 
 
 </dt>
 <dd>
-  Exception thrown when a network request fails.
+  The default <a href="https://pub.dev/documentation/dio/5.5.0+1/dio/Transformer-class.html">Transformer</a> for <a href="https://pub.dev/documentation/dio/5.5.0+1/dio/Dio-class.html">Dio</a>.
 </dd>
 
-        <dt id="BackgroundTransformer">
-  <span class="name "><a href="https://pub.dev/documentation/dio/5.3.4/dio/BackgroundTransformer-class.html">BackgroundTransformer</a></span> 
+          <dt id="BackupCacheStore">
+  <span class="name "><a href="https://pub.dev/documentation/dio_cache_interceptor/3.5.0/dio_cache_interceptor/BackupCacheStore-class.html">BackupCacheStore</a></span> 
 
 </dt>
 <dd>
-  The default <a href="https://pub.dev/documentation/dio/5.3.4/dio/Transformer-class.html">Transformer</a> for <a href="https://pub.dev/documentation/dio/5.3.4/dio/Dio-class.html">Dio</a>.
+  A store saving responses in a dedicated <a href="https://pub.dev/documentation/dio_cache_interceptor/3.5.0/dio_cache_interceptor/BackupCacheStore/primary.html">primary</a>
+store and <a href="https://pub.dev/documentation/dio_cache_interceptor/3.5.0/dio_cache_interceptor/BackupCacheStore/secondary.html">secondary</a> store.
 </dd>
 
-        <dt id="BackupCacheStore">
-  <span class="name "><a href="https://pub.dev/documentation/dio_cache_interceptor/3.4.4/dio_cache_interceptor/BackupCacheStore-class.html">BackupCacheStore</a></span> 
+          <dt id="BaseOptions">
+  <span class="name "><a href="https://pub.dev/documentation/dio/5.5.0+1/dio/BaseOptions-class.html">BaseOptions</a></span> 
 
 </dt>
 <dd>
-  A store saving responses in a dedicated <a href="https://pub.dev/documentation/dio_cache_interceptor/3.4.4/dio_cache_interceptor/BackupCacheStore/primary.html">primary</a>
-store and <a href="https://pub.dev/documentation/dio_cache_interceptor/3.4.4/dio_cache_interceptor/BackupCacheStore/secondary.html">secondary</a> store.
+  A set of base settings for each <code>Dio()</code>.
+<a href="https://pub.dev/documentation/dio/5.5.0+1/dio/BaseOptions-class.html">BaseOptions</a> and <a href="https://pub.dev/documentation/dio/5.5.0+1/dio/Options-class.html">Options</a> will be merged into one <a href="https://pub.dev/documentation/dio/5.5.0+1/dio/RequestOptions-class.html">RequestOptions</a> before
+sending the requests. See <a href="https://pub.dev/documentation/dio/5.5.0+1/dio/Options/compose.html">Options.compose</a>.
 </dd>
 
-        <dt id="BaseOptions">
-  <span class="name "><a href="https://pub.dev/documentation/dio/5.3.4/dio/BaseOptions-class.html">BaseOptions</a></span> 
-
-</dt>
-<dd>
-  The base config for the Dio instance, used by <a href="https://pub.dev/documentation/dio/5.3.4/dio/Dio/options.html">Dio.options</a>.
-</dd>
-
-        <dt id="BaseRepository">
-  <span class="name "><a href="../clean_network/BaseRepository-class.html">BaseRepository</a><span class="signature">&lt;<wbr><span class="type-parameter">E</span>&gt;</span></span> 
-
-</dt>
-<dd>
-  A base class for all repositories.
-</dd>
-
-        <dt id="BaseSource">
-  <span class="name "><a href="../clean_network/BaseSource-class.html">BaseSource</a></span> 
-
-</dt>
-<dd>
-  A base class for all sources.
-</dd>
-
-        <dt id="CacheCipher">
-  <span class="name "><a href="https://pub.dev/documentation/dio_cache_interceptor/3.4.4/dio_cache_interceptor/CacheCipher-class.html">CacheCipher</a></span> 
+          <dt id="CacheCipher">
+  <span class="name "><a href="https://pub.dev/documentation/dio_cache_interceptor/3.5.0/dio_cache_interceptor/CacheCipher-class.html">CacheCipher</a></span> 
 
 </dt>
 <dd>
   
 </dd>
 
-        <dt id="CacheControl">
-  <span class="name "><a href="https://pub.dev/documentation/dio_cache_interceptor/3.4.4/dio_cache_interceptor/CacheControl-class.html">CacheControl</a></span> 
+          <dt id="CacheControl">
+  <span class="name "><a href="https://pub.dev/documentation/dio_cache_interceptor/3.5.0/dio_cache_interceptor/CacheControl-class.html">CacheControl</a></span> 
 
 </dt>
 <dd>
   Cache-Control header subset representation
 </dd>
 
-        <dt id="CacheOptions">
-  <span class="name "><a href="https://pub.dev/documentation/dio_cache_interceptor/3.4.4/dio_cache_interceptor/CacheOptions-class.html">CacheOptions</a></span> 
+          <dt id="CacheOptions">
+  <span class="name "><a href="https://pub.dev/documentation/dio_cache_interceptor/3.5.0/dio_cache_interceptor/CacheOptions-class.html">CacheOptions</a></span> 
 
 </dt>
 <dd>
   Options to apply to handle request and cache behaviour.
 </dd>
 
-        <dt id="CacheResponse">
-  <span class="name "><a href="https://pub.dev/documentation/dio_cache_interceptor/3.4.4/dio_cache_interceptor/CacheResponse-class.html">CacheResponse</a></span> 
+          <dt id="CacheResponse">
+  <span class="name "><a href="https://pub.dev/documentation/dio_cache_interceptor/3.5.0/dio_cache_interceptor/CacheResponse-class.html">CacheResponse</a></span> 
 
 </dt>
 <dd>
   Response representation from cache store.
 </dd>
 
-        <dt id="CacheStore">
-  <span class="name "><a href="https://pub.dev/documentation/dio_cache_interceptor/3.4.4/dio_cache_interceptor/CacheStore-class.html">CacheStore</a></span> 
+          <dt id="CacheStore">
+  <span class="name "><a href="https://pub.dev/documentation/dio_cache_interceptor/3.5.0/dio_cache_interceptor/CacheStore-class.html">CacheStore</a></span> 
 
 </dt>
 <dd>
   Definition of store
 </dd>
 
-        <dt id="CancelToken">
-  <span class="name "><a href="https://pub.dev/documentation/dio/5.3.4/dio/CancelToken-class.html">CancelToken</a></span> 
+          <dt id="CancelToken">
+  <span class="name "><a href="https://pub.dev/documentation/dio/5.5.0+1/dio/CancelToken-class.html">CancelToken</a></span> 
 
 </dt>
 <dd>
-  Controls cancellation of <a href="https://pub.dev/documentation/dio/5.3.4/dio/Dio-class.html">Dio</a>'s requests.
+  Controls cancellation of <a href="https://pub.dev/documentation/dio/5.5.0+1/dio/Dio-class.html">Dio</a>'s requests.
 </dd>
 
-        <dt id="CleanBaseOptions">
-  <span class="name "><a href="../clean_network/CleanBaseOptions-class.html">CleanBaseOptions</a></span> 
+          <dt id="CleanClient">
+  <span class="name "><a href="../clean_network/CleanClient-class.html">CleanClient</a></span> 
 
 </dt>
 <dd>
-  Base options for graphql request
+  A client for making HTTP requests.
 </dd>
 
-        <dt id="CleanNetwork">
-  <span class="name "><a href="../clean_network/CleanNetwork-class.html">CleanNetwork</a></span> 
-
-</dt>
-<dd>
-  A clean network class for dio
-</dd>
-
-        <dt id="Context">
-  <span class="name "><a href="https://pub.dev/documentation/gql_exec/1.0.0+1/execution/Context-class.html">Context</a></span> 
-
-</dt>
-<dd>
-  A <a href="https://pub.dev/documentation/gql_exec/1.0.0+1/execution/Context-class.html">Context</a> to be passed along with a <a href="https://pub.dev/documentation/gql_exec/1.0.0+1/execution/Request-class.html">Request</a>.
-</dd>
-
-        <dt id="CursorPagination">
-  <span class="name "><a href="../clean_network/CursorPagination-class.html">CursorPagination</a></span> 
-
-</dt>
-<dd>
-  
-</dd>
-
-        <dt id="Dio">
-  <span class="name "><a href="https://pub.dev/documentation/dio/5.3.4/dio/Dio-class.html">Dio</a></span> 
+          <dt id="Dio">
+  <span class="name "><a href="https://pub.dev/documentation/dio/5.5.0+1/dio/Dio-class.html">Dio</a></span> 
 
 </dt>
 <dd>
   Dio enables you to make HTTP requests easily.
 </dd>
 
-        <dt id="DioCacheInterceptor">
-  <span class="name "><a href="https://pub.dev/documentation/dio_cache_interceptor/3.4.4/dio_cache_interceptor/DioCacheInterceptor-class.html">DioCacheInterceptor</a></span> 
+          <dt id="DioCacheInterceptor">
+  <span class="name "><a href="https://pub.dev/documentation/dio_cache_interceptor/3.5.0/dio_cache_interceptor/DioCacheInterceptor-class.html">DioCacheInterceptor</a></span> 
 
 </dt>
 <dd>
   Cache interceptor
 </dd>
 
-        <dt id="DioMixin">
-  <span class="name "><a href="https://pub.dev/documentation/dio/5.3.4/dio/DioMixin-class.html">DioMixin</a></span> 
+          <dt id="DioLogger">
+  <span class="name "><a href="../clean_network/DioLogger-class.html">DioLogger</a></span> 
+
+</dt>
+<dd>
+  A <a href="https://pub.dev/documentation/dio/5.5.0+1/dio/Interceptor-class.html">Interceptor</a> which logs the request and response.
+</dd>
+
+          <dt id="DioLoggerOptions">
+  <span class="name "><a href="../clean_network/DioLoggerOptions-class.html">DioLoggerOptions</a></span> 
+
+</dt>
+<dd>
+  Options for the dio logger.
+</dd>
+
+          <dt id="DioMixin">
+  <span class="name "><a href="https://pub.dev/documentation/dio/5.5.0+1/dio/DioMixin-class.html">DioMixin</a></span> 
 
 </dt>
 <dd>
   
 </dd>
 
-        <dt id="DocumentNode">
-  <span class="name "><a href="https://pub.dev/documentation/gql/1.0.0+1/ast/DocumentNode-class.html">DocumentNode</a></span> 
-
-</dt>
-<dd>
-  
-</dd>
-
-        <dt id="Either">
-  <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Either-class.html">Either</a><span class="signature">&lt;<wbr><span class="type-parameter">L</span>, <span class="type-parameter">R</span>&gt;</span></span> 
-
-</dt>
-<dd>
-  Represents a value of one of two possible types, <a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Left-class.html">Left</a> or <a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Right-class.html">Right</a>.
-</dd>
-
-        <dt id="Eq">
-  <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Eq-class.html">Eq</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> 
-
-</dt>
-<dd>
-  A type class used to determine equality between 2 instances <strong>of the same type <code>T</code></strong>.
-Any 2 instances <code>x</code> and <code>y</code> are equal if <code>eqv(x, y)</code> is <code>true</code>.
-</dd>
-
-        <dt id="ErrorInterceptorHandler">
-  <span class="name "><a href="https://pub.dev/documentation/dio/5.3.4/dio/ErrorInterceptorHandler-class.html">ErrorInterceptorHandler</a></span> 
+          <dt id="ErrorInterceptorHandler">
+  <span class="name "><a href="https://pub.dev/documentation/dio/5.5.0+1/dio/ErrorInterceptorHandler-class.html">ErrorInterceptorHandler</a></span> 
 
 </dt>
 <dd>
   The handler for interceptors to handle error occurred during the request.
 </dd>
 
-        <dt id="FormData">
-  <span class="name "><a href="https://pub.dev/documentation/dio/5.3.4/dio/FormData-class.html">FormData</a></span> 
+          <dt id="FormData">
+  <span class="name "><a href="https://pub.dev/documentation/dio/5.5.0+1/dio/FormData-class.html">FormData</a></span> 
 
 </dt>
 <dd>
@@ -265,135 +216,64 @@ Any 2 instances <code>x</code> and <code>y</code> are equal if <code>eqv(x, y)</
 It can be used to submit forms and file uploads to http server.
 </dd>
 
-        <dt id="GraphRequest">
-  <span class="name "><a href="../clean_network/GraphRequest-class.html">GraphRequest</a></span> 
+          <dt id="FusedTransformer">
+  <span class="name "><a href="https://pub.dev/documentation/dio/5.5.0+1/dio/FusedTransformer-class.html">FusedTransformer</a></span> 
 
 </dt>
 <dd>
-  
+  A <a href="https://pub.dev/documentation/dio/5.5.0+1/dio/Transformer-class.html">Transformer</a> that has a fast path for decoding UTF8-encoded JSON.
+If the response is utf8-encoded JSON and no custom decoder is specified in the <a href="https://pub.dev/documentation/dio/5.5.0+1/dio/RequestOptions-class.html">RequestOptions</a>, this transformer
+is significantly faster than the default <a href="https://pub.dev/documentation/dio/5.5.0+1/dio/SyncTransformer-class.html">SyncTransformer</a> and the <a href="https://pub.dev/documentation/dio/5.5.0+1/dio/BackgroundTransformer-class.html">BackgroundTransformer</a>.
+This improvement is achieved by using a fused <a href="https://api.flutter.dev/flutter/dart-convert/Utf8Decoder-class.html">Utf8Decoder</a> and <a href="https://api.flutter.dev/flutter/dart-convert/JsonDecoder-class.html">JsonDecoder</a> to decode the response,
+which is faster than decoding the utf8-encoded JSON in two separate steps, since
+Dart uses a special fast decoder for this case.
+See <a href="https://github.com/dart-lang/sdk/blob/5b2ea0c7a227d91c691d2ff8cbbeb5f7f86afdb9/sdk/lib/_internal/vm/lib/convert_patch.dart#L40">https://github.com/dart-lang/sdk/blob/5b2ea0c7a227d91c691d2ff8cbbeb5f7f86afdb9/sdk/lib/_internal/vm/lib/convert_patch.dart#L40</a>
 </dd>
 
-        <dt id="Hash">
-  <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Hash-class.html">Hash</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> 
-
-</dt>
-<dd>
-  A type class used to represent a hashing scheme for objects of a given type.
-</dd>
-
-        <dt id="Headers">
-  <span class="name "><a href="https://pub.dev/documentation/dio/5.3.4/dio/Headers-class.html">Headers</a></span> 
+          <dt id="Headers">
+  <span class="name "><a href="https://pub.dev/documentation/dio/5.5.0+1/dio/Headers-class.html">Headers</a></span> 
 
 </dt>
 <dd>
   The headers class for requests and responses.
 </dd>
 
-        <dt id="HKT">
-  <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/HKT-class.html">HKT</a><span class="signature">&lt;<wbr><span class="type-parameter">G</span>, <span class="type-parameter">A</span>&gt;</span></span> 
+          <dt id="HttpClientAdapter">
+  <span class="name "><a href="https://pub.dev/documentation/dio/5.5.0+1/dio/HttpClientAdapter-class.html">HttpClientAdapter</a></span> 
 
 </dt>
 <dd>
-  <a href="https://marcosh.github.io/post/2020/04/15/higher-kinded-types-php-solution.html">https://marcosh.github.io/post/2020/04/15/higher-kinded-types-php-solution.html</a>
-https://medium.com/@gcanti/higher-kinded-types-in-flow-275b657992b7
+  <code>HttpAdapter</code> is a bridge between <a href="https://pub.dev/documentation/dio/5.5.0+1/dio/Dio-class.html">Dio</a> and <a href="https://api.flutter.dev/flutter/dart-io/HttpClient-class.html">HttpClient</a>.
 </dd>
 
-        <dt id="HKT2">
-  <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/HKT2-class.html">HKT2</a><span class="signature">&lt;<wbr><span class="type-parameter">G1</span>, <span class="type-parameter">G2</span>, <span class="type-parameter">A</span>&gt;</span></span> 
+          <dt id="Interceptor">
+  <span class="name "><a href="https://pub.dev/documentation/dio/5.5.0+1/dio/Interceptor-class.html">Interceptor</a></span> 
 
 </dt>
 <dd>
-  
-</dd>
-
-        <dt id="HKT3">
-  <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/HKT3-class.html">HKT3</a><span class="signature">&lt;<wbr><span class="type-parameter">G1</span>, <span class="type-parameter">G2</span>, <span class="type-parameter">G3</span>, <span class="type-parameter">A</span>&gt;</span></span> 
-
-</dt>
-<dd>
-  
-</dd>
-
-        <dt id="HttpClientAdapter">
-  <span class="name "><a href="https://pub.dev/documentation/dio/5.3.4/dio/HttpClientAdapter-class.html">HttpClientAdapter</a></span> 
-
-</dt>
-<dd>
-  <code>HttpAdapter</code> is a bridge between <a href="https://pub.dev/documentation/dio/5.3.4/dio/Dio-class.html">Dio</a> and <a href="https://api.flutter.dev/flutter/dart-io/HttpClient-class.html">HttpClient</a>.
-</dd>
-
-        <dt id="Interceptor">
-  <span class="name "><a href="https://pub.dev/documentation/dio/5.3.4/dio/Interceptor-class.html">Interceptor</a></span> 
-
-</dt>
-<dd>
-  <a href="https://pub.dev/documentation/dio/5.3.4/dio/Interceptor-class.html">Interceptor</a> helps to deal with <a href="https://pub.dev/documentation/dio/5.3.4/dio/RequestOptions-class.html">RequestOptions</a>, <a href="https://pub.dev/documentation/dio/5.3.4/dio/Response-class.html">Response</a>,
-and <a href="https://pub.dev/documentation/dio/5.3.4/dio/DioException-class.html">DioException</a> during the lifecycle of a request
+  <a href="https://pub.dev/documentation/dio/5.5.0+1/dio/Interceptor-class.html">Interceptor</a> helps to deal with <a href="https://pub.dev/documentation/dio/5.5.0+1/dio/RequestOptions-class.html">RequestOptions</a>, <a href="https://pub.dev/documentation/dio/5.5.0+1/dio/Response-class.html">Response</a>,
+and <a href="https://pub.dev/documentation/dio/5.5.0+1/dio/DioException-class.html">DioException</a> during the lifecycle of a request
 before it reaches users.
 </dd>
 
-        <dt id="Interceptors">
-  <span class="name "><a href="https://pub.dev/documentation/dio/5.3.4/dio/Interceptors-class.html">Interceptors</a></span> 
+          <dt id="Interceptors">
+  <span class="name "><a href="https://pub.dev/documentation/dio/5.5.0+1/dio/Interceptors-class.html">Interceptors</a></span> 
 
 </dt>
 <dd>
-  A Queue-Model list for <a href="https://pub.dev/documentation/dio/5.3.4/dio/Interceptor-class.html">Interceptor</a>s.
+  A Queue-Model list for <a href="https://pub.dev/documentation/dio/5.5.0+1/dio/Interceptor-class.html">Interceptor</a>s.
 </dd>
 
-        <dt id="InterceptorsWrapper">
-  <span class="name "><a href="https://pub.dev/documentation/dio/5.3.4/dio/InterceptorsWrapper-class.html">InterceptorsWrapper</a></span> 
+          <dt id="InterceptorsWrapper">
+  <span class="name "><a href="https://pub.dev/documentation/dio/5.5.0+1/dio/InterceptorsWrapper-class.html">InterceptorsWrapper</a></span> 
 
 </dt>
 <dd>
   A helper class to create interceptors in ease.
 </dd>
 
-        <dt id="IO">
-  <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/IO-class.html">IO</a><span class="signature">&lt;<wbr><span class="type-parameter">A</span>&gt;</span></span> 
-
-</dt>
-<dd>
-  <code>IO&lt;A&gt;</code> represents a <strong>non-deterministic synchronous</strong> computation that
-can <strong>cause side effects</strong>, yields a value of type <code>A</code> and <strong>never fails</strong>.
-</dd>
-
-        <dt id="IOEither">
-  <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/IOEither-class.html">IOEither</a><span class="signature">&lt;<wbr><span class="type-parameter">L</span>, <span class="type-parameter">R</span>&gt;</span></span> 
-
-</dt>
-<dd>
-  <code>IOEither&lt;L, R&gt;</code> represents a <strong>non-deterministic synchronous</strong> computation that
-can <strong>cause side effects</strong>, yields a value of type <code>R</code> or <strong>can fail</strong> by returning
-a value of type <code>L</code>.
-</dd>
-
-        <dt id="IOOption">
-  <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/IOOption-class.html">IOOption</a><span class="signature">&lt;<wbr><span class="type-parameter">R</span>&gt;</span></span> 
-
-</dt>
-<dd>
-  <code>IOOption&lt;R&gt;</code> represents an <strong>synchronous</strong> computation that
-may fails yielding a <a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/None-class.html">None</a> or returns a <code>Some(R)</code> when successful.
-</dd>
-
-        <dt id="IORef">
-  <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/IORef-class.html">IORef</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> 
-
-</dt>
-<dd>
-  Mutable reference in the <a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/IO-class.html">IO</a> monad.
-</dd>
-
-        <dt id="Left">
-  <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Left-class.html">Left</a><span class="signature">&lt;<wbr><span class="type-parameter">L</span>, <span class="type-parameter">R</span>&gt;</span></span> 
-
-</dt>
-<dd>
-  
-</dd>
-
-        <dt id="ListParam">
-  <span class="name "><a href="https://pub.dev/documentation/dio/5.3.4/dio/ListParam-class.html">ListParam</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> 
+          <dt id="ListParam">
+  <span class="name "><a href="https://pub.dev/documentation/dio/5.5.0+1/dio/ListParam-class.html">ListParam</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> 
 
 </dt>
 <dd>
@@ -401,179 +281,78 @@ may fails yielding a <a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/
 and how does it gets formatted.
 </dd>
 
-        <dt id="LoggerOptions">
-  <span class="name "><a href="../clean_network/LoggerOptions-class.html">LoggerOptions</a></span> 
+          <dt id="Logger">
+  <span class="name "><a href="../clean_network/Logger-class.html">Logger</a></span> 
 
 </dt>
 <dd>
-  
+  A simple logger that logs messages to the console.
 </dd>
 
-        <dt id="LogInterceptor">
-  <span class="name "><a href="https://pub.dev/documentation/dio/5.3.4/dio/LogInterceptor-class.html">LogInterceptor</a></span> 
+          <dt id="LogInterceptor">
+  <span class="name "><a href="https://pub.dev/documentation/dio/5.5.0+1/dio/LogInterceptor-class.html">LogInterceptor</a></span> 
 
 </dt>
 <dd>
-  <a href="https://pub.dev/documentation/dio/5.3.4/dio/LogInterceptor-class.html">LogInterceptor</a> is used to print logs during network requests.
+  <a href="https://pub.dev/documentation/dio/5.5.0+1/dio/LogInterceptor-class.html">LogInterceptor</a> is used to print logs during network requests.
 It should be the last interceptor added,
 otherwise modifications by following interceptors will not be logged.
 This is because the execution of interceptors is in the order of addition.
 </dd>
 
-        <dt id="MemCacheStore">
-  <span class="name "><a href="https://pub.dev/documentation/dio_cache_interceptor/3.4.4/dio_cache_interceptor/MemCacheStore-class.html">MemCacheStore</a></span> 
+          <dt id="MemCacheStore">
+  <span class="name "><a href="https://pub.dev/documentation/dio_cache_interceptor/3.5.0/dio_cache_interceptor/MemCacheStore-class.html">MemCacheStore</a></span> 
 
 </dt>
 <dd>
   A store saving responses in a dedicated memory LRU map.
 </dd>
 
-        <dt id="MultipartFile">
-  <span class="name "><a href="https://pub.dev/documentation/dio/5.3.4/dio/MultipartFile-class.html">MultipartFile</a></span> 
+          <dt id="MultipartFile">
+  <span class="name "><a href="https://pub.dev/documentation/dio/5.5.0+1/dio/MultipartFile-class.html">MultipartFile</a></span> 
 
 </dt>
 <dd>
-  A file to be uploaded as part of a <a href="https://pub.dev/documentation/http/1.1.0/http/MultipartRequest-class.html">MultipartRequest</a>. This doesn't need to
+  A file to be uploaded as part of a <a href="https://pub.dev/documentation/http/1.2.1/http/MultipartRequest-class.html">MultipartRequest</a>. This doesn't need to
 correspond to a physical file.
 </dd>
 
-        <dt id="NetworkInfo">
-  <span class="name "><a href="../clean_network/NetworkInfo-class.html">NetworkInfo</a></span> 
+          <dt id="Nullable">
+  <span class="name "><a href="https://pub.dev/documentation/dio_cache_interceptor/3.5.0/dio_cache_interceptor/Nullable-class.html">Nullable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> 
 
 </dt>
 <dd>
   
 </dd>
 
-        <dt id="None">
-  <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/None-class.html">None</a></span> 
+          <dt id="Options">
+  <span class="name "><a href="https://pub.dev/documentation/dio/5.5.0+1/dio/Options-class.html">Options</a></span> 
 
 </dt>
 <dd>
-  
+  The configuration for a single request.
+<a href="https://pub.dev/documentation/dio/5.5.0+1/dio/BaseOptions-class.html">BaseOptions</a> and <a href="https://pub.dev/documentation/dio/5.5.0+1/dio/Options-class.html">Options</a> will be merged into one <a href="https://pub.dev/documentation/dio/5.5.0+1/dio/RequestOptions-class.html">RequestOptions</a> before
+sending the requests. See <a href="https://pub.dev/documentation/dio/5.5.0+1/dio/Options/compose.html">Options.compose</a>.
 </dd>
 
-        <dt id="Nullable">
-  <span class="name "><a href="https://pub.dev/documentation/dio_cache_interceptor/3.4.4/dio_cache_interceptor/Nullable-class.html">Nullable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> 
+          <dt id="QueuedInterceptor">
+  <span class="name "><a href="https://pub.dev/documentation/dio/5.5.0+1/dio/QueuedInterceptor-class.html">QueuedInterceptor</a></span> 
 
 </dt>
 <dd>
-  
+  <a href="https://pub.dev/documentation/dio/5.5.0+1/dio/Interceptor-class.html">Interceptor</a> in queue.
 </dd>
 
-        <dt id="Option">
-  <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Option-class.html">Option</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> 
-
-</dt>
-<dd>
-  A type that can contain a value of type <code>T</code> in a <a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Some-class.html">Some</a> or no value with <a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/None-class.html">None</a>.
-</dd>
-
-        <dt id="Options">
-  <span class="name "><a href="https://pub.dev/documentation/dio/5.3.4/dio/Options-class.html">Options</a></span> 
-
-</dt>
-<dd>
-  Every request can pass an <a href="https://pub.dev/documentation/dio/5.3.4/dio/Options-class.html">Options</a> object which will be merged with <a href="https://pub.dev/documentation/dio/5.3.4/dio/Dio/options.html">Dio.options</a>
-</dd>
-
-        <dt id="Order">
-  <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Order-class.html">Order</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> 
-
-</dt>
-<dd>
-  The <code>Order</code> type class is used to define a <a href="https://en.wikipedia.org/wiki/Total_order">total ordering</a>
-on some type <code>A</code>.
-</dd>
-
-        <dt id="PagePagination">
-  <span class="name "><a href="../clean_network/PagePagination-class.html">PagePagination</a></span> 
-
-</dt>
-<dd>
-  
-</dd>
-
-        <dt id="PaginatedResponse">
-  <span class="name "><a href="../clean_network/PaginatedResponse-class.html">PaginatedResponse</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> 
-
-</dt>
-<dd>
-  
-</dd>
-
-        <dt id="Pagination">
-  <span class="name "><a href="../clean_network/Pagination-class.html">Pagination</a></span> 
-
-</dt>
-<dd>
-  
-</dd>
-
-        <dt id="PartialOrder">
-  <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/PartialOrder-class.html">PartialOrder</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> 
-
-</dt>
-<dd>
-  The <code>PartialOrder</code> type class is used to define a
-<a href="https://en.wikipedia.org/wiki/Partially_ordered_set">partial ordering</a> on some type <code>A</code>.
-</dd>
-
-        <dt id="QueuedInterceptor">
-  <span class="name "><a href="https://pub.dev/documentation/dio/5.3.4/dio/QueuedInterceptor-class.html">QueuedInterceptor</a></span> 
-
-</dt>
-<dd>
-  <a href="https://pub.dev/documentation/dio/5.3.4/dio/Interceptor-class.html">Interceptor</a> in queue.
-</dd>
-
-        <dt id="QueuedInterceptorsWrapper">
-  <span class="name "><a href="https://pub.dev/documentation/dio/5.3.4/dio/QueuedInterceptorsWrapper-class.html">QueuedInterceptorsWrapper</a></span> 
+          <dt id="QueuedInterceptorsWrapper">
+  <span class="name "><a href="https://pub.dev/documentation/dio/5.5.0+1/dio/QueuedInterceptorsWrapper-class.html">QueuedInterceptorsWrapper</a></span> 
 
 </dt>
 <dd>
   A helper class to create queued-interceptors in ease.
 </dd>
 
-        <dt id="Reader">
-  <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Reader-class.html">Reader</a><span class="signature">&lt;<wbr><span class="type-parameter">R</span>, <span class="type-parameter">A</span>&gt;</span></span> 
-
-</dt>
-<dd>
-  <code>Reader&lt;R, A&gt;</code> allows to read values <code>A</code> from a dependency/context <code>R</code>
-without explicitly passing the dependency between multiple nested
-function calls.
-</dd>
-
-        <dt id="ReaderHKT">
-  <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/ReaderHKT-class.html">ReaderHKT</a></span> 
-
-</dt>
-<dd>
-  Tag the <a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/HKT2-class.html">HKT2</a> interface for the actual <a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Reader-class.html">Reader</a>.
-</dd>
-
-        <dt id="ReaderTask">
-  <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/ReaderTask-class.html">ReaderTask</a><span class="signature">&lt;<wbr><span class="type-parameter">E</span>, <span class="type-parameter">A</span>&gt;</span></span> 
-
-</dt>
-<dd>
-  <a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/ReaderTask-class.html">ReaderTask</a> represents an asynchronous computation that yields a value of type <code>A</code>
-from a context of type <code>E</code> and <strong>never fails</strong>.
-</dd>
-
-        <dt id="ReaderTaskEither">
-  <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/ReaderTaskEither-class.html">ReaderTaskEither</a><span class="signature">&lt;<wbr><span class="type-parameter">E</span>, <span class="type-parameter">L</span>, <span class="type-parameter">R</span>&gt;</span></span> 
-
-</dt>
-<dd>
-  <code>ReaderTaskEither&lt;E, L, R&gt;</code> represents an asynchronous computation (<code>Task</code>) that
-either yields a value of type <code>R</code> or fails yielding an error of type <code>L</code> (<code>Either</code>),
-that allows to read values from a dependency/context <code>E</code> (<code>Reader</code>).
-</dd>
-
-        <dt id="RedirectRecord">
-  <span class="name "><a href="https://pub.dev/documentation/dio/5.3.4/dio/RedirectRecord-class.html">RedirectRecord</a></span> 
+          <dt id="RedirectRecord">
+  <span class="name "><a href="https://pub.dev/documentation/dio/5.5.0+1/dio/RedirectRecord-class.html">RedirectRecord</a></span> 
 
 </dt>
 <dd>
@@ -581,1101 +360,73 @@ that allows to read values from a dependency/context <code>E</code> (<code>Reade
 including status code, request method, and the location.
 </dd>
 
-        <dt id="RequestInterceptorHandler">
-  <span class="name "><a href="https://pub.dev/documentation/dio/5.3.4/dio/RequestInterceptorHandler-class.html">RequestInterceptorHandler</a></span> 
+          <dt id="RequestInterceptorHandler">
+  <span class="name "><a href="https://pub.dev/documentation/dio/5.5.0+1/dio/RequestInterceptorHandler-class.html">RequestInterceptorHandler</a></span> 
 
 </dt>
 <dd>
   The handler for interceptors to handle before the request has been sent.
 </dd>
 
-        <dt id="RequestOptions">
-  <span class="name "><a href="https://pub.dev/documentation/dio/5.3.4/dio/RequestOptions-class.html">RequestOptions</a></span> 
+          <dt id="RequestOptions">
+  <span class="name "><a href="https://pub.dev/documentation/dio/5.5.0+1/dio/RequestOptions-class.html">RequestOptions</a></span> 
 
 </dt>
 <dd>
   The internal request option class that is the eventual result after
-<a href="https://pub.dev/documentation/dio/5.3.4/dio/BaseOptions-class.html">BaseOptions</a> and <a href="https://pub.dev/documentation/dio/5.3.4/dio/Options-class.html">Options</a> are composed.
+<a href="https://pub.dev/documentation/dio/5.5.0+1/dio/BaseOptions-class.html">BaseOptions</a> and <a href="https://pub.dev/documentation/dio/5.5.0+1/dio/Options-class.html">Options</a> are composed.
 </dd>
 
-        <dt id="RequestSerializer">
-  <span class="name "><a href="../clean_network/RequestSerializer-class.html">RequestSerializer</a></span> 
+          <dt id="Response">
+  <span class="name "><a href="https://pub.dev/documentation/dio/5.5.0+1/dio/Response-class.html">Response</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> 
 
 </dt>
 <dd>
-  JSON <a href="https://pub.dev/documentation/gql_exec/1.0.0+1/execution/Request-class.html">Request</a> serializer.
-</dd>
-
-        <dt id="Response">
-  <span class="name "><a href="https://pub.dev/documentation/dio/5.3.4/dio/Response-class.html">Response</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> 
-
-</dt>
-<dd>
-  The <a href="https://pub.dev/documentation/dio/5.3.4/dio/Response-class.html">Response</a> class contains the payload (could be transformed)
+  The <a href="https://pub.dev/documentation/dio/5.5.0+1/dio/Response-class.html">Response</a> class contains the payload (could be transformed)
 that respond from the request, and other information of the response.
 </dd>
 
-        <dt id="ResponseBody">
-  <span class="name "><a href="https://pub.dev/documentation/dio/5.3.4/dio/ResponseBody-class.html">ResponseBody</a></span> 
+          <dt id="ResponseBody">
+  <span class="name "><a href="https://pub.dev/documentation/dio/5.5.0+1/dio/ResponseBody-class.html">ResponseBody</a></span> 
 
 </dt>
 <dd>
   The response wrapper class for adapters.
 </dd>
 
-        <dt id="ResponseInterceptorHandler">
-  <span class="name "><a href="https://pub.dev/documentation/dio/5.3.4/dio/ResponseInterceptorHandler-class.html">ResponseInterceptorHandler</a></span> 
+          <dt id="ResponseInterceptorHandler">
+  <span class="name "><a href="https://pub.dev/documentation/dio/5.5.0+1/dio/ResponseInterceptorHandler-class.html">ResponseInterceptorHandler</a></span> 
 
 </dt>
 <dd>
   The handler for interceptors to handle after respond.
 </dd>
 
-        <dt id="ResponseParser">
-  <span class="name "><a href="../clean_network/ResponseParser-class.html">ResponseParser</a></span> 
+          <dt id="RestSource">
+  <span class="name "><a href="../clean_network/RestSource-class.html">RestSource</a></span> 
 
 </dt>
 <dd>
-  JSON <a href="https://pub.dev/documentation/gql_exec/1.0.0+1/execution/Response-class.html">Response</a> parser
+  Base source for all sources
 </dd>
 
-        <dt id="Right">
-  <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Right-class.html">Right</a><span class="signature">&lt;<wbr><span class="type-parameter">L</span>, <span class="type-parameter">R</span>&gt;</span></span> 
-
-</dt>
-<dd>
-  
-</dd>
-
-        <dt id="Some">
-  <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Some-class.html">Some</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> 
-
-</dt>
-<dd>
-  
-</dd>
-
-        <dt id="State">
-  <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/State-class.html">State</a><span class="signature">&lt;<wbr><span class="type-parameter">S</span>, <span class="type-parameter">A</span>&gt;</span></span> 
-
-</dt>
-<dd>
-  <code>State&lt;S, A&gt;</code> is used to store, update, and extract state in a functional way.
-</dd>
-
-        <dt id="StateAsync">
-  <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/StateAsync-class.html">StateAsync</a><span class="signature">&lt;<wbr><span class="type-parameter">S</span>, <span class="type-parameter">A</span>&gt;</span></span> 
-
-</dt>
-<dd>
-  <code>StateAsync&lt;S, A&gt;</code> is used to store, update, and extract async state in a functional way.
-</dd>
-
-        <dt id="SyncTransformer">
-  <span class="name "><a href="https://pub.dev/documentation/dio/5.3.4/dio/SyncTransformer-class.html">SyncTransformer</a></span> 
+          <dt id="SyncTransformer">
+  <span class="name "><a href="https://pub.dev/documentation/dio/5.5.0+1/dio/SyncTransformer-class.html">SyncTransformer</a></span> 
 
 </dt>
 <dd>
   If you want to custom the transformation of request/response data,
-you can provide a <a href="https://pub.dev/documentation/dio/5.3.4/dio/Transformer-class.html">Transformer</a> by your self, and replace
-the transformer by setting the <a href="https://pub.dev/documentation/dio/5.3.4/dio/Dio/transformer.html">Dio.transformer</a>.
+you can provide a <a href="https://pub.dev/documentation/dio/5.5.0+1/dio/Transformer-class.html">Transformer</a> by your self, and replace
+the transformer by setting the <a href="https://pub.dev/documentation/dio/5.5.0+1/dio/Dio/transformer.html">Dio.transformer</a>.
 </dd>
 
-        <dt id="Task">
-  <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Task-class.html">Task</a><span class="signature">&lt;<wbr><span class="type-parameter">A</span>&gt;</span></span> 
+          <dt id="Transformer">
+  <span class="name "><a href="https://pub.dev/documentation/dio/5.5.0+1/dio/Transformer-class.html">Transformer</a></span> 
 
 </dt>
 <dd>
-  <a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Task-class.html">Task</a> represents an asynchronous computation that yields a value of type <code>A</code> and <strong>never fails</strong>.
-</dd>
-
-        <dt id="TaskEither">
-  <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/TaskEither-class.html">TaskEither</a><span class="signature">&lt;<wbr><span class="type-parameter">L</span>, <span class="type-parameter">R</span>&gt;</span></span> 
-
-</dt>
-<dd>
-  <code>TaskEither&lt;L, R&gt;</code> represents an asynchronous computation that
-either yields a value of type <code>R</code> or fails yielding an error of type <code>L</code>.
-</dd>
-
-        <dt id="TaskOption">
-  <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/TaskOption-class.html">TaskOption</a><span class="signature">&lt;<wbr><span class="type-parameter">R</span>&gt;</span></span> 
-
-</dt>
-<dd>
-  <code>TaskOption&lt;R&gt;</code> represents an <strong>asynchronous</strong> computation that
-may fails yielding a <a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/None-class.html">None</a> or returns a <code>Some(R)</code> when successful.
-</dd>
-
-        <dt id="Transformer">
-  <span class="name "><a href="https://pub.dev/documentation/dio/5.3.4/dio/Transformer-class.html">Transformer</a></span> 
-
-</dt>
-<dd>
-  <a href="https://pub.dev/documentation/dio/5.3.4/dio/Transformer-class.html">Transformer</a> allows changes to the request/response data before
+  <a href="https://pub.dev/documentation/dio/5.5.0+1/dio/Transformer-class.html">Transformer</a> allows changes to the request/response data before
 it is sent/received to/from the server.
-</dd>
-
-        <dt id="Unit">
-  <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Unit-class.html">Unit</a></span> 
-
-</dt>
-<dd>
-  Used instead of <code>void</code> as a return statement for a function when no value is to be returned.
-</dd>
-
-      </dl>
-    </section>
-
-    <section class="summary offset-anchor" id="mixins">
-      <h2>Mixins</h2>
-
-      <dl>
-        <dt id="Alt">
-  <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Alt-mixin.html">Alt</a><span class="signature">&lt;<wbr><span class="type-parameter">KT</span>, <span class="type-parameter">A</span>&gt;</span></span> 
-
-</dt>
-<dd>
-  <code>Alt</code> type class identifies an associative operation on a type constructor.
-</dd>
-
-        <dt id="Alt2">
-  <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Alt2-mixin.html">Alt2</a><span class="signature">&lt;<wbr><span class="type-parameter">KT</span>, <span class="type-parameter">A</span>, <span class="type-parameter">B</span>&gt;</span></span> 
-
-</dt>
-<dd>
-  
-</dd>
-
-        <dt id="Alt3">
-  <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Alt3-mixin.html">Alt3</a><span class="signature">&lt;<wbr><span class="type-parameter">KT</span>, <span class="type-parameter">P1</span>, <span class="type-parameter">P2</span>, <span class="type-parameter">P3</span>&gt;</span></span> 
-
-</dt>
-<dd>
-  
-</dd>
-
-        <dt id="Applicative">
-  <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Applicative-mixin.html">Applicative</a><span class="signature">&lt;<wbr><span class="type-parameter">G</span>, <span class="type-parameter">A</span>&gt;</span></span> 
-
-</dt>
-<dd>
-  
-</dd>
-
-        <dt id="Applicative2">
-  <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Applicative2-mixin.html">Applicative2</a><span class="signature">&lt;<wbr><span class="type-parameter">G</span>, <span class="type-parameter">A</span>, <span class="type-parameter">B</span>&gt;</span></span> 
-
-</dt>
-<dd>
-  
-</dd>
-
-        <dt id="Applicative3">
-  <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Applicative3-mixin.html">Applicative3</a><span class="signature">&lt;<wbr><span class="type-parameter">G</span>, <span class="type-parameter">A</span>, <span class="type-parameter">B</span>, <span class="type-parameter">C</span>&gt;</span></span> 
-
-</dt>
-<dd>
-  
-</dd>
-
-        <dt id="Band">
-  <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Band-mixin.html">Band</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> 
-
-</dt>
-<dd>
-  Bands are semigroups whose operation
-(i.e. <code>combine</code>) is also <a href="https://en.wikipedia.org/wiki/Idempotence"><strong>idempotent</strong></a>
-(an operation that can be applied multiple times without changing the result beyond the initial application).
-</dd>
-
-        <dt id="BoundedSemilattice">
-  <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/BoundedSemilattice-mixin.html">BoundedSemilattice</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> 
-
-</dt>
-<dd>
-  A semilattice in which:
-</dd>
-
-        <dt id="CommutativeGroup">
-  <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/CommutativeGroup-mixin.html">CommutativeGroup</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> 
-
-</dt>
-<dd>
-  An commutative group (also known as an <a href="https://en.wikipedia.org/wiki/Abelian_group"><strong>abelian group</strong></a>)
-is a group whose combine operation is <a href="https://en.wikipedia.org/wiki/Commutative_property"><strong>commutative</strong></a>.
-</dd>
-
-        <dt id="CommutativeMonoid">
-  <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/CommutativeMonoid-mixin.html">CommutativeMonoid</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> 
-
-</dt>
-<dd>
-  <code>CommutativeMonoid</code> represents a commutative monoid.
-</dd>
-
-        <dt id="CommutativeSemigroup">
-  <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/CommutativeSemigroup-mixin.html">CommutativeSemigroup</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> 
-
-</dt>
-<dd>
-  <code>CommutativeSemigroup</code> represents a commutative semigroup.
-</dd>
-
-        <dt id="Extend">
-  <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Extend-mixin.html">Extend</a><span class="signature">&lt;<wbr><span class="type-parameter">KT</span>, <span class="type-parameter">A</span>&gt;</span></span> 
-
-</dt>
-<dd>
-  
-</dd>
-
-        <dt id="Extend2">
-  <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Extend2-mixin.html">Extend2</a><span class="signature">&lt;<wbr><span class="type-parameter">KT</span>, <span class="type-parameter">A</span>, <span class="type-parameter">B</span>&gt;</span></span> 
-
-</dt>
-<dd>
-  
-</dd>
-
-        <dt id="Filterable">
-  <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Filterable-mixin.html">Filterable</a><span class="signature">&lt;<wbr><span class="type-parameter">KT</span>, <span class="type-parameter">A</span>&gt;</span></span> 
-
-</dt>
-<dd>
-  
-</dd>
-
-        <dt id="Foldable">
-  <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Foldable-mixin.html">Foldable</a><span class="signature">&lt;<wbr><span class="type-parameter">G</span>, <span class="type-parameter">A</span>&gt;</span></span> 
-
-</dt>
-<dd>
-  
-</dd>
-
-        <dt id="Foldable2">
-  <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Foldable2-mixin.html">Foldable2</a><span class="signature">&lt;<wbr><span class="type-parameter">G</span>, <span class="type-parameter">A</span>, <span class="type-parameter">B</span>&gt;</span></span> 
-
-</dt>
-<dd>
-  
-</dd>
-
-        <dt id="Functor">
-  <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Functor-mixin.html">Functor</a><span class="signature">&lt;<wbr><span class="type-parameter">G</span>, <span class="type-parameter">A</span>&gt;</span></span> 
-
-</dt>
-<dd>
-  <code>Functor&lt;G, A&gt; extends HKT&lt;G, A&gt;</code> to express the fact that the classes implementing
-the <a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Functor-mixin.html">Functor</a> interface will need to be higher kinded types.
-</dd>
-
-        <dt id="Functor2">
-  <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Functor2-mixin.html">Functor2</a><span class="signature">&lt;<wbr><span class="type-parameter">G</span>, <span class="type-parameter">A</span>, <span class="type-parameter">B</span>&gt;</span></span> 
-
-</dt>
-<dd>
-  
-</dd>
-
-        <dt id="Functor3">
-  <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Functor3-mixin.html">Functor3</a><span class="signature">&lt;<wbr><span class="type-parameter">G</span>, <span class="type-parameter">A</span>, <span class="type-parameter">B</span>, <span class="type-parameter">C</span>&gt;</span></span> 
-
-</dt>
-<dd>
-  
-</dd>
-
-        <dt id="Group">
-  <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Group-mixin.html">Group</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> 
-
-</dt>
-<dd>
-  A group is a monoid where each element has an <a href="https://en.wikipedia.org/wiki/Inverse_element"><strong>inverse</strong></a>.
-</dd>
-
-        <dt id="Monad">
-  <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Monad-mixin.html">Monad</a><span class="signature">&lt;<wbr><span class="type-parameter">KT</span>, <span class="type-parameter">A</span>&gt;</span></span> 
-
-</dt>
-<dd>
-  
-</dd>
-
-        <dt id="Monad2">
-  <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Monad2-mixin.html">Monad2</a><span class="signature">&lt;<wbr><span class="type-parameter">KT</span>, <span class="type-parameter">A</span>, <span class="type-parameter">B</span>&gt;</span></span> 
-
-</dt>
-<dd>
-  
-</dd>
-
-        <dt id="Monad3">
-  <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Monad3-mixin.html">Monad3</a><span class="signature">&lt;<wbr><span class="type-parameter">KT</span>, <span class="type-parameter">P1</span>, <span class="type-parameter">P2</span>, <span class="type-parameter">P3</span>&gt;</span></span> 
-
-</dt>
-<dd>
-  
-</dd>
-
-        <dt id="Monoid">
-  <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Monoid-mixin.html">Monoid</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> 
-
-</dt>
-<dd>
-  A monoid is a semigroup with an identity (<code>empty</code>).
-</dd>
-
-        <dt id="OptionsMixin">
-  <span class="name "><a href="https://pub.dev/documentation/dio/5.3.4/dio/OptionsMixin-mixin.html">OptionsMixin</a></span> 
-
-</dt>
-<dd>
-  The mixin class for options that provides common attributes.
-</dd>
-
-        <dt id="Semigroup">
-  <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Semigroup-mixin.html">Semigroup</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> 
-
-</dt>
-<dd>
-  A semigroup is any set <code>A</code> with an <a href="https://en.wikipedia.org/wiki/Associative_property"><strong>associative operation</strong></a> (<code>combine</code>).
-</dd>
-
-        <dt id="Semilattice">
-  <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Semilattice-mixin.html">Semilattice</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> 
-
-</dt>
-<dd>
-  <a href="https://en.wikipedia.org/wiki/Semilattice"><strong>Semilattices</strong></a>
-are commutative semigroups whose operation
-(i.e. <code>combine</code>) is also <a href="https://en.wikipedia.org/wiki/Idempotence"><strong>idempotent</strong></a>.
-</dd>
-
-      </dl>
-    </section>
-
-    <section class="summary offset-anchor" id="extensions">
-      <h2>Extensions</h2>
-
-      <dl>
-        <dt id="CachePriorityToString">
-    <span class="name "><a href="https://pub.dev/documentation/dio_cache_interceptor/3.4.4/dio_cache_interceptor/CachePriorityToString.html">CachePriorityToString</a></span> 
-
-</dt>
-<dd>
-    
-</dd>
-
-
-        <dt id="CurryExtension2">
-    <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/CurryExtension2.html">CurryExtension2</a></span> 
-
-</dt>
-<dd>
-    Extract first parameter from this function to allow curring.
-</dd>
-
-
-        <dt id="CurryExtension3">
-    <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/CurryExtension3.html">CurryExtension3</a></span> 
-
-</dt>
-<dd>
-    
-</dd>
-
-
-        <dt id="CurryExtension4">
-    <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/CurryExtension4.html">CurryExtension4</a></span> 
-
-</dt>
-<dd>
-    
-</dd>
-
-
-        <dt id="CurryExtension5">
-    <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/CurryExtension5.html">CurryExtension5</a></span> 
-
-</dt>
-<dd>
-    
-</dd>
-
-
-        <dt id="FpdartOnDateTime">
-    <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/FpdartOnDateTime.html">FpdartOnDateTime</a></span> 
-
-</dt>
-<dd>
-    <code>fpdart</code> extension methods on <a href="https://api.flutter.dev/flutter/dart-core/DateTime-class.html">DateTime</a>
-</dd>
-
-
-        <dt id="FpdartOnIterable">
-    <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/FpdartOnIterable.html">FpdartOnIterable</a></span> 
-
-</dt>
-<dd>
-    Get the first element of the <a href="https://api.flutter.dev/flutter/dart-core/Iterable-class.html">Iterable</a>.
-If the <a href="https://api.flutter.dev/flutter/dart-core/Iterable-class.html">Iterable</a> is empty, return <a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/None-class.html">None</a>.
-Functional programming functions on a mutable dart <a href="https://api.flutter.dev/flutter/dart-core/Iterable-class.html">Iterable</a> using <code>fpdart</code>.
-</dd>
-
-
-        <dt id="FpdartOnIterableOfIterable">
-    <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/FpdartOnIterableOfIterable.html">FpdartOnIterableOfIterable</a></span> 
-
-</dt>
-<dd>
-    Functional programming functions on <code>Iterable&lt;Iterable&lt;T&gt;&gt;</code> using <code>fpdart</code>.
-</dd>
-
-
-        <dt id="FpdartOnList">
-    <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/FpdartOnList.html">FpdartOnList</a></span> 
-
-</dt>
-<dd>
-    Functional programming functions on a mutable dart <a href="https://api.flutter.dev/flutter/dart-core/Iterable-class.html">Iterable</a> using <code>fpdart</code>.
-</dd>
-
-
-        <dt id="FpdartOnMap">
-    <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/FpdartOnMap.html">FpdartOnMap</a></span> 
-
-</dt>
-<dd>
-    Functional programming functions on a mutable dart <a href="https://api.flutter.dev/flutter/dart-core/Map-class.html">Map</a> using <code>fpdart</code>.
-</dd>
-
-
-        <dt id="FpdartOnOption">
-    <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/FpdartOnOption.html">FpdartOnOption</a></span> 
-
-</dt>
-<dd>
-    
-</dd>
-
-
-        <dt id="FpdartOnOptionMap">
-    <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/FpdartOnOptionMap.html">FpdartOnOptionMap</a></span> 
-
-</dt>
-<dd>
-    
-</dd>
-
-
-        <dt id="FpdartOnPredicate">
-    <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/FpdartOnPredicate.html">FpdartOnPredicate</a></span> 
-
-</dt>
-<dd>
-    
-</dd>
-
-
-        <dt id="FpdartOnPredicate1">
-    <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/FpdartOnPredicate1.html">FpdartOnPredicate1</a></span> 
-
-</dt>
-<dd>
-    
-</dd>
-
-
-        <dt id="FpdartOnString">
-    <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/FpdartOnString.html">FpdartOnString</a></span> 
-
-</dt>
-<dd>
-    Functional programming functions on dart <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a> using <code>fpdart</code>.
-</dd>
-
-
-        <dt id="FpdartSequenceIterableEither">
-    <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/FpdartSequenceIterableEither.html">FpdartSequenceIterableEither</a></span> 
-
-</dt>
-<dd>
-    
-</dd>
-
-
-        <dt id="FpdartSequenceIterableIO">
-    <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/FpdartSequenceIterableIO.html">FpdartSequenceIterableIO</a></span> 
-
-</dt>
-<dd>
-    
-</dd>
-
-
-        <dt id="FpdartSequenceIterableIOEither">
-    <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/FpdartSequenceIterableIOEither.html">FpdartSequenceIterableIOEither</a></span> 
-
-</dt>
-<dd>
-    
-</dd>
-
-
-        <dt id="FpdartSequenceIterableIOOption">
-    <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/FpdartSequenceIterableIOOption.html">FpdartSequenceIterableIOOption</a></span> 
-
-</dt>
-<dd>
-    
-</dd>
-
-
-        <dt id="FpdartSequenceIterableOption">
-    <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/FpdartSequenceIterableOption.html">FpdartSequenceIterableOption</a></span> 
-
-</dt>
-<dd>
-    
-</dd>
-
-
-        <dt id="FpdartSequenceIterableTask">
-    <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/FpdartSequenceIterableTask.html">FpdartSequenceIterableTask</a></span> 
-
-</dt>
-<dd>
-    
-</dd>
-
-
-        <dt id="FpdartSequenceIterableTaskEither">
-    <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/FpdartSequenceIterableTaskEither.html">FpdartSequenceIterableTaskEither</a></span> 
-
-</dt>
-<dd>
-    
-</dd>
-
-
-        <dt id="FpdartSequenceIterableTaskOption">
-    <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/FpdartSequenceIterableTaskOption.html">FpdartSequenceIterableTaskOption</a></span> 
-
-</dt>
-<dd>
-    
-</dd>
-
-
-        <dt id="FpdartTraversableIterable">
-    <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/FpdartTraversableIterable.html">FpdartTraversableIterable</a></span> 
-
-</dt>
-<dd>
-    
-</dd>
-
-
-        <dt id="UncurryExtension2">
-    <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/UncurryExtension2.html">UncurryExtension2</a></span> 
-
-</dt>
-<dd>
-    
-</dd>
-
-
-        <dt id="UncurryExtension3">
-    <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/UncurryExtension3.html">UncurryExtension3</a></span> 
-
-</dt>
-<dd>
-    
-</dd>
-
-
-        <dt id="UncurryExtension4">
-    <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/UncurryExtension4.html">UncurryExtension4</a></span> 
-
-</dt>
-<dd>
-    
-</dd>
-
-
-        <dt id="UncurryExtension5">
-    <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/UncurryExtension5.html">UncurryExtension5</a></span> 
-
-</dt>
-<dd>
-    
-</dd>
-
-
-      </dl>
-    </section>
-
-    <section class="summary offset-anchor" id="constants">
-      <h2>Constants</h2>
-
-      <dl class="properties">
-        <dt id="unit" class="constant">
-    <span class="name "><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/unit-constant.html">unit</a></span>
-  <span class="signature">&#8594; const <a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Unit-class.html">Unit</a></span>
-  
-
-</dt>
-<dd>
-  Used instead of <code>void</code> as a return statement for a function when no value is to be returned.
-  
-
-    <div>
-      <span class="signature"><code>Unit._unit</code></span>
-    </div>
-</dd>
-
-      </dl>
-    </section>
-
-    <section class="summary offset-anchor" id="properties">
-      <h2>Properties</h2>
-
-      <dl class="properties">
-        <dt id="dateNow" class="property">
-  <span class="name"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/dateNow.html">dateNow</a></span>
-  <span class="signature">&#8594; <a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/IO-class.html">IO</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/DateTime-class.html">DateTime</a></span>&gt;</span></span> 
-
-</dt>
-<dd>
-  Constructs a <code>DateTime</code> instance with current date and time in the local time zone.
-  <div class="features"><span class="feature">no setter</span></div>
-
-</dd>
-
-        <dt id="ioRefEq" class="property">
-  <span class="name"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/ioRefEq.html">ioRefEq</a></span>
-  <span class="signature">&#8594; <a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Eq-class.html">Eq</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/IORef-class.html">IORef</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/Object-class.html">Object</a>?</span>&gt;</span></span>&gt;</span></span> 
-
-</dt>
-<dd>
-  <a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Eq-class.html">Eq</a> instance to compare <code>IORef</code>s using pointer equality
-  <div class="features"><span class="feature">final</span></div>
-
-</dd>
-
-        <dt id="now" class="property">
-  <span class="name"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/now.html">now</a></span>
-  <span class="signature">&#8594; <a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/IO-class.html">IO</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span>&gt;</span></span> 
-
-</dt>
-<dd>
-  The number of milliseconds since the "Unix epoch" 1970-01-01T00:00:00Z (UTC).
-  <div class="features"><span class="feature">no setter</span></div>
-
-</dd>
-
-        <dt id="random" class="property">
-  <span class="name"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/random.html">random</a></span>
-  <span class="signature">&#8594; <a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/IO-class.html">IO</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span>&gt;</span></span> 
-
-</dt>
-<dd>
-  Generates a non-negative random floating point
-value uniformly distributed in the range from 0.0, <strong>inclusive</strong>, to 1.0, <strong>exclusive</strong>.
-  <div class="features"><span class="feature">no setter</span></div>
-
-</dd>
-
-        <dt id="randomBool" class="property">
-  <span class="name"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/randomBool.html">randomBool</a></span>
-  <span class="signature">&#8594; <a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/IO-class.html">IO</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>&gt;</span></span> 
-
-</dt>
-<dd>
-  Generates a random boolean value.
-  <div class="features"><span class="feature">no setter</span></div>
-
-</dd>
-
-      </dl>
-    </section>
-
-    <section class="summary offset-anchor" id="functions">
-      <h2>Functions</h2>
-
-      <dl class="callables">
-        <dt id="boolAndMonoid" class="callable">
-  <span class="name"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/boolAndMonoid.html">boolAndMonoid</a></span><span class="signature">(<wbr>)
-    <span class="returntype parameter">&#8594; <a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Monoid-mixin.html">Monoid</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>&gt;</span></span>
-  </span>
-  
-
-</dt>
-<dd>
-  
-  
-
-</dd>
-
-        <dt id="boolOrMonoid" class="callable">
-  <span class="name"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/boolOrMonoid.html">boolOrMonoid</a></span><span class="signature">(<wbr>)
-    <span class="returntype parameter">&#8594; <a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Monoid-mixin.html">Monoid</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>&gt;</span></span>
-  </span>
-  
-
-</dt>
-<dd>
-  
-  
-
-</dd>
-
-        <dt id="constF" class="callable">
-  <span class="name"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/constF.html">constF</a></span><span class="signature">&lt;<wbr><span class="type-parameter">A</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="constF-param-a"><span class="type-annotation">A</span> <span class="parameter-name">a</span></span>)
-    <span class="returntype parameter">&#8594; A Function<span class="signature">(<span class="parameter" id="param-b"><span class="type-annotation">dynamic</span> <span class="parameter-name">b</span></span>)</span></span>
-  </span>
-  
-
-</dt>
-<dd>
-  <code>constf a</code> is a unary function which evaluates to <code>a</code> for all inputs.
-  
-
-</dd>
-
-        <dt id="dualEndoMonoid" class="callable">
-  <span class="name"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/dualEndoMonoid.html">dualEndoMonoid</a></span><span class="signature">&lt;<wbr><span class="type-parameter">A</span>&gt;</span><span class="signature">(<wbr>)
-    <span class="returntype parameter">&#8594; <a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Monoid-mixin.html">Monoid</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Endo.html">Endo</a><span class="signature">&lt;<wbr><span class="type-parameter">A</span>&gt;</span></span>&gt;</span></span>
-  </span>
-  
-
-</dt>
-<dd>
-  
-  
-
-</dd>
-
-        <dt id="endoMonoid" class="callable">
-  <span class="name"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/endoMonoid.html">endoMonoid</a></span><span class="signature">&lt;<wbr><span class="type-parameter">A</span>&gt;</span><span class="signature">(<wbr>)
-    <span class="returntype parameter">&#8594; <a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Monoid-mixin.html">Monoid</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Endo.html">Endo</a><span class="signature">&lt;<wbr><span class="type-parameter">A</span>&gt;</span></span>&gt;</span></span>
-  </span>
-  
-
-</dt>
-<dd>
-  
-  
-
-</dd>
-
-        <dt id="identity" class="callable">
-  <span class="name"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/identity.html">identity</a></span><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="identity-param-a"><span class="type-annotation">T</span> <span class="parameter-name">a</span></span>)
-    <span class="returntype parameter">&#8594; T</span>
-  </span>
-  
-
-</dt>
-<dd>
-  Returns the given <code>a</code>.
-  
-
-</dd>
-
-        <dt id="identityFuture" class="callable">
-  <span class="name"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/identityFuture.html">identityFuture</a></span><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="identityFuture-param-a"><span class="type-annotation">T</span> <span class="parameter-name">a</span></span>)
-    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>
-  </span>
-  
-
-</dt>
-<dd>
-  Returns the given <code>a</code>, wrapped in <code>Future.value</code>.
-  
-
-</dd>
-
-        <dt id="left" class="callable">
-  <span class="name"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/left.html">left</a></span><span class="signature">&lt;<wbr><span class="type-parameter">L</span>, <span class="type-parameter">R</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="left-param-l"><span class="type-annotation">L</span> <span class="parameter-name">l</span></span>)
-    <span class="returntype parameter">&#8594; <a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Either-class.html">Either</a><span class="signature">&lt;<wbr><span class="type-parameter">L</span>, <span class="type-parameter">R</span>&gt;</span></span>
-  </span>
-  
-
-</dt>
-<dd>
-  Return a <code>Left(l)</code>.
-  
-
-</dd>
-
-        <dt id="modifyIORef" class="callable">
-  <span class="name"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/modifyIORef.html">modifyIORef</a></span><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="modifyIORef-param-update"><span class="type-annotation"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Endo.html">Endo</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> <span class="parameter-name">update</span>, </span><span class="parameter" id="modifyIORef-param-ref"><span class="type-annotation"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/IORef-class.html">IORef</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> <span class="parameter-name">ref</span></span>)
-    <span class="returntype parameter">&#8594; <a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/IO-class.html">IO</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Unit-class.html">Unit</a></span>&gt;</span></span>
-  </span>
-  
-
-</dt>
-<dd>
-  Works almost identical to the <code>write</code> method, but instead of taking
-a value that needs to be written, takes an <a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Endo.html">Endo</a> function, applies the
-<a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/IORef-class.html">IORef</a>'s current value to it and writes the result to the <a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/IORef-class.html">IORef</a>.
-  
-
-</dd>
-
-        <dt id="modifyIORefC" class="callable">
-  <span class="name"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/modifyIORefC.html">modifyIORefC</a></span><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="modifyIORefC-param-update"><span class="type-annotation"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Endo.html">Endo</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> <span class="parameter-name">update</span></span>)
-    <span class="returntype parameter">&#8594; <a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/IO-class.html">IO</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Unit-class.html">Unit</a></span>&gt;</span> Function<span class="signature">(<span class="parameter" id="param-ref"><span class="type-annotation"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/IORef-class.html">IORef</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> <span class="parameter-name">ref</span></span>)</span></span>
-  </span>
-  
-
-</dt>
-<dd>
-  A curried version of the
-<a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/modifyIORef.html">modifyIORef</a>
-  
-
-</dd>
-
-        <dt id="newIORef" class="callable">
-  <span class="name"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/newIORef.html">newIORef</a></span><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="newIORef-param-initial"><span class="type-annotation">T</span> <span class="parameter-name">initial</span></span>)
-    <span class="returntype parameter">&#8594; <a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/IO-class.html">IO</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/IORef-class.html">IORef</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>&gt;</span></span>
-  </span>
-  
-
-</dt>
-<dd>
-  Creates a new IORef inside an <a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/IO-class.html">IO</a> monad with a given initial value.
-  
-
-</dd>
-
-        <dt id="none" class="callable">
-  <span class="name"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/none.html">none</a></span><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span><span class="signature">(<wbr>)
-    <span class="returntype parameter">&#8594; <a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Option-class.html">Option</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>
-  </span>
-  
-
-</dt>
-<dd>
-  Return a <a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/None-class.html">None</a>.
-  
-
-</dd>
-
-        <dt id="option" class="callable">
-  <span class="name"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/option.html">option</a></span><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="option-param-value"><span class="type-annotation">T</span> <span class="parameter-name">value</span>, </span><span class="parameter" id="option-param-predicate"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">predicate</span>(<span class="parameter" id="param-"><span class="type-annotation">T</span></span>)</span>)
-    <span class="returntype parameter">&#8594; <a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Option-class.html">Option</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>
-  </span>
-  
-
-</dt>
-<dd>
-  Return <a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Some-class.html">Some</a> of <code>value</code> when <code>predicate</code> applied to <code>value</code> returns <code>true</code>,
-<a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/None-class.html">None</a> otherwise.
-  
-
-</dd>
-
-        <dt id="optionOf" class="callable">
-  <span class="name"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/optionOf.html">optionOf</a></span><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="optionOf-param-t"><span class="type-annotation">T?</span> <span class="parameter-name">t</span></span>)
-    <span class="returntype parameter">&#8594; <a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Option-class.html">Option</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>
-  </span>
-  
-
-</dt>
-<dd>
-  Return <a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/None-class.html">None</a> if <code>t</code> is <code>null</code>, <a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Some-class.html">Some</a> otherwise.
-  
-
-</dd>
-
-        <dt id="randomInt" class="callable">
-  <span class="name"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/randomInt.html">randomInt</a></span><span class="signature">(<wbr><span class="parameter" id="randomInt-param-min"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">min</span>, </span><span class="parameter" id="randomInt-param-max"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">max</span></span>)
-    <span class="returntype parameter">&#8594; <a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/IO-class.html">IO</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span>&gt;</span></span>
-  </span>
-  
-
-</dt>
-<dd>
-  Generates a non-negative random integer uniformly distributed
-in the range from <code>min</code>, <strong>inclusive</strong>, to <code>max</code>, <strong>exclusive</strong>.
-  
-
-</dd>
-
-        <dt id="readIORef" class="callable">
-  <span class="name"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/readIORef.html">readIORef</a></span><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="readIORef-param-ref"><span class="type-annotation"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/IORef-class.html">IORef</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> <span class="parameter-name">ref</span></span>)
-    <span class="returntype parameter">&#8594; <a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/IO-class.html">IO</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>
-  </span>
-  
-
-</dt>
-<dd>
-  Extracts a current value of the <a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/IORef-class.html">IORef</a> and returns it inside the
-<a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/IO-class.html">IO</a> monad.
-  
-
-</dd>
-
-        <dt id="right" class="callable">
-  <span class="name"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/right.html">right</a></span><span class="signature">&lt;<wbr><span class="type-parameter">L</span>, <span class="type-parameter">R</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="right-param-r"><span class="type-annotation">R</span> <span class="parameter-name">r</span></span>)
-    <span class="returntype parameter">&#8594; <a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Either-class.html">Either</a><span class="signature">&lt;<wbr><span class="type-parameter">L</span>, <span class="type-parameter">R</span>&gt;</span></span>
-  </span>
-  
-
-</dt>
-<dd>
-  Return a <code>Right(r)</code>.
-  
-
-</dd>
-
-        <dt id="some" class="callable">
-  <span class="name"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/some.html">some</a></span><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="some-param-t"><span class="type-annotation">T</span> <span class="parameter-name">t</span></span>)
-    <span class="returntype parameter">&#8594; <a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Option-class.html">Option</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>
-  </span>
-  
-
-</dt>
-<dd>
-  Return a <code>Some(t)</code>.
-  
-
-</dd>
-
-        <dt id="toBoolEither" class="callable">
-  <span class="name"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/toBoolEither.html">toBoolEither</a></span><span class="signature">&lt;<wbr><span class="type-parameter">L</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="toBoolEither-param-str"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">str</span>, </span><span class="parameter" id="toBoolEither-param-onLeft"><span class="type-annotation">L</span> <span class="parameter-name">onLeft</span>()</span>)
-    <span class="returntype parameter">&#8594; <a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Either-class.html">Either</a><span class="signature">&lt;<wbr><span class="type-parameter">L</span>, <span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>&gt;</span></span>
-  </span>
-  
-
-</dt>
-<dd>
-  Convert this <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a> to <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>, returns the result of <code>onLeft</code> for invalid inputs.
-  
-
-</dd>
-
-        <dt id="toBoolOption" class="callable">
-  <span class="name"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/toBoolOption.html">toBoolOption</a></span><span class="signature">(<wbr><span class="parameter" id="toBoolOption-param-str"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">str</span></span>)
-    <span class="returntype parameter">&#8594; <a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Option-class.html">Option</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>&gt;</span></span>
-  </span>
-  
-
-</dt>
-<dd>
-  Convert this <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a> to <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>, returns <a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/None-class.html">None</a> for invalid inputs.
-  
-
-</dd>
-
-        <dt id="toDoubleEither" class="callable">
-  <span class="name"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/toDoubleEither.html">toDoubleEither</a></span><span class="signature">&lt;<wbr><span class="type-parameter">L</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="toDoubleEither-param-onLeft"><span class="type-annotation">L</span> <span class="parameter-name">onLeft</span>()</span>)
-    <span class="returntype parameter">&#8594; <a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Either-class.html">Either</a><span class="signature">&lt;<wbr><span class="type-parameter">L</span>, <span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span>&gt;</span> Function<span class="signature">(<span class="parameter" id="param-"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span></span>)</span></span>
-  </span>
-  
-
-</dt>
-<dd>
-  Convert this <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a> to <a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>, returns the result of <code>onLeft</code> for invalid inputs.
-  
-
-</dd>
-
-        <dt id="toDoubleOption" class="callable">
-  <span class="name"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/toDoubleOption.html">toDoubleOption</a></span><span class="signature">(<wbr><span class="parameter" id="toDoubleOption-param-str"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">str</span></span>)
-    <span class="returntype parameter">&#8594; <a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Option-class.html">Option</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span>&gt;</span></span>
-  </span>
-  
-
-</dt>
-<dd>
-  Convert this <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a> to <a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>, returns <a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/None-class.html">None</a> for invalid inputs.
-  
-
-</dd>
-
-        <dt id="toIntEither" class="callable">
-  <span class="name"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/toIntEither.html">toIntEither</a></span><span class="signature">&lt;<wbr><span class="type-parameter">L</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="toIntEither-param-onLeft"><span class="type-annotation">L</span> <span class="parameter-name">onLeft</span>()</span>)
-    <span class="returntype parameter">&#8594; <a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Either-class.html">Either</a><span class="signature">&lt;<wbr><span class="type-parameter">L</span>, <span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span>&gt;</span> Function<span class="signature">(<span class="parameter" id="param-"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span></span>)</span></span>
-  </span>
-  
-
-</dt>
-<dd>
-  Convert this <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a> to <a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>, returns the result of <code>onLeft</code> for invalid inputs.
-  
-
-</dd>
-
-        <dt id="toIntOption" class="callable">
-  <span class="name"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/toIntOption.html">toIntOption</a></span><span class="signature">(<wbr><span class="parameter" id="toIntOption-param-str"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">str</span></span>)
-    <span class="returntype parameter">&#8594; <a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Option-class.html">Option</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span>&gt;</span></span>
-  </span>
-  
-
-</dt>
-<dd>
-  Convert this <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a> to <a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>, returns <a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/None-class.html">None</a> for invalid inputs.
-  
-
-</dd>
-
-        <dt id="toNumEither" class="callable">
-  <span class="name"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/toNumEither.html">toNumEither</a></span><span class="signature">&lt;<wbr><span class="type-parameter">L</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="toNumEither-param-onLeft"><span class="type-annotation">L</span> <span class="parameter-name">onLeft</span>()</span>)
-    <span class="returntype parameter">&#8594; <a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Either-class.html">Either</a><span class="signature">&lt;<wbr><span class="type-parameter">L</span>, <span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/num-class.html">num</a></span>&gt;</span> Function<span class="signature">(<span class="parameter" id="param-"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span></span>)</span></span>
-  </span>
-  
-
-</dt>
-<dd>
-  Convert this <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a> to <a href="https://api.flutter.dev/flutter/dart-core/num-class.html">num</a>, returns the result of <code>onLeft</code> for invalid inputs.
-  
-
-</dd>
-
-        <dt id="toNumOption" class="callable">
-  <span class="name"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/toNumOption.html">toNumOption</a></span><span class="signature">(<wbr><span class="parameter" id="toNumOption-param-str"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">str</span></span>)
-    <span class="returntype parameter">&#8594; <a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Option-class.html">Option</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/num-class.html">num</a></span>&gt;</span></span>
-  </span>
-  
-
-</dt>
-<dd>
-  Convert this <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a> to <a href="https://api.flutter.dev/flutter/dart-core/num-class.html">num</a>, returns <a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/None-class.html">None</a> for invalid inputs.
-  
-
-</dd>
-
-        <dt id="writeIORef" class="callable">
-  <span class="name"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/writeIORef.html">writeIORef</a></span><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="writeIORef-param-value"><span class="type-annotation">T</span> <span class="parameter-name">value</span>, </span><span class="parameter" id="writeIORef-param-ref"><span class="type-annotation"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/IORef-class.html">IORef</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> <span class="parameter-name">ref</span></span>)
-    <span class="returntype parameter">&#8594; <a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/IO-class.html">IO</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Unit-class.html">Unit</a></span>&gt;</span></span>
-  </span>
-  
-
-</dt>
-<dd>
-  Writes the given value to the <a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/IORef-class.html">IORef</a> and returns a <a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Unit-class.html">Unit</a> inside the
-<a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/IO-class.html">IO</a> monad.
-  
-
-</dd>
-
-        <dt id="writeIORefC" class="callable">
-  <span class="name"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/writeIORefC.html">writeIORefC</a></span><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="writeIORefC-param-value"><span class="type-annotation">T</span> <span class="parameter-name">value</span></span>)
-    <span class="returntype parameter">&#8594; <a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/IO-class.html">IO</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Unit-class.html">Unit</a></span>&gt;</span> Function<span class="signature">(<span class="parameter" id="param-ref"><span class="type-annotation"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/IORef-class.html">IORef</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> <span class="parameter-name">ref</span></span>)</span></span>
-  </span>
-  
-
-</dt>
-<dd>
-  A curried version of the
-<a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/writeIORef.html">writeIORef</a>
-  
-
 </dd>
 
       </dl>
@@ -1685,24 +436,24 @@ in the range from <code>min</code>, <strong>inclusive</strong>, to <code>max</co
       <h2>Enums</h2>
 
       <dl>
-        <dt id="CachePolicy">
-  <span class="name "><a href="https://pub.dev/documentation/dio_cache_interceptor/3.4.4/dio_cache_interceptor/CachePolicy.html">CachePolicy</a></span> 
+          <dt id="CachePolicy">
+  <span class="name "><a href="https://pub.dev/documentation/dio_cache_interceptor/3.5.0/dio_cache_interceptor/CachePolicy.html">CachePolicy</a></span> 
 
 </dt>
 <dd>
   Policy to handle request behaviour.
 </dd>
 
-        <dt id="CachePriority">
-  <span class="name "><a href="https://pub.dev/documentation/dio_cache_interceptor/3.4.4/dio_cache_interceptor/CachePriority.html">CachePriority</a></span> 
+          <dt id="CachePriority">
+  <span class="name "><a href="https://pub.dev/documentation/dio_cache_interceptor/3.5.0/dio_cache_interceptor/CachePriority.html">CachePriority</a></span> 
 
 </dt>
 <dd>
   Cache priority.
 </dd>
 
-        <dt id="DioExceptionType">
-  <span class="name "><a href="https://pub.dev/documentation/dio/5.3.4/dio/DioExceptionType.html">DioExceptionType</a></span> 
+          <dt id="DioExceptionType">
+  <span class="name "><a href="https://pub.dev/documentation/dio/5.5.0+1/dio/DioExceptionType.html">DioExceptionType</a></span> 
 
 </dt>
 <dd>
@@ -1710,8 +461,8 @@ in the range from <code>min</code>, <strong>inclusive</strong>, to <code>max</co
 has happened during requests.
 </dd>
 
-        <dt id="ListFormat">
-  <span class="name "><a href="https://pub.dev/documentation/dio/5.3.4/dio/ListFormat.html">ListFormat</a></span> 
+          <dt id="ListFormat">
+  <span class="name "><a href="https://pub.dev/documentation/dio/5.5.0+1/dio/ListFormat.html">ListFormat</a></span> 
 
 </dt>
 <dd>
@@ -1720,16 +471,8 @@ or multiple parameters with the same name).
 and the separator for array items.
 </dd>
 
-        <dt id="NetworkStatus">
-  <span class="name "><a href="../clean_network/NetworkStatus.html">NetworkStatus</a></span> 
-
-</dt>
-<dd>
-  
-</dd>
-
-        <dt id="ResponseType">
-  <span class="name "><a href="https://pub.dev/documentation/dio/5.3.4/dio/ResponseType.html">ResponseType</a></span> 
+          <dt id="ResponseType">
+  <span class="name "><a href="https://pub.dev/documentation/dio/5.5.0+1/dio/ResponseType.html">ResponseType</a></span> 
 
 </dt>
 <dd>
@@ -1739,14 +482,51 @@ and the separator for array items.
       </dl>
     </section>
 
+    <section class="summary offset-anchor" id="mixins">
+      <h2>Mixins</h2>
+
+      <dl>
+          <dt id="OptionsMixin">
+  <span class="name "><a href="https://pub.dev/documentation/dio/5.5.0+1/dio/OptionsMixin-mixin.html">OptionsMixin</a></span> 
+
+</dt>
+<dd>
+  The mixin class for options that provides common attributes.
+</dd>
+
+      </dl>
+    </section>
+
+
+    <section class="summary offset-anchor" id="extensions">
+      <h2>Extensions</h2>
+
+      <dl>
+          <dt id="CachePriorityToString">
+  <span class="name "><a href="https://pub.dev/documentation/dio_cache_interceptor/3.5.0/dio_cache_interceptor/CachePriorityToString.html">CachePriorityToString</a></span>
+  on <a href="https://pub.dev/documentation/dio_cache_interceptor/3.5.0/dio_cache_interceptor/CachePriority.html">CachePriority</a>
+  
+
+</dt>
+<dd>
+  
+</dd>
+
+
+      </dl>
+    </section>
+
+
+
+
     <section class="summary offset-anchor" id="typedefs">
       <h2>Typedefs</h2>
 
       <dl>
           
   <dt id="CacheKeyBuilder" class="callable">
-    <span class="name"><a href="https://pub.dev/documentation/dio_cache_interceptor/3.4.4/dio_cache_interceptor/CacheKeyBuilder.html">CacheKeyBuilder</a></span><span class="signature">
-      <span class="returntype parameter">= <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a> Function<span class="signature">(<span class="parameter" id="param-request"><span class="type-annotation"><a href="https://pub.dev/documentation/dio/5.3.4/dio/RequestOptions-class.html">RequestOptions</a></span> <span class="parameter-name">request</span></span>)</span></span>
+    <span class="name"><a href="https://pub.dev/documentation/dio_cache_interceptor/3.5.0/dio_cache_interceptor/CacheKeyBuilder.html">CacheKeyBuilder</a></span><span class="signature">
+      <span class="returntype parameter">= <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a> Function<span class="signature">(<span class="parameter" id="param-request"><span class="type-annotation"><a href="https://pub.dev/documentation/dio/5.5.0+1/dio/RequestOptions-class.html">RequestOptions</a></span> <span class="parameter-name">request</span></span>)</span></span>
     </span>
     
 
@@ -1758,23 +538,8 @@ and the separator for array items.
   </dd>
 
           
-  <dt id="CleanResponse" class="">
-  <span class="name"><a href="../clean_network/CleanResponse.html">CleanResponse</a></span>&lt;<wbr><span class="type-parameter">T</span>&gt;
-    = <a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Task-class.html">Task</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>
-  </span>
-  
-
-</dt>
-<dd>
-  
-  
-
-</dd>
-
-
-          
   <dt id="Decrypt" class="callable">
-    <span class="name"><a href="https://pub.dev/documentation/dio_cache_interceptor/3.4.4/dio_cache_interceptor/Decrypt.html">Decrypt</a></span><span class="signature">
+    <span class="name"><a href="https://pub.dev/documentation/dio_cache_interceptor/3.5.0/dio_cache_interceptor/Decrypt.html">Decrypt</a></span><span class="signature">
       <span class="returntype parameter">= <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span>&gt;</span></span>&gt;</span> Function<span class="signature">(<span class="parameter" id="param-bytes"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span>&gt;</span></span> <span class="parameter-name">bytes</span></span>)</span></span>
     </span>
     
@@ -1788,8 +553,8 @@ and the separator for array items.
 
           
   <dt id="DefaultTransformer" class="">
-  <span class="name deprecated"><a class="deprecated" href="https://pub.dev/documentation/dio/5.3.4/dio/DefaultTransformer.html">DefaultTransformer</a></span>
-    = <a href="https://pub.dev/documentation/dio/5.3.4/dio/SyncTransformer-class.html">SyncTransformer</a>
+  <span class="name deprecated"><a class="deprecated" href="https://pub.dev/documentation/dio/5.5.0+1/dio/DefaultTransformer.html">DefaultTransformer</a></span>
+    = <a href="https://pub.dev/documentation/dio/5.5.0+1/dio/SyncTransformer-class.html">SyncTransformer</a>
   </span>
   
 
@@ -1803,14 +568,14 @@ and the separator for array items.
 
           
   <dt id="DioError" class="">
-  <span class="name deprecated"><a class="deprecated" href="https://pub.dev/documentation/dio/5.3.4/dio/DioError.html">DioError</a></span>
-    = <a href="https://pub.dev/documentation/dio/5.3.4/dio/DioException-class.html">DioException</a>
+  <span class="name deprecated"><a class="deprecated" href="https://pub.dev/documentation/dio/5.5.0+1/dio/DioError.html">DioError</a></span>
+    = <a href="https://pub.dev/documentation/dio/5.5.0+1/dio/DioException-class.html">DioException</a>
   </span>
   
 
 </dt>
 <dd>
-  <a class="deprecated" href="https://pub.dev/documentation/dio/5.3.4/dio/DioError.html">DioError</a> describes the exception info when a request failed.
+  <a class="deprecated" href="https://pub.dev/documentation/dio/5.5.0+1/dio/DioError.html">DioError</a> describes the exception info when a request failed.
   
 
 </dd>
@@ -1818,309 +583,29 @@ and the separator for array items.
 
           
   <dt id="DioErrorType" class="">
-  <span class="name deprecated"><a class="deprecated" href="https://pub.dev/documentation/dio/5.3.4/dio/DioErrorType.html">DioErrorType</a></span>
-    = <a href="https://pub.dev/documentation/dio/5.3.4/dio/DioExceptionType.html">DioExceptionType</a>
+  <span class="name deprecated"><a class="deprecated" href="https://pub.dev/documentation/dio/5.5.0+1/dio/DioErrorType.html">DioErrorType</a></span>
+    = <a href="https://pub.dev/documentation/dio/5.5.0+1/dio/DioExceptionType.html">DioExceptionType</a>
   </span>
   
 
 </dt>
 <dd>
-  Deprecated in favor of <a href="https://pub.dev/documentation/dio/5.3.4/dio/DioExceptionType.html">DioExceptionType</a> and will be removed in future major versions.
+  Deprecated in favor of <a href="https://pub.dev/documentation/dio/5.5.0+1/dio/DioExceptionType.html">DioExceptionType</a> and will be removed in future major versions.
   
 
 </dd>
 
 
           
-  <dt id="DoAdapterEither" class="callable">
-    <span class="name"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/DoAdapterEither.html">DoAdapterEither</a></span>&lt;<wbr><span class="type-parameter">L</span>&gt;<span class="signature">
-      <span class="returntype parameter">= R Function&lt;<wbr><span class="type-parameter">R</span>&gt;<span class="signature">(<span class="parameter" id="param-"><span class="type-annotation"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Either-class.html">Either</a><span class="signature">&lt;<wbr><span class="type-parameter">L</span>, <span class="type-parameter">R</span>&gt;</span></span></span>)</span></span>
-    </span>
-    
-
-  </dt>
-  <dd>
-    
-    
-
-  </dd>
-
-          
-  <dt id="DoAdapterIO" class="callable">
-    <span class="name"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/DoAdapterIO.html">DoAdapterIO</a></span><span class="signature">
-      <span class="returntype parameter">= A Function&lt;<wbr><span class="type-parameter">A</span>&gt;<span class="signature">(<span class="parameter" id="param-"><span class="type-annotation"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/IO-class.html">IO</a><span class="signature">&lt;<wbr><span class="type-parameter">A</span>&gt;</span></span></span>)</span></span>
-    </span>
-    
-
-  </dt>
-  <dd>
-    
-    
-
-  </dd>
-
-          
-  <dt id="DoAdapterIOEither" class="callable">
-    <span class="name"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/DoAdapterIOEither.html">DoAdapterIOEither</a></span>&lt;<wbr><span class="type-parameter">E</span>&gt;<span class="signature">
-      <span class="returntype parameter">= A Function&lt;<wbr><span class="type-parameter">A</span>&gt;<span class="signature">(<span class="parameter" id="param-"><span class="type-annotation"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/IOEither-class.html">IOEither</a><span class="signature">&lt;<wbr><span class="type-parameter">E</span>, <span class="type-parameter">A</span>&gt;</span></span></span>)</span></span>
-    </span>
-    
-
-  </dt>
-  <dd>
-    
-    
-
-  </dd>
-
-          
-  <dt id="DoAdapterIOOption" class="callable">
-    <span class="name"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/DoAdapterIOOption.html">DoAdapterIOOption</a></span><span class="signature">
-      <span class="returntype parameter">= A Function&lt;<wbr><span class="type-parameter">A</span>&gt;<span class="signature">(<span class="parameter" id="param-"><span class="type-annotation"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/IOOption-class.html">IOOption</a><span class="signature">&lt;<wbr><span class="type-parameter">A</span>&gt;</span></span></span>)</span></span>
-    </span>
-    
-
-  </dt>
-  <dd>
-    
-    
-
-  </dd>
-
-          
-  <dt id="DoAdapterOption" class="callable">
-    <span class="name"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/DoAdapterOption.html">DoAdapterOption</a></span><span class="signature">
-      <span class="returntype parameter">= A Function&lt;<wbr><span class="type-parameter">A</span>&gt;<span class="signature">(<span class="parameter" id="param-"><span class="type-annotation"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Option-class.html">Option</a><span class="signature">&lt;<wbr><span class="type-parameter">A</span>&gt;</span></span></span>)</span></span>
-    </span>
-    
-
-  </dt>
-  <dd>
-    
-    
-
-  </dd>
-
-          
-  <dt id="DoAdapterReaderTask" class="callable">
-    <span class="name"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/DoAdapterReaderTask.html">DoAdapterReaderTask</a></span>&lt;<wbr><span class="type-parameter">E</span>&gt;<span class="signature">
-      <span class="returntype parameter">= <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">A</span>&gt;</span> Function&lt;<wbr><span class="type-parameter">A</span>&gt;<span class="signature">(<span class="parameter" id="param-"><span class="type-annotation"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/ReaderTask-class.html">ReaderTask</a><span class="signature">&lt;<wbr><span class="type-parameter">E</span>, <span class="type-parameter">A</span>&gt;</span></span></span>)</span></span>
-    </span>
-    
-
-  </dt>
-  <dd>
-    
-    
-
-  </dd>
-
-          
-  <dt id="DoAdapterReaderTaskEither" class="callable">
-    <span class="name"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/DoAdapterReaderTaskEither.html">DoAdapterReaderTaskEither</a></span>&lt;<wbr><span class="type-parameter">E</span>, <span class="type-parameter">L</span>&gt;<span class="signature">
-      <span class="returntype parameter">= <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">A</span>&gt;</span> Function&lt;<wbr><span class="type-parameter">A</span>&gt;<span class="signature">(<span class="parameter" id="param-"><span class="type-annotation"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/ReaderTaskEither-class.html">ReaderTaskEither</a><span class="signature">&lt;<wbr><span class="type-parameter">E</span>, <span class="type-parameter">L</span>, <span class="type-parameter">A</span>&gt;</span></span></span>)</span></span>
-    </span>
-    
-
-  </dt>
-  <dd>
-    
-    
-
-  </dd>
-
-          
-  <dt id="DoAdapterTask" class="callable">
-    <span class="name"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/DoAdapterTask.html">DoAdapterTask</a></span><span class="signature">
-      <span class="returntype parameter">= <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">A</span>&gt;</span> Function&lt;<wbr><span class="type-parameter">A</span>&gt;<span class="signature">(<span class="parameter" id="param-"><span class="type-annotation"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Task-class.html">Task</a><span class="signature">&lt;<wbr><span class="type-parameter">A</span>&gt;</span></span></span>)</span></span>
-    </span>
-    
-
-  </dt>
-  <dd>
-    
-    
-
-  </dd>
-
-          
-  <dt id="DoAdapterTaskEither" class="callable">
-    <span class="name"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/DoAdapterTaskEither.html">DoAdapterTaskEither</a></span>&lt;<wbr><span class="type-parameter">E</span>&gt;<span class="signature">
-      <span class="returntype parameter">= <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">A</span>&gt;</span> Function&lt;<wbr><span class="type-parameter">A</span>&gt;<span class="signature">(<span class="parameter" id="param-"><span class="type-annotation"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/TaskEither-class.html">TaskEither</a><span class="signature">&lt;<wbr><span class="type-parameter">E</span>, <span class="type-parameter">A</span>&gt;</span></span></span>)</span></span>
-    </span>
-    
-
-  </dt>
-  <dd>
-    
-    
-
-  </dd>
-
-          
-  <dt id="DoAdapterTaskOption" class="callable">
-    <span class="name"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/DoAdapterTaskOption.html">DoAdapterTaskOption</a></span><span class="signature">
-      <span class="returntype parameter">= <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">A</span>&gt;</span> Function&lt;<wbr><span class="type-parameter">A</span>&gt;<span class="signature">(<span class="parameter" id="param-"><span class="type-annotation"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/TaskOption-class.html">TaskOption</a><span class="signature">&lt;<wbr><span class="type-parameter">A</span>&gt;</span></span></span>)</span></span>
-    </span>
-    
-
-  </dt>
-  <dd>
-    
-    
-
-  </dd>
-
-          
-  <dt id="DoFunctionEither" class="callable">
-    <span class="name"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/DoFunctionEither.html">DoFunctionEither</a></span>&lt;<wbr><span class="type-parameter">L</span>, <span class="type-parameter">R</span>&gt;<span class="signature">
-      <span class="returntype parameter">= R Function<span class="signature">(<span class="parameter" id="param-$"><span class="type-annotation"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/DoAdapterEither.html">DoAdapterEither</a><span class="signature">&lt;<wbr><span class="type-parameter">L</span>&gt;</span></span> <span class="parameter-name">$</span></span>)</span></span>
-    </span>
-    
-
-  </dt>
-  <dd>
-    
-    
-
-  </dd>
-
-          
-  <dt id="DoFunctionIO" class="callable">
-    <span class="name"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/DoFunctionIO.html">DoFunctionIO</a></span>&lt;<wbr><span class="type-parameter">A</span>&gt;<span class="signature">
-      <span class="returntype parameter">= A Function<span class="signature">(<span class="parameter" id="param-$"><span class="type-annotation"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/DoAdapterIO.html">DoAdapterIO</a></span> <span class="parameter-name">$</span></span>)</span></span>
-    </span>
-    
-
-  </dt>
-  <dd>
-    
-    
-
-  </dd>
-
-          
-  <dt id="DoFunctionIOEither" class="callable">
-    <span class="name"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/DoFunctionIOEither.html">DoFunctionIOEither</a></span>&lt;<wbr><span class="type-parameter">L</span>, <span class="type-parameter">A</span>&gt;<span class="signature">
-      <span class="returntype parameter">= A Function<span class="signature">(<span class="parameter" id="param-$"><span class="type-annotation"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/DoAdapterIOEither.html">DoAdapterIOEither</a><span class="signature">&lt;<wbr><span class="type-parameter">L</span>&gt;</span></span> <span class="parameter-name">$</span></span>)</span></span>
-    </span>
-    
-
-  </dt>
-  <dd>
-    
-    
-
-  </dd>
-
-          
-  <dt id="DoFunctionIOOption" class="callable">
-    <span class="name"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/DoFunctionIOOption.html">DoFunctionIOOption</a></span>&lt;<wbr><span class="type-parameter">A</span>&gt;<span class="signature">
-      <span class="returntype parameter">= A Function<span class="signature">(<span class="parameter" id="param-$"><span class="type-annotation"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/DoAdapterIOOption.html">DoAdapterIOOption</a></span> <span class="parameter-name">$</span></span>)</span></span>
-    </span>
-    
-
-  </dt>
-  <dd>
-    
-    
-
-  </dd>
-
-          
-  <dt id="DoFunctionOption" class="callable">
-    <span class="name"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/DoFunctionOption.html">DoFunctionOption</a></span>&lt;<wbr><span class="type-parameter">A</span>&gt;<span class="signature">
-      <span class="returntype parameter">= A Function<span class="signature">(<span class="parameter" id="param-$"><span class="type-annotation"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/DoAdapterOption.html">DoAdapterOption</a></span> <span class="parameter-name">$</span></span>)</span></span>
-    </span>
-    
-
-  </dt>
-  <dd>
-    
-    
-
-  </dd>
-
-          
-  <dt id="DoFunctionReaderTask" class="callable">
-    <span class="name"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/DoFunctionReaderTask.html">DoFunctionReaderTask</a></span>&lt;<wbr><span class="type-parameter">E</span>, <span class="type-parameter">A</span>&gt;<span class="signature">
-      <span class="returntype parameter">= <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">A</span>&gt;</span> Function<span class="signature">(<span class="parameter" id="param-$"><span class="type-annotation"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/DoAdapterReaderTask.html">DoAdapterReaderTask</a><span class="signature">&lt;<wbr><span class="type-parameter">E</span>&gt;</span></span> <span class="parameter-name">$</span></span>)</span></span>
-    </span>
-    
-
-  </dt>
-  <dd>
-    
-    
-
-  </dd>
-
-          
-  <dt id="DoFunctionReaderTaskEither" class="callable">
-    <span class="name"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/DoFunctionReaderTaskEither.html">DoFunctionReaderTaskEither</a></span>&lt;<wbr><span class="type-parameter">E</span>, <span class="type-parameter">L</span>, <span class="type-parameter">A</span>&gt;<span class="signature">
-      <span class="returntype parameter">= <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">A</span>&gt;</span> Function<span class="signature">(<span class="parameter" id="param-$"><span class="type-annotation"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/DoAdapterReaderTaskEither.html">DoAdapterReaderTaskEither</a><span class="signature">&lt;<wbr><span class="type-parameter">E</span>, <span class="type-parameter">L</span>&gt;</span></span> <span class="parameter-name">$</span></span>)</span></span>
-    </span>
-    
-
-  </dt>
-  <dd>
-    
-    
-
-  </dd>
-
-          
-  <dt id="DoFunctionTask" class="callable">
-    <span class="name"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/DoFunctionTask.html">DoFunctionTask</a></span>&lt;<wbr><span class="type-parameter">A</span>&gt;<span class="signature">
-      <span class="returntype parameter">= <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">A</span>&gt;</span> Function<span class="signature">(<span class="parameter" id="param-$"><span class="type-annotation"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/DoAdapterTask.html">DoAdapterTask</a></span> <span class="parameter-name">$</span></span>)</span></span>
-    </span>
-    
-
-  </dt>
-  <dd>
-    
-    
-
-  </dd>
-
-          
-  <dt id="DoFunctionTaskEither" class="callable">
-    <span class="name"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/DoFunctionTaskEither.html">DoFunctionTaskEither</a></span>&lt;<wbr><span class="type-parameter">L</span>, <span class="type-parameter">A</span>&gt;<span class="signature">
-      <span class="returntype parameter">= <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">A</span>&gt;</span> Function<span class="signature">(<span class="parameter" id="param-$"><span class="type-annotation"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/DoAdapterTaskEither.html">DoAdapterTaskEither</a><span class="signature">&lt;<wbr><span class="type-parameter">L</span>&gt;</span></span> <span class="parameter-name">$</span></span>)</span></span>
-    </span>
-    
-
-  </dt>
-  <dd>
-    
-    
-
-  </dd>
-
-          
-  <dt id="DoFunctionTaskOption" class="callable">
-    <span class="name"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/DoFunctionTaskOption.html">DoFunctionTaskOption</a></span>&lt;<wbr><span class="type-parameter">A</span>&gt;<span class="signature">
-      <span class="returntype parameter">= <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">A</span>&gt;</span> Function<span class="signature">(<span class="parameter" id="param-$"><span class="type-annotation"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/DoAdapterTaskOption.html">DoAdapterTaskOption</a></span> <span class="parameter-name">$</span></span>)</span></span>
-    </span>
-    
-
-  </dt>
-  <dd>
-    
-    
-
-  </dd>
-
-          
-  <dt id="EitherResponse" class="">
-  <span class="name"><a href="../clean_network/EitherResponse.html">EitherResponse</a></span>&lt;<wbr><span class="type-parameter">E</span>, <span class="type-parameter">T</span>&gt;
-    = <a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/TaskEither-class.html">TaskEither</a><span class="signature">&lt;<wbr><span class="type-parameter">E</span>, <span class="type-parameter">T</span>&gt;</span>
+  <dt id="DioMediaType" class="">
+  <span class="name"><a href="https://pub.dev/documentation/dio/5.5.0+1/dio/DioMediaType.html">DioMediaType</a></span>
+    = <a href="https://pub.dev/documentation/http_parser/4.0.2/http_parser/MediaType-class.html">MediaType</a>
   </span>
   
 
 </dt>
 <dd>
-  
+  The type (alias) for specifying the content-type of the <code>MultipartFile</code>.
   
 
 </dd>
@@ -2128,7 +613,7 @@ and the separator for array items.
 
           
   <dt id="Encrypt" class="callable">
-    <span class="name"><a href="https://pub.dev/documentation/dio_cache_interceptor/3.4.4/dio_cache_interceptor/Encrypt.html">Encrypt</a></span><span class="signature">
+    <span class="name"><a href="https://pub.dev/documentation/dio_cache_interceptor/3.5.0/dio_cache_interceptor/Encrypt.html">Encrypt</a></span><span class="signature">
       <span class="returntype parameter">= <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span>&gt;</span></span>&gt;</span> Function<span class="signature">(<span class="parameter" id="param-bytes"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span>&gt;</span></span> <span class="parameter-name">bytes</span></span>)</span></span>
     </span>
     
@@ -2141,36 +626,8 @@ and the separator for array items.
   </dd>
 
           
-  <dt id="Endo" class="callable">
-    <span class="name"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Endo.html">Endo</a></span>&lt;<wbr><span class="type-parameter">A</span>&gt;<span class="signature">
-      <span class="returntype parameter">= A Function<span class="signature">(<span class="parameter" id="param-a"><span class="type-annotation">A</span> <span class="parameter-name">a</span></span>)</span></span>
-    </span>
-    
-
-  </dt>
-  <dd>
-    
-    
-
-  </dd>
-
-          
-  <dt id="FromJson" class="callable">
-    <span class="name"><a href="../clean_network/FromJson.html">FromJson</a></span>&lt;<wbr><span class="type-parameter">T</span>&gt;<span class="signature">
-      <span class="returntype parameter">= T Function<span class="signature">(<span class="parameter" id="param-json"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>, <span class="type-parameter">dynamic</span>&gt;</span></span> <span class="parameter-name">json</span></span>)</span></span>
-    </span>
-    
-
-  </dt>
-  <dd>
-    
-    
-
-  </dd>
-
-          
   <dt id="HeaderForEachCallback" class="callable">
-    <span class="name"><a href="https://pub.dev/documentation/dio/5.3.4/dio/HeaderForEachCallback.html">HeaderForEachCallback</a></span><span class="signature">
+    <span class="name"><a href="https://pub.dev/documentation/dio/5.5.0+1/dio/HeaderForEachCallback.html">HeaderForEachCallback</a></span><span class="signature">
       <span class="returntype parameter">= void Function<span class="signature">(<span class="parameter" id="param-name"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">name</span>, </span><span class="parameter" id="param-values"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span></span> <span class="parameter-name">values</span></span>)</span></span>
     </span>
     
@@ -2184,49 +641,49 @@ and the separator for array items.
 
           
   <dt id="InterceptorErrorCallback" class="callable">
-    <span class="name"><a href="https://pub.dev/documentation/dio/5.3.4/dio/InterceptorErrorCallback.html">InterceptorErrorCallback</a></span><span class="signature">
-      <span class="returntype parameter">= void Function<span class="signature">(<span class="parameter" id="param-e"><span class="type-annotation"><a href="https://pub.dev/documentation/dio/5.3.4/dio/DioException-class.html">DioException</a></span> <span class="parameter-name">e</span>, </span><span class="parameter" id="param-handler"><span class="type-annotation"><a href="https://pub.dev/documentation/dio/5.3.4/dio/ErrorInterceptorHandler-class.html">ErrorInterceptorHandler</a></span> <span class="parameter-name">handler</span></span>)</span></span>
+    <span class="name"><a href="https://pub.dev/documentation/dio/5.5.0+1/dio/InterceptorErrorCallback.html">InterceptorErrorCallback</a></span><span class="signature">
+      <span class="returntype parameter">= void Function<span class="signature">(<span class="parameter" id="param-error"><span class="type-annotation"><a href="https://pub.dev/documentation/dio/5.5.0+1/dio/DioException-class.html">DioException</a></span> <span class="parameter-name">error</span>, </span><span class="parameter" id="param-handler"><span class="type-annotation"><a href="https://pub.dev/documentation/dio/5.5.0+1/dio/ErrorInterceptorHandler-class.html">ErrorInterceptorHandler</a></span> <span class="parameter-name">handler</span></span>)</span></span>
     </span>
     
 
   </dt>
   <dd>
-    The signature of <a href="https://pub.dev/documentation/dio/5.3.4/dio/Interceptor/onError.html">Interceptor.onError</a>.
+    The signature of <a href="https://pub.dev/documentation/dio/5.5.0+1/dio/Interceptor/onError.html">Interceptor.onError</a>.
     
 
   </dd>
 
           
   <dt id="InterceptorSendCallback" class="callable">
-    <span class="name"><a href="https://pub.dev/documentation/dio/5.3.4/dio/InterceptorSendCallback.html">InterceptorSendCallback</a></span><span class="signature">
-      <span class="returntype parameter">= void Function<span class="signature">(<span class="parameter" id="param-options"><span class="type-annotation"><a href="https://pub.dev/documentation/dio/5.3.4/dio/RequestOptions-class.html">RequestOptions</a></span> <span class="parameter-name">options</span>, </span><span class="parameter" id="param-handler"><span class="type-annotation"><a href="https://pub.dev/documentation/dio/5.3.4/dio/RequestInterceptorHandler-class.html">RequestInterceptorHandler</a></span> <span class="parameter-name">handler</span></span>)</span></span>
+    <span class="name"><a href="https://pub.dev/documentation/dio/5.5.0+1/dio/InterceptorSendCallback.html">InterceptorSendCallback</a></span><span class="signature">
+      <span class="returntype parameter">= void Function<span class="signature">(<span class="parameter" id="param-options"><span class="type-annotation"><a href="https://pub.dev/documentation/dio/5.5.0+1/dio/RequestOptions-class.html">RequestOptions</a></span> <span class="parameter-name">options</span>, </span><span class="parameter" id="param-handler"><span class="type-annotation"><a href="https://pub.dev/documentation/dio/5.5.0+1/dio/RequestInterceptorHandler-class.html">RequestInterceptorHandler</a></span> <span class="parameter-name">handler</span></span>)</span></span>
     </span>
     
 
   </dt>
   <dd>
-    The signature of <a href="https://pub.dev/documentation/dio/5.3.4/dio/Interceptor/onRequest.html">Interceptor.onRequest</a>.
+    The signature of <a href="https://pub.dev/documentation/dio/5.5.0+1/dio/Interceptor/onRequest.html">Interceptor.onRequest</a>.
     
 
   </dd>
 
           
   <dt id="InterceptorSuccessCallback" class="callable">
-    <span class="name"><a href="https://pub.dev/documentation/dio/5.3.4/dio/InterceptorSuccessCallback.html">InterceptorSuccessCallback</a></span><span class="signature">
-      <span class="returntype parameter">= void Function<span class="signature">(<span class="parameter" id="param-e"><span class="type-annotation"><a href="https://pub.dev/documentation/dio/5.3.4/dio/Response-class.html">Response</a></span> <span class="parameter-name">e</span>, </span><span class="parameter" id="param-handler"><span class="type-annotation"><a href="https://pub.dev/documentation/dio/5.3.4/dio/ResponseInterceptorHandler-class.html">ResponseInterceptorHandler</a></span> <span class="parameter-name">handler</span></span>)</span></span>
+    <span class="name"><a href="https://pub.dev/documentation/dio/5.5.0+1/dio/InterceptorSuccessCallback.html">InterceptorSuccessCallback</a></span><span class="signature">
+      <span class="returntype parameter">= void Function<span class="signature">(<span class="parameter" id="param-response"><span class="type-annotation"><a href="https://pub.dev/documentation/dio/5.5.0+1/dio/Response-class.html">Response</a></span> <span class="parameter-name">response</span>, </span><span class="parameter" id="param-handler"><span class="type-annotation"><a href="https://pub.dev/documentation/dio/5.5.0+1/dio/ResponseInterceptorHandler-class.html">ResponseInterceptorHandler</a></span> <span class="parameter-name">handler</span></span>)</span></span>
     </span>
     
 
   </dt>
   <dd>
-    The signature of <a href="https://pub.dev/documentation/dio/5.3.4/dio/Interceptor/onResponse.html">Interceptor.onResponse</a>.
+    The signature of <a href="https://pub.dev/documentation/dio/5.5.0+1/dio/Interceptor/onResponse.html">Interceptor.onResponse</a>.
     
 
   </dd>
 
           
   <dt id="JsonDecodeCallback" class="callable">
-    <span class="name"><a href="https://pub.dev/documentation/dio/5.3.4/dio/JsonDecodeCallback.html">JsonDecodeCallback</a></span><span class="signature">
+    <span class="name"><a href="https://pub.dev/documentation/dio/5.5.0+1/dio/JsonDecodeCallback.html">JsonDecodeCallback</a></span><span class="signature">
       <span class="returntype parameter">= <a href="https://api.flutter.dev/flutter/dart-async/FutureOr-class.html">FutureOr</a> Function<span class="signature">(<span class="parameter" id="param-"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span></span>)</span></span>
     </span>
     
@@ -2240,7 +697,7 @@ and the separator for array items.
 
           
   <dt id="JsonEncodeCallback" class="callable">
-    <span class="name"><a href="https://pub.dev/documentation/dio/5.3.4/dio/JsonEncodeCallback.html">JsonEncodeCallback</a></span><span class="signature">
+    <span class="name"><a href="https://pub.dev/documentation/dio/5.5.0+1/dio/JsonEncodeCallback.html">JsonEncodeCallback</a></span><span class="signature">
       <span class="returntype parameter">= <a href="https://api.flutter.dev/flutter/dart-async/FutureOr-class.html">FutureOr</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span> Function<span class="signature">(<span class="parameter" id="param-"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Object-class.html">Object</a></span></span>)</span></span>
     </span>
     
@@ -2253,52 +710,8 @@ and the separator for array items.
   </dd>
 
           
-  <dt id="OnSuccessCallback" class="callable">
-    <span class="name"><a href="../clean_network/OnSuccessCallback.html">OnSuccessCallback</a></span>&lt;<wbr><span class="type-parameter">T</span>&gt;<span class="signature">
-      <span class="returntype parameter">= T Function<span class="signature">(<span class="parameter" id="param-data"><span class="type-annotation">dynamic</span> <span class="parameter-name">data</span></span>)</span></span>
-    </span>
-    
-
-  </dt>
-  <dd>
-    
-    
-
-  </dd>
-
-          
-  <dt id="PaginatedCleanResponse" class="">
-  <span class="name"><a href="../clean_network/PaginatedCleanResponse.html">PaginatedCleanResponse</a></span>&lt;<wbr><span class="type-parameter">T</span>&gt;
-    = <a href="../clean_network/CleanResponse.html">CleanResponse</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../clean_network/PaginatedResponse-class.html">PaginatedResponse</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>&gt;</span>
-  </span>
-  
-
-</dt>
-<dd>
-  
-  
-
-</dd>
-
-
-          
-  <dt id="PaginatedEitherResponse" class="">
-  <span class="name"><a href="../clean_network/PaginatedEitherResponse.html">PaginatedEitherResponse</a></span>&lt;<wbr><span class="type-parameter">E</span>, <span class="type-parameter">T</span>&gt;
-    = <a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/TaskEither-class.html">TaskEither</a><span class="signature">&lt;<wbr><span class="type-parameter">E</span>, <span class="type-parameter"><a href="../clean_network/PaginatedResponse-class.html">PaginatedResponse</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>&gt;</span>
-  </span>
-  
-
-</dt>
-<dd>
-  
-  
-
-</dd>
-
-
-          
   <dt id="ProgressCallback" class="callable">
-    <span class="name"><a href="https://pub.dev/documentation/dio/5.3.4/dio/ProgressCallback.html">ProgressCallback</a></span><span class="signature">
+    <span class="name"><a href="https://pub.dev/documentation/dio/5.5.0+1/dio/ProgressCallback.html">ProgressCallback</a></span><span class="signature">
       <span class="returntype parameter">= void Function<span class="signature">(<span class="parameter" id="param-count"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">count</span>, </span><span class="parameter" id="param-total"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">total</span></span>)</span></span>
     </span>
     
@@ -2312,22 +725,22 @@ and the separator for array items.
 
           
   <dt id="RequestEncoder" class="callable">
-    <span class="name"><a href="https://pub.dev/documentation/dio/5.3.4/dio/RequestEncoder.html">RequestEncoder</a></span><span class="signature">
-      <span class="returntype parameter">= <a href="https://api.flutter.dev/flutter/dart-async/FutureOr-class.html">FutureOr</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span>&gt;</span></span>&gt;</span> Function<span class="signature">(<span class="parameter" id="param-request"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">request</span>, </span><span class="parameter" id="param-options"><span class="type-annotation"><a href="https://pub.dev/documentation/dio/5.3.4/dio/RequestOptions-class.html">RequestOptions</a></span> <span class="parameter-name">options</span></span>)</span></span>
+    <span class="name"><a href="https://pub.dev/documentation/dio/5.5.0+1/dio/RequestEncoder.html">RequestEncoder</a></span><span class="signature">
+      <span class="returntype parameter">= <a href="https://api.flutter.dev/flutter/dart-async/FutureOr-class.html">FutureOr</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span>&gt;</span></span>&gt;</span> Function<span class="signature">(<span class="parameter" id="param-request"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">request</span>, </span><span class="parameter" id="param-options"><span class="type-annotation"><a href="https://pub.dev/documentation/dio/5.5.0+1/dio/RequestOptions-class.html">RequestOptions</a></span> <span class="parameter-name">options</span></span>)</span></span>
     </span>
     
 
   </dt>
   <dd>
-    The type of a response encoding callback.
+    The type of a request encoding callback.
     
 
   </dd>
 
           
   <dt id="ResponseDecoder" class="callable">
-    <span class="name"><a href="https://pub.dev/documentation/dio/5.3.4/dio/ResponseDecoder.html">ResponseDecoder</a></span><span class="signature">
-      <span class="returntype parameter">= <a href="https://api.flutter.dev/flutter/dart-async/FutureOr-class.html">FutureOr</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span>&gt;</span> Function<span class="signature">(<span class="parameter" id="param-responseBytes"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span>&gt;</span></span> <span class="parameter-name">responseBytes</span>, </span><span class="parameter" id="param-options"><span class="type-annotation"><a href="https://pub.dev/documentation/dio/5.3.4/dio/RequestOptions-class.html">RequestOptions</a></span> <span class="parameter-name">options</span>, </span><span class="parameter" id="param-responseBody"><span class="type-annotation"><a href="https://pub.dev/documentation/dio/5.3.4/dio/ResponseBody-class.html">ResponseBody</a></span> <span class="parameter-name">responseBody</span></span>)</span></span>
+    <span class="name"><a href="https://pub.dev/documentation/dio/5.5.0+1/dio/ResponseDecoder.html">ResponseDecoder</a></span><span class="signature">
+      <span class="returntype parameter">= <a href="https://api.flutter.dev/flutter/dart-async/FutureOr-class.html">FutureOr</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span>&gt;</span> Function<span class="signature">(<span class="parameter" id="param-responseBytes"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span>&gt;</span></span> <span class="parameter-name">responseBytes</span>, </span><span class="parameter" id="param-options"><span class="type-annotation"><a href="https://pub.dev/documentation/dio/5.5.0+1/dio/RequestOptions-class.html">RequestOptions</a></span> <span class="parameter-name">options</span>, </span><span class="parameter" id="param-responseBody"><span class="type-annotation"><a href="https://pub.dev/documentation/dio/5.5.0+1/dio/ResponseBody-class.html">ResponseBody</a></span> <span class="parameter-name">responseBody</span></span>)</span></span>
     </span>
     
 
@@ -2339,23 +752,8 @@ and the separator for array items.
   </dd>
 
           
-  <dt id="Separated" class="">
-  <span class="name"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/Separated.html">Separated</a></span>&lt;<wbr><span class="type-parameter">KT</span>, <span class="type-parameter">A</span>, <span class="type-parameter">B</span>&gt;
-    = (<span class="field"><span class="type-annotation"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/HKT-class.html">HKT</a><span class="signature">&lt;<wbr><span class="type-parameter">KT</span>, <span class="type-parameter">A</span>&gt;</span></span>, </span><span class="field"><span class="type-annotation"><a href="https://pub.dev/documentation/fpdart/1.1.0/fpdart/HKT-class.html">HKT</a><span class="signature">&lt;<wbr><span class="type-parameter">KT</span>, <span class="type-parameter">B</span>&gt;</span></span></span>)
-  </span>
-  
-
-</dt>
-<dd>
-  
-  
-
-</dd>
-
-
-          
   <dt id="ValidateStatus" class="callable">
-    <span class="name"><a href="https://pub.dev/documentation/dio/5.3.4/dio/ValidateStatus.html">ValidateStatus</a></span><span class="signature">
+    <span class="name"><a href="https://pub.dev/documentation/dio/5.5.0+1/dio/ValidateStatus.html">ValidateStatus</a></span><span class="signature">
       <span class="returntype parameter">= <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a> Function<span class="signature">(<span class="parameter" id="param-status"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">status</span></span>)</span></span>
     </span>
     
@@ -2374,16 +772,16 @@ and the separator for array items.
       <h2>Exceptions / Errors</h2>
 
       <dl>
-        <dt id="DioException">
-  <span class="name "><a href="https://pub.dev/documentation/dio/5.3.4/dio/DioException-class.html">DioException</a></span> 
+          <dt id="DioException">
+  <span class="name "><a href="https://pub.dev/documentation/dio/5.5.0+1/dio/DioException-class.html">DioException</a></span> 
 
 </dt>
 <dd>
-  <a href="https://pub.dev/documentation/dio/5.3.4/dio/DioException-class.html">DioException</a> describes the exception info when a request failed.
+  <a href="https://pub.dev/documentation/dio/5.5.0+1/dio/DioException-class.html">DioException</a> describes the exception info when a request failed.
 </dd>
 
-        <dt id="NotNullableError">
-  <span class="name "><a href="https://pub.dev/documentation/dio/5.3.4/dio/NotNullableError-class.html">NotNullableError</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> 
+          <dt id="NotNullableError">
+  <span class="name "><a href="https://pub.dev/documentation/dio/5.5.0+1/dio/NotNullableError-class.html">NotNullableError</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> 
 
 </dt>
 <dd>
@@ -2405,13 +803,14 @@ and the separator for array items.
 
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="../index.html">clean_network</a></li>
-    <li class="self-crumb">clean_network library</li>
+    <li class="self-crumb">clean_network.dart</li>
 </ol>
 
 
     <h5><span class="package-name">clean_network</span> <span class="package-kind">package</span></h5>
     <ol>
       <li class="section-title">Libraries</li>
+      <li><a href="../clean_core/clean_core-library.html">clean_core</a></li>
       <li><a href="../clean_network/clean_network-library.html">clean_network</a></li>
 </ol>
 
@@ -2426,7 +825,7 @@ and the separator for array items.
 <footer>
   <span class="no-break">
     clean_network
-      1.0.7
+      2.1.1
   </span>
 
   

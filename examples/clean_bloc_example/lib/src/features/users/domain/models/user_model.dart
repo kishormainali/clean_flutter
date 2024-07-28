@@ -5,7 +5,6 @@ part 'user_model.g.dart';
 
 @Freezed(map: FreezedMapOptions.none, when: FreezedWhenOptions.none)
 class UserModel with _$UserModel {
-
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory UserModel({
     required int id,

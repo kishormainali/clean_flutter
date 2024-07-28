@@ -1,17 +1,26 @@
+# 2.1.1
+
+- update dependencies
+
 # 2.1.0
+
 - moved graphql implementation to `clean_graphql` package
 - other improvements
 
 # 2.0.1
+
 - export `GraphRequest` class
 
 # 2.0.0
+
 BREAKING CHANGES:
-- removed `CleanNetwork` class 
+
+- removed `CleanNetwork` class
 - added 'CleanClient' class
 - other improvements
 
 # 1.0.9
+
 - add base `AppError` class
 - add base `ApiException` class
 - updated BaseRepository to use `AppError` and `ApiException` classes
@@ -19,20 +28,23 @@ BREAKING CHANGES:
 - updated examples
 
 # 1.0.8+1
+
 - fix broken example link
 
 # 1.0.8
-- add `badCertificate` exception 
+
+- add `badCertificate` exception
 - updated exception handling and error checking for graphql requests
 
 # 1.0.7
+
 - updated dio dependency
 - fixed data cast error
 - fixed PaginatedResponse.fromJson throwing error when trying to parse pagination
 
 # 1.0.6+1
-- make `PagePagination` and 'CursorPagination' classes public
 
+- make `PagePagination` and 'CursorPagination' classes public
 
 # 1.0.6
 
