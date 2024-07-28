@@ -36,8 +36,7 @@ extension GetItInjectableX on _i1.GetIt {
     final thirdPartyModules = _$ThirdPartyModules();
     gh.lazySingleton<_i3.AppRouter>(() => _i3.AppRouter());
     gh.lazySingleton<_i4.CleanClient>(() => thirdPartyModules.client);
-    gh.lazySingleton<_i5.UserSource>(
-        () => _i5.UserSourceImpl(gh<_i4.CleanClient>()));
+    gh.lazySingleton<_i5.UserSource>(() => _i5.UserSourceImpl(gh<dynamic>()));
     gh.lazySingleton<_i6.UserRepository>(
         () => _i7.UserRepositoryImpl(gh<_i5.UserSource>()));
     gh.factory<_i8.UserCubit>(() => _i8.UserCubit(gh<_i6.UserRepository>()));

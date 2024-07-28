@@ -7,8 +7,7 @@ import 'package:rest_api_example/src/features/posts/presentation/blocs/detail/po
 @RoutePage()
 class PostDetailPage extends StatelessWidget {
   const PostDetailPage({
-    super.key,
-    @pathParam required this.id,
+    @pathParam required this.id, super.key,
   });
 
   final int id;

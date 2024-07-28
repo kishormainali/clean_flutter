@@ -1,8 +1,8 @@
 name: clean_flutter_workspace
 description: repository for clean architecture in flutter
 
-environment: 
-  sdk: ">=3.2.0 <4.0.0"
+environment:
+  sdk: ">=3.4.0 <4.0.0"
 
-dev_dependencies: 
-  melos: ^3.4.0
+dev_dependencies:
+  melos: ^6.1.0

@@ -1,0 +1,26 @@
+name: fp_extensions
+description: "Collection of extensions for Dart and Flutter includes String, List, Map, DateTime, and more."
+version: 1.0.1
+repository: https://github.com/kishormainali/clean_flutter/tree/main/packages/fp_extensions
+
+environment:
+  sdk: ">=3.4.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  intl: any
+  path: any
+
+  mime: ^1.0.5
+
+  gap: ^3.0.1
+
+  clean_analysis: ^1.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:

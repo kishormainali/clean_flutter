@@ -1,89 +1,65 @@
+import 'package:_clean_flutter_internal/_clean_flutter_internal.dart';
+import 'package:clean_network/src/clients/clients.dart';
+import 'package:clean_network/src/utils/_commons.dart';
 import 'package:dio/dio.dart';
 import 'package:dio_cache_interceptor/dio_cache_interceptor.dart';
-import 'package:pretty_dio_logger/pretty_dio_logger.dart';
-
-import '../graphql/graphql_request.dart';
-import '../network/default_http_adapter.dart';
-import '../options/clean_base_options.dart';
-import '../options/logger_options.dart';
-import '../typedefs/typedefs.dart';
-import '../utils/_commons.dart';
-import 'clean_client.dart';
+import 'package:fp_logger/fp_logger.dart';
 
 class CleanClientImpl implements CleanClient {
-  CleanClientImpl._(
-    this._dio,
-    this.options,
-  );
-
   factory CleanClientImpl({
     /// clean network options
-    required CleanBaseOptions options,
+    required BaseOptions options,
 
     /// logger options
-    LoggerOptions loggerOptions = const LoggerOptions(),
+    DioLoggerOptions loggerOptions = const DioLoggerOptions(),
 
     /// interceptors for dio
     Interceptors? interceptors,
 
     /// cache options
     CacheOptions? cacheOptions,
+
+    /// http adapter
+    HttpClientAdapter? httpClientAdapter,
   }) {
-    final dio = Dio(
-      BaseOptions(
-        baseUrl: options.baseUrl,
-        connectTimeout: options.connectTimeOut,
-        receiveTimeout: options.readTimeOut,
-        sendTimeout: options.sendTimeOut,
-        contentType: 'application/json',
-        responseType: ResponseType.json,
-        headers: options.headers,
-      ),
-    );
-    dio.httpClientAdapter = DefaultHttpAdapter(
-      validateCertificate: options.validateCertificate,
-      context: options.securityContext,
-      proxy: options.proxyCallback,
-      onBadCertificate: options.onBadCertificate,
-    );
+    httpClientAdapter ??= DefaultHttpAdapter();
+
+    /// create dio instance
+    final dio = Dio(options)..httpClientAdapter = httpClientAdapter;
+
+    /// set interceptors
     if (interceptors != null) {
       dio.interceptors.addAll(interceptors);
     }
+
+    /// set cache options
     if (cacheOptions != null) {
       dio.interceptors.add(DioCacheInterceptor(options: cacheOptions));
     }
 
     /// always add logger interceptor at the end
-    dio.interceptors.add(PrettyDioLogger(
-      request: loggerOptions.request,
-      requestHeader: loggerOptions.requestHeader,
-      requestBody: loggerOptions.requestBody,
-      responseBody: loggerOptions.responseBody,
-      responseHeader: loggerOptions.requestHeader,
-      error: loggerOptions.error,
-      compact: loggerOptions.compact,
-      maxWidth: loggerOptions.maxWidth,
-    ));
-    return CleanClientImpl._(dio, options);
+    dio.interceptors.add(DioLogger(loggerOptions));
+    return CleanClientImpl._(
+      dio,
+      options,
+    );
   }
+  CleanClientImpl._(this._dio, this.options);
 
   /// The [Dio] instance used to make requests.
   late Dio _dio;
 
-  /// The [CleanBaseOptions] options used initialize the [Dio] instance.
-  final CleanBaseOptions options;
+  /// The [BaseOptions] options used initialize the [Dio] instance.
+  final BaseOptions options;
 
   @override
-  void close({bool force = false}) => _dio.close(force: force);
-
-  @override
-  CleanResponse<T> delete<T>(
+  Future<T> delete<T>(
     String path, {
+    required OnSuccessCallback<T> onSuccess,
     Object? data,
     Map<String, dynamic>? queryParameters,
     Options? options,
     CancelToken? cancelToken,
-    required OnSuccessCallback<T> onSuccess,
   }) {
     return tryCatch(
       () => _dio.delete(
@@ -93,16 +69,17 @@ class CleanClientImpl implements CleanClient {
         options: options,
         cancelToken: cancelToken,
       ),
-    ).map(onSuccess);
+      onSuccess,
+    );
   }
 
   @override
-  CleanResponse<T> deleteUri<T>(
+  Future<T> deleteUri<T>(
     Uri uri, {
+    required OnSuccessCallback<T> onSuccess,
     Object? data,
     Options? options,
     CancelToken? cancelToken,
-    required OnSuccessCallback<T> onSuccess,
   }) {
     return tryCatch(
       () => _dio.deleteUri(
@@ -111,13 +88,14 @@ class CleanClientImpl implements CleanClient {
         options: options,
         cancelToken: cancelToken,
       ),
-    ).map(onSuccess);
+      onSuccess,
+    );
   }
 
   @override
   Future<Response> download(
     String urlPath,
-    savePath, {
+    dynamic savePath, {
     ProgressCallback? onReceiveProgress,
     Map<String, dynamic>? queryParameters,
     CancelToken? cancelToken,
@@ -140,18 +118,20 @@ class CleanClientImpl implements CleanClient {
   }
 
   @override
-  Future<Response<T>> fetch<T>(RequestOptions requestOptions) =>
+  Future<Response<T>> fetch<T>(
+    RequestOptions requestOptions,
+  ) =>
       _dio.fetch<T>(requestOptions);
 
   @override
-  CleanResponse<T> get<T>(
+  Future<T> get<T>(
     String path, {
+    required OnSuccessCallback<T> onSuccess,
     Object? data,
     Map<String, dynamic>? queryParameters,
     Options? options,
     CancelToken? cancelToken,
     ProgressCallback? onReceiveProgress,
-    required OnSuccessCallback<T> onSuccess,
   }) {
     return tryCatch(
       () => _dio.get(
@@ -162,17 +142,18 @@ class CleanClientImpl implements CleanClient {
         cancelToken: cancelToken,
         onReceiveProgress: onReceiveProgress,
       ),
-    ).map(onSuccess);
+      onSuccess,
+    );
   }
 
   @override
-  CleanResponse<T> getUri<T>(
+  Future<T> getUri<T>(
     Uri uri, {
+    required OnSuccessCallback<T> onSuccess,
     Object? data,
     Options? options,
     CancelToken? cancelToken,
     ProgressCallback? onReceiveProgress,
-    required OnSuccessCallback<T> onSuccess,
   }) {
     return tryCatch(
       () => _dio.getUri(
@@ -182,33 +163,20 @@ class CleanClientImpl implements CleanClient {
         cancelToken: cancelToken,
         onReceiveProgress: onReceiveProgress,
       ),
-    ).map(onSuccess);
+      onSuccess,
+    );
   }
 
   @override
-  CleanResponse<T> graph<T>({
-    required GraphRequest request,
-    required T Function(Map<String, dynamic> data) onSuccess,
-  }) {
-    return handleGraphQlRequest(
-      client: _dio,
-      request: request,
-      requestSerializer: options.requestSerializer,
-      responseParser: options.responseParser,
-      endpoint: options.endpoint,
-    ).map(onSuccess);
-  }
-
-  @override
-  CleanResponse<T> patch<T>(
+  Future<T> patch<T>(
     String path, {
+    required OnSuccessCallback<T> onSuccess,
     Object? data,
     Map<String, dynamic>? queryParameters,
     Options? options,
     CancelToken? cancelToken,
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
-    required OnSuccessCallback<T> onSuccess,
   }) {
     return tryCatch(
       () => _dio.patch(
@@ -220,18 +188,19 @@ class CleanClientImpl implements CleanClient {
         onSendProgress: onSendProgress,
         onReceiveProgress: onReceiveProgress,
       ),
-    ).map(onSuccess);
+      onSuccess,
+    );
   }
 
   @override
-  CleanResponse<T> patchUri<T>(
+  Future<T> patchUri<T>(
     Uri uri, {
+    required OnSuccessCallback<T> onSuccess,
     Object? data,
     Options? options,
     CancelToken? cancelToken,
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
-    required OnSuccessCallback<T> onSuccess,
   }) {
     return tryCatch(
       () => _dio.patchUri(
@@ -242,19 +211,20 @@ class CleanClientImpl implements CleanClient {
         onSendProgress: onSendProgress,
         onReceiveProgress: onReceiveProgress,
       ),
-    ).map(onSuccess);
+      onSuccess,
+    );
   }
 
   @override
-  CleanResponse<T> post<T>(
+  Future<T> post<T>(
     String path, {
+    required OnSuccessCallback<T> onSuccess,
     Object? data,
     Map<String, dynamic>? queryParameters,
     Options? options,
     CancelToken? cancelToken,
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
-    required OnSuccessCallback<T> onSuccess,
   }) {
     return tryCatch(
       () => _dio.post(
@@ -266,18 +236,19 @@ class CleanClientImpl implements CleanClient {
         onSendProgress: onSendProgress,
         onReceiveProgress: onReceiveProgress,
       ),
-    ).map(onSuccess);
+      onSuccess,
+    );
   }
 
   @override
-  CleanResponse<T> postUri<T>(
+  Future<T> postUri<T>(
     Uri uri, {
+    required OnSuccessCallback<T> onSuccess,
     Object? data,
     Options? options,
     CancelToken? cancelToken,
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
-    required OnSuccessCallback<T> onSuccess,
   }) {
     return tryCatch(
       () => _dio.postUri(
@@ -288,19 +259,20 @@ class CleanClientImpl implements CleanClient {
         onSendProgress: onSendProgress,
         onReceiveProgress: onReceiveProgress,
       ),
-    ).map(onSuccess);
+      onSuccess,
+    );
   }
 
   @override
-  CleanResponse<T> put<T>(
+  Future<T> put<T>(
     String path, {
+    required OnSuccessCallback<T> onSuccess,
     Object? data,
     Map<String, dynamic>? queryParameters,
     Options? options,
     CancelToken? cancelToken,
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
-    required OnSuccessCallback<T> onSuccess,
   }) {
     return tryCatch(
       () => _dio.put(
@@ -312,18 +284,19 @@ class CleanClientImpl implements CleanClient {
         onSendProgress: onSendProgress,
         onReceiveProgress: onReceiveProgress,
       ),
-    ).map(onSuccess);
+      onSuccess,
+    );
   }
 
   @override
-  CleanResponse<T> putUri<T>(
+  Future<T> putUri<T>(
     Uri uri, {
+    required OnSuccessCallback<T> onSuccess,
     Object? data,
     Options? options,
     CancelToken? cancelToken,
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
-    required OnSuccessCallback<T> onSuccess,
   }) {
     return tryCatch(
       () => _dio.putUri(
@@ -334,19 +307,21 @@ class CleanClientImpl implements CleanClient {
         onSendProgress: onSendProgress,
         onReceiveProgress: onReceiveProgress,
       ),
-    ).map(onSuccess);
+      onSuccess,
+    );
   }
 
   @override
-  void resetHttpClientAdapter({bool force = false}) {
+  void resetHttpClientAdapter(
+    HttpClientAdapter adapter, {
+    bool force = false,
+  }) {
     _dio.httpClientAdapter.close(force: force);
-    _dio.httpClientAdapter = DefaultHttpAdapter(
-      validateCertificate: options.validateCertificate,
-      context: options.securityContext,
-      proxy: options.proxyCallback,
-      onBadCertificate: options.onBadCertificate,
-    );
+    _dio.httpClientAdapter = adapter;
   }
+
+  @override
+  void close({bool force = false}) => _dio.close(force: force);
 
   @override
   CleanClient clone() {

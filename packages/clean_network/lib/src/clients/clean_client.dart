@@ -1,6 +1,4 @@
-import 'package:clean_network/clean_network.dart';
-
-import '_clean_client_impl.dart';
+part of 'clients.dart';
 
 /// {@template clean_client}
 /// A client for making HTTP requests.
@@ -10,22 +8,26 @@ abstract class CleanClient {
   /// Creates a new [CleanClient] instance.
   factory CleanClient({
     /// clean network options
-    required CleanBaseOptions options,
+    required BaseOptions options,
 
     /// logger options
-    LoggerOptions loggerOptions = const LoggerOptions(),
+    DioLoggerOptions loggerOptions = const DioLoggerOptions(),
 
     /// interceptors for dio
     Interceptors? interceptors,
 
     /// cache options
     CacheOptions? cacheOptions,
+
+    /// http adapter
+    HttpClientAdapter? httpClientAdapter,
   }) =>
       CleanClientImpl(
         options: options,
         loggerOptions: loggerOptions,
         interceptors: interceptors,
         cacheOptions: cacheOptions,
+        httpClientAdapter: httpClientAdapter,
       );
 
   /// Shuts down the dio client.
@@ -39,112 +41,112 @@ abstract class CleanClient {
   void close({bool force = false});
 
   /// Convenience method to make an HTTP GET request.
-  CleanResponse<T> get<T>(
+  Future<T> get<T>(
     String path, {
+    required OnSuccessCallback<T> onSuccess,
     Object? data,
     Map<String, dynamic>? queryParameters,
     Options? options,
     CancelToken? cancelToken,
     ProgressCallback? onReceiveProgress,
-    required OnSuccessCallback<T> onSuccess,
   });
 
   /// Convenience method to make an HTTP GET request with [Uri].
-  CleanResponse<T> getUri<T>(
+  Future<T> getUri<T>(
     Uri uri, {
+    required OnSuccessCallback<T> onSuccess,
     Object? data,
     Options? options,
     CancelToken? cancelToken,
     ProgressCallback? onReceiveProgress,
-    required OnSuccessCallback<T> onSuccess,
   });
 
   /// Convenience method to make an HTTP POST request.
-  CleanResponse<T> post<T>(
+  Future<T> post<T>(
     String path, {
+    required OnSuccessCallback<T> onSuccess,
     Object? data,
     Map<String, dynamic>? queryParameters,
     Options? options,
     CancelToken? cancelToken,
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
-    required OnSuccessCallback<T> onSuccess,
   });
 
   /// Convenience method to make an HTTP POST request with [Uri].
-  CleanResponse<T> postUri<T>(
+  Future<T> postUri<T>(
     Uri uri, {
+    required OnSuccessCallback<T> onSuccess,
     Object? data,
     Options? options,
     CancelToken? cancelToken,
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
-    required OnSuccessCallback<T> onSuccess,
   });
 
   /// Convenience method to make an HTTP PUT request.
-  CleanResponse<T> put<T>(
+  Future<T> put<T>(
     String path, {
+    required OnSuccessCallback<T> onSuccess,
     Object? data,
     Map<String, dynamic>? queryParameters,
     Options? options,
     CancelToken? cancelToken,
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
-    required OnSuccessCallback<T> onSuccess,
   });
 
   /// Convenience method to make an HTTP PUT request with [Uri].
-  CleanResponse<T> putUri<T>(
+  Future<T> putUri<T>(
     Uri uri, {
+    required OnSuccessCallback<T> onSuccess,
     Object? data,
     Options? options,
     CancelToken? cancelToken,
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
-    required OnSuccessCallback<T> onSuccess,
   });
 
   /// Convenience method to make an HTTP PATCH request.
-  CleanResponse<T> patch<T>(
+  Future<T> patch<T>(
     String path, {
+    required OnSuccessCallback<T> onSuccess,
     Object? data,
     Map<String, dynamic>? queryParameters,
     Options? options,
     CancelToken? cancelToken,
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
-    required OnSuccessCallback<T> onSuccess,
   });
 
   /// Convenience method to make an HTTP PATCH request with [Uri].
-  CleanResponse<T> patchUri<T>(
+  Future<T> patchUri<T>(
     Uri uri, {
+    required OnSuccessCallback<T> onSuccess,
     Object? data,
     Options? options,
     CancelToken? cancelToken,
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
-    required OnSuccessCallback<T> onSuccess,
   });
 
   /// Convenience method to make an HTTP DELETE request.
-  CleanResponse<T> delete<T>(
+  Future<T> delete<T>(
     String path, {
+    required OnSuccessCallback<T> onSuccess,
     Object? data,
     Map<String, dynamic>? queryParameters,
     Options? options,
     CancelToken? cancelToken,
-    required OnSuccessCallback<T> onSuccess,
   });
 
   /// Convenience method to make an HTTP DELETE request with [Uri].
-  CleanResponse<T> deleteUri<T>(
+  Future<T> deleteUri<T>(
     Uri uri, {
+    required OnSuccessCallback<T> onSuccess,
     Object? data,
     Options? options,
     CancelToken? cancelToken,
-    required OnSuccessCallback<T> onSuccess,
   });
 
   /// Download the file and save it in local. The default http method is "GET",
@@ -164,15 +166,11 @@ abstract class CleanClient {
   /// eventually go through this method.
   Future<Response<T>> fetch<T>(RequestOptions requestOptions);
 
-  /// Sends an HTTP request with the specified method to the given url.
-  /// Returns a [Future] that completes with the server's response.
-  CleanResponse<T> graph<T>({
-    required GraphRequest request,
-    required T Function(Map<String, dynamic> data) onSuccess,
-  });
-
   /// used to reset the http client adapter
-  void resetHttpClientAdapter({bool force = false});
+  void resetHttpClientAdapter(
+    HttpClientAdapter adapter, {
+    bool force = false,
+  });
 
   /// Creates a new [CleanClient] instance.
   CleanClient clone();

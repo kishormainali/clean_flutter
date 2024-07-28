@@ -3,24 +3,24 @@ import 'package:injectable/injectable.dart';
 import 'package:rest_api_example/src/features/posts/data/models/post_model.dart';
 
 abstract class PostSource {
-  CleanResponse<List<PostModel>> getPosts();
-  CleanResponse<PostModel> getSinglePost(int id);
+  Future<List<PostModel>> getPosts();
+  Future<PostModel> getSinglePost(int id);
 }
 
 @LazySingleton(as: PostSource)
-class PostSourceImpl extends BaseSource implements PostSource {
+class PostSourceImpl extends RestSource implements PostSource {
   PostSourceImpl(super.client);
 
   @override
-  CleanResponse<List<PostModel>> getPosts() {
+  Future<List<PostModel>> getPosts() {
     return get('/posts', onSuccess: PostModel.fromJsonList);
   }
 
   @override
-  CleanResponse<PostModel> getSinglePost(int id) {
+  Future<PostModel> getSinglePost(int id) {
     return get(
       '/posts/$id',
-      onSuccess: (response) => PostModel.fromJson(response),
+      onSuccess: (response) => PostModel.fromJson(response as Map<String, dynamic>),
     );
   }
 }

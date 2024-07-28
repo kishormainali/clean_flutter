@@ -8,8 +8,7 @@ import 'package:graphql_example/src/features/launches/presentation/blocs/details
 @RoutePage()
 class LaunchDetailPage extends StatelessWidget {
   const LaunchDetailPage({
-    super.key,
-    @pathParam required this.id,
+    @pathParam required this.id, super.key,
   });
 
   final String id;
@@ -31,9 +30,9 @@ class LaunchDetailPage extends StatelessWidget {
               error: (message) => Center(child: Text(message)),
               success: (launch) => Column(
                 children: [
-                  Text(launch.rocket.rocket.name),
+                  Text(launch.rocket!.rocket!.name!),
                   Sizes.gap8,
-                  Text(launch.missionName),
+                  Text(launch.missionName!),
                 ],
               ),
             );

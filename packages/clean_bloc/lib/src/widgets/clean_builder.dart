@@ -6,35 +6,34 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 /// {@template clean_builder}
 /// A Flutter widget for building CleanBloc states.
 /// {@endtemplate}
-class CleanBuilder<B extends BlocBase<CleanState<T>>, T>
-    extends BlocBuilder<B, CleanState<T>> {
+class CleanBuilder<B extends BlocBase<CleanState<T>>, T> extends BlocBuilder<B, CleanState<T>> {
   /// {@macro clean_builder}
   CleanBuilder({
     super.key,
+
+    /// default bloc builder
+    ///
+    /// if successBuilder is provided, this will be ignored
+    ///
+    DefaultBlocBuilder<T>? builder,
 
     /// Loading builder
     ///
     /// if [builder] is provided, this will be ignored
     ///
-    CleanLoadingBuilder? loadingBuilder,
+    LoadingBuilder? loadingBuilder,
 
     /// Error builder
     ///
     /// if [builder] is provided, this will be ignored
     ///
-    CleanErrorBuilder? errorBuilder,
+    ErrorBuilder? errorBuilder,
 
     /// Success builder
     ///
     /// if [builder] is provided, this will be ignored
     ///
-    CleanSuccessBuilder<T>? successBuilder,
-
-    /// default bloc builder
-    ///
-    /// if [successBuilder] is provided, this will be ignored
-    ///
-    DefaultBlocBuilder<T>? builder,
+    SuccessBuilder<T>? successBuilder,
 
     /// Bloc instance
     super.bloc,
@@ -49,15 +48,13 @@ class CleanBuilder<B extends BlocBase<CleanState<T>>, T>
           builder: builder ??
               (context, state) {
                 return state.maybeWhen(
-                  orElse: () =>
-                      loadingBuilder?.call(context) ??
-                      DefaultBuilders.defaultLoadingBuilder(context),
-                  error: (error) =>
-                      errorBuilder?.call(context, error) ??
-                      DefaultBuilders.defaultErrorBuilder(context, error),
+                  orElse: () => loadingBuilder?.call(context) ?? DefaultBuilders.defaultLoadingBuilder(context),
+                  error: (error) => errorBuilder?.call(context, error) ?? DefaultBuilders.defaultErrorBuilder(context, error),
                   success: (data, _) {
-                    assert(successBuilder != null,
-                        'successBuilder must be provided');
+                    assert(
+                      successBuilder != null,
+                      'successBuilder must be provided',
+                    );
                     return successBuilder!(context, data);
                   },
                 );
@@ -68,10 +65,11 @@ class CleanBuilder<B extends BlocBase<CleanState<T>>, T>
 /// {@template clean_listener}
 /// A Flutter widget for listening to CleanBloc state changes.
 /// {@endtemplate}
-class CleanListener<B extends BlocBase<CleanState<T>>, T>
-    extends BlocListener<B, CleanState<T>> {
+class CleanListener<B extends BlocBase<CleanState<T>>, T> extends BlocListener<B, CleanState<T>> {
   /// {@macro clean_listener}
   CleanListener({
+    /// Child widget
+    required super.child,
     super.key,
 
     /// Loading callback
@@ -87,16 +85,13 @@ class CleanListener<B extends BlocBase<CleanState<T>>, T>
     /// Success callback
     ///
     ///
-    OnCleanSuccessListener<T>? onSuccess,
+    OnSuccessListener<T>? onSuccess,
 
     /// listen when
     super.listenWhen,
 
     /// Bloc instance
     super.bloc,
-
-    /// Child widget
-    required super.child,
   }) : super(
           listener: (context, state) {
             state.whenOrNull(
@@ -111,8 +106,7 @@ class CleanListener<B extends BlocBase<CleanState<T>>, T>
 /// {@template clean_consumer}
 /// A Flutter widget for handling CleanBloc state changes.
 /// {@endtemplate}
-class CleanConsumer<B extends BlocBase<CleanState<T>>, T>
-    extends BlocConsumer<B, CleanState<T>> {
+class CleanConsumer<B extends BlocBase<CleanState<T>>, T> extends BlocConsumer<B, CleanState<T>> {
   /// {@macro clean_consumer}
   CleanConsumer({
     super.key,
@@ -133,29 +127,29 @@ class CleanConsumer<B extends BlocBase<CleanState<T>>, T>
     ///
     /// if [builder] is provided, this will be ignored
     ///
-    OnCleanSuccessListener<T>? onSuccess,
+    OnSuccessListener<T>? onSuccess,
 
     /// Loading builder
     ///
     /// if [builder] is provided, this will be ignored
     ///
-    CleanLoadingBuilder? loadingBuilder,
+    LoadingBuilder? loadingBuilder,
 
     /// Error builder
     ///
     /// if [builder] is provided, this will be ignored
     ///
-    CleanErrorBuilder? errorBuilder,
+    ErrorBuilder? errorBuilder,
 
     /// Success builder
     ///
     /// if [builder] is provided, this will be ignored
     ///
-    CleanSuccessBuilder<T>? successBuilder,
+    SuccessBuilder<T>? successBuilder,
 
     /// default bloc builder
     ///
-    /// if [successBuilder] is provided, this will be ignored
+    /// if successBuilder is provided, this will be ignored
     ///
     DefaultBlocBuilder<T>? builder,
 
@@ -175,15 +169,13 @@ class CleanConsumer<B extends BlocBase<CleanState<T>>, T>
           builder: builder ??
               (context, state) {
                 return state.maybeWhen(
-                  orElse: () =>
-                      loadingBuilder?.call(context) ??
-                      DefaultBuilders.defaultLoadingBuilder(context),
-                  error: (error) =>
-                      errorBuilder?.call(context, error) ??
-                      DefaultBuilders.defaultErrorBuilder(context, error),
+                  orElse: () => loadingBuilder?.call(context) ?? DefaultBuilders.defaultLoadingBuilder(context),
+                  error: (error) => errorBuilder?.call(context, error) ?? DefaultBuilders.defaultErrorBuilder(context, error),
                   success: (data, _) {
-                    assert(successBuilder != null,
-                        'successBuilder must be provided');
+                    assert(
+                      successBuilder != null,
+                      'successBuilder must be provided',
+                    );
                     return successBuilder!(context, data);
                   },
                 );

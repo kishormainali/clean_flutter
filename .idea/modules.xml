@@ -2,9 +2,14 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/packages/_clean_flutter_internal/melos__clean_flutter_internal.iml" filepath="$PROJECT_DIR$/packages/_clean_flutter_internal/melos__clean_flutter_internal.iml" />
+      <module fileurl="file://$PROJECT_DIR$/packages/clean_analysis/melos_clean_analysis.iml" filepath="$PROJECT_DIR$/packages/clean_analysis/melos_clean_analysis.iml" />
       <module fileurl="file://$PROJECT_DIR$/packages/clean_bloc/melos_clean_bloc.iml" filepath="$PROJECT_DIR$/packages/clean_bloc/melos_clean_bloc.iml" />
       <module fileurl="file://$PROJECT_DIR$/examples/clean_bloc_example/melos_clean_bloc_example.iml" filepath="$PROJECT_DIR$/examples/clean_bloc_example/melos_clean_bloc_example.iml" />
+      <module fileurl="file://$PROJECT_DIR$/packages/clean_graphql/melos_clean_graphql.iml" filepath="$PROJECT_DIR$/packages/clean_graphql/melos_clean_graphql.iml" />
       <module fileurl="file://$PROJECT_DIR$/packages/clean_network/melos_clean_network.iml" filepath="$PROJECT_DIR$/packages/clean_network/melos_clean_network.iml" />
+      <module fileurl="file://$PROJECT_DIR$/packages/fp_extensions/melos_fp_extensions.iml" filepath="$PROJECT_DIR$/packages/fp_extensions/melos_fp_extensions.iml" />
+      <module fileurl="file://$PROJECT_DIR$/packages/fp_logger/melos_fp_logger.iml" filepath="$PROJECT_DIR$/packages/fp_logger/melos_fp_logger.iml" />
       <module fileurl="file://$PROJECT_DIR$/examples/graphql_example/melos_graphql_example.iml" filepath="$PROJECT_DIR$/examples/graphql_example/melos_graphql_example.iml" />
       <module fileurl="file://$PROJECT_DIR$/examples/rest_api_example/melos_rest_api_example.iml" filepath="$PROJECT_DIR$/examples/rest_api_example/melos_rest_api_example.iml" />
       <module fileurl="file://$PROJECT_DIR$/melos_clean_flutter_workspace.iml" filepath="$PROJECT_DIR$/melos_clean_flutter_workspace.iml" />

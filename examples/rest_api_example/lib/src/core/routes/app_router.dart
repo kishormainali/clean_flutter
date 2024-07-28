@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:injectable/injectable.dart';
 
-import 'app_router.gr.dart';
+import 'package:rest_api_example/src/core/routes/app_router.gr.dart';
 
 @AutoRouterConfig()
 @lazySingleton

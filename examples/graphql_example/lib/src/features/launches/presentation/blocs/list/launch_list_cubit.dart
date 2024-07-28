@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:graphql_example/src/features/launches/data/models/launch_model.dart';
+import 'package:graphql_example/src/features/launches/domain/entities/launch_entity.dart';
 import 'package:graphql_example/src/features/launches/domain/repository/launch_repository.dart';
 import 'package:injectable/injectable.dart';
 
@@ -13,12 +13,14 @@ class LaunchListCubit extends Cubit<LaunchListState> {
   final LaunchRepository _repository;
 
   @postConstruct
-  void getLaunches() async {
+  Future<void> getLaunches() async {
     emit(const LaunchListState.loading());
-    final response = await _repository.getLaunches().run();
-    emit(response.match(
-      (error) => LaunchListState.error(message: error.message),
-      (launches) => LaunchListState.success(launches: launches),
-    ));
+    final response = await _repository.getLaunches();
+    emit(
+      response.fold(
+        (error) => LaunchListState.error(message: error.message),
+        (launches) => LaunchListState.success(launches: launches),
+      ),
+    );
   }
 }

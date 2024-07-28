@@ -1,30 +1,27 @@
 import 'dart:math';
 
+import 'package:_clean_flutter_internal/_clean_flutter_internal.dart';
 import 'package:clean_bloc/src/mixins/completer_mixin.dart';
+import 'package:clean_bloc/src/mixins/safe_emit_mixin.dart';
 import 'package:clean_bloc/src/states/clean_state.dart';
 import 'package:clean_bloc/src/typedefs/typedefs.dart';
-import 'package:clean_network/clean_network.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../mixins/safe_emit_mixin.dart';
 
 /// {@template clean_cubit}
 /// A [Cubit] which handles a remote call and emits the appropriate state
 /// {@endtemplate}
-abstract class CleanCubit<T> extends Cubit<CleanState<T>>
-    with SafeEmitMixin<CleanState<T>>, CompleterMixin {
+abstract class CleanCubit<T> extends Cubit<CleanState<T>> with SafeEmitMixin<CleanState<T>>, CompleterMixin {
   /// {@macro clean_cubit}
   CleanCubit() : super(CleanStateInitial<T>());
 
   /// The remote call to be made
-  EitherResponse<T> remoteCall();
+  FutureResult<T> remoteCall();
 
   /// error handler for custom logic
-  CleanErrorHandler<T> get onErrorState =>
-      (error) => CleanState.error(error: error);
+  ErrorHandler<T> get onErrorState => (error) => CleanState.error(error: error);
 
   /// success handler for custom logic
-  CleanSuccessHandler<T> get onSuccessState => (data) => CleanState.success(
+  SuccessHandler<T> get onSuccessState => (data) => CleanState.success(
         data: data,
 
         /// this is a hack to force build the widget
@@ -32,15 +29,17 @@ abstract class CleanCubit<T> extends Cubit<CleanState<T>>
       );
 
   /// Handle a remote call and emit the appropriate state
-  void init({
-    showLoading = true,
+  Future<void> init({
+    bool showLoading = true,
   }) async {
     if (showLoading) safeEmit(CleanStateLoading<T>());
-    final response = await remoteCall().run();
-    safeEmit(response.match(
-      onErrorState,
-      onSuccessState,
-    ));
+    final response = await remoteCall();
+    safeEmit(
+      response.fold(
+        onErrorState,
+        onSuccessState,
+      ),
+    );
 
     /// complete the completer only if the loading is not shown
     /// this is to prevent the refresh indicator being shown for a split second
@@ -52,7 +51,7 @@ abstract class CleanCubit<T> extends Cubit<CleanState<T>>
 
   /// refresh the data
   Future<void> refresh() async {
-    init(showLoading: false);
+    await init(showLoading: false);
     return future;
   }
 }
